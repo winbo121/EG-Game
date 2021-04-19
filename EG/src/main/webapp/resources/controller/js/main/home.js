@@ -1,7 +1,7 @@
 
 $(document).ready(function() {
 	
-	$("#header").load("../layout/header.jsp");
+	$("#header").load("../views/layout/header.jsp");
 	$(".chat_wrapper").load("./chatting.jsp");
 	$(".btn_div").load("./footer_btn.jsp");
 	$(".footer").load("../layout/footer.jsp");

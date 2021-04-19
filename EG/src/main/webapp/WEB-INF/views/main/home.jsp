@@ -6,8 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>홈</title>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/resources/css/main.css" />
-<link rel="stylesheet" type="text/css" href="../../css/chat.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/main.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/chat.css" />
 <link rel='stylesheet'
 	href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css'>
 <!-- 애니메이션 라이브러리 -->
@@ -28,7 +28,7 @@
 						<ul>
 							<li>
 								<span class="rank_img">
-									<img src="../../img/1.jpg" alt="">
+									<img src="resources/img/1.jpg" alt="">
 								</span>
 								<span class="rank_cate">
 									<span class="recommend">1</span>
@@ -37,7 +37,7 @@
 							</li>
 							<li>
 								<span class="rank_img">
-									<img src="../../img/2.jpg" alt="">
+									<img src="resources/img/2.jpg" alt="">
 								</span>
 								<span class="rank_cate">
 									<span class="recommend">2</span>
@@ -46,7 +46,7 @@
 							</li>
 							<li>
 								<span class="rank_img">
-									<img src="../../img/3.jpg" alt="">
+									<img src="resources/img/3.jpg" alt="">
 								</span>
 								<span class="rank_cate">
 									<span class="recommend">3</span>
@@ -55,7 +55,7 @@
 							</li>
 							<li>
 								<span class="rank_img">
-									<img src="../../img/4.jpg" alt="">
+									<img src="resources/img/4.jpg" alt="">
 								</span>
 								<span class="rank_cate">
 									<span class="recommend">4</span>
@@ -64,7 +64,7 @@
 							</li>
 							<li>
 								<span class="rank_img">
-									<img src="../../img/5.jpg" alt="">
+									<img src="resources/img/5.jpg" alt="">
 								</span>
 								<span class="rank_cate">
 									<span class="recommend">5</span>
@@ -109,7 +109,7 @@
 					<div class="game_box">
 						<div class="game_imgbox">
 							<a href="../game/bricks.jsp"> <img
-								src="../../img/game_img/bricks.jpg" class="game_img">
+								src="resources/img/game_img/bricks.jpg" class="game_img">
 							</a>
 						</div>
 						<div class="game_content">
@@ -125,7 +125,7 @@
 					<div class="game_box">
 						<div class="game_imgbox">
 							<a href="../game/snake.jsp"> <img
-								src="../../img/game_img/snake.jpg" class="game_img">
+								src="resources/img/game_img/snake.jpg" class="game_img">
 							</a>
 						</div>
 						<div class="game_content">
@@ -141,7 +141,7 @@
 					<div class="game_box">
 						<div class="game_imgbox">
 							<a href="../game/flappy_bird.jsp"> <img
-								src="../../img/game_img/flappy_bird.jpg" class="game_img">
+								src="resources/img/game_img/flappy_bird.jpg" class="game_img">
 							</a>
 						</div>
 						<div class="game_content">
@@ -157,7 +157,7 @@
 					<div class="game_box">
 						<div class="game_imgbox">
 							<a href="../game/dodge.jsp"> <img
-								src="../../img/game_img/dodge.jpg" class="game_img">
+								src="resources/img/game_img/dodge.jpg" class="game_img">
 							</a>
 						</div>
 						<div class="game_content">
@@ -173,7 +173,7 @@
 					<div class="game_box">
 						<div class="game_imgbox">
 							<a href="../game/star_eating.jsp"> <img
-								src="../../img/game_img/star_eating.jpg" class="game_img">
+								src="resources/img/game_img/star_eating.jpg" class="game_img">
 							</a>
 						</div>
 						<div class="game_content">
@@ -189,7 +189,7 @@
 					<div class="game_box">
 						<div class="game_imgbox">
 							<a href="../game/invaders.jsp"> <img
-								src="../../img/game_img/invaders.jpg" class="game_img">
+								src="resources/img/game_img/invaders.jpg" class="game_img">
 							</a>
 						</div>
 						<div class="game_content">
@@ -210,7 +210,7 @@
 							<div class="game_box">
 								<div class="game_imgbox">
 									<a href="../game/bricks.jsp"> <img
-										src="../../img/game_img/bricks.jpg" class="game_img">
+										src="resources/img/game_img/bricks.jpg" class="game_img">
 									</a>
 								</div>
 								<div class="game_content">
@@ -228,7 +228,7 @@
 							<div class="game_box">
 								<div class="game_imgbox">
 									<a href="../game/snake.jsp"> <img
-										src="../../img/game_img/snake.jpg" class="game_img">
+										src="resources/img/game_img/snake.jpg" class="game_img">
 									</a>
 								</div>
 								<div class="game_content">
@@ -246,7 +246,7 @@
 							<div class="game_box">
 								<div class="game_imgbox">
 									<a href="../game/flappy_bird.jsp"> <img
-										src="../../img/game_img/flappy_bird.jpg" class="game_img">
+										src="resources/img/game_img/flappy_bird.jpg" class="game_img">
 									</a>
 								</div>
 								<div class="game_content">
@@ -264,7 +264,7 @@
 							<div class="game_box">
 								<div class="game_imgbox">
 									<a href="../game/dodge.jsp"> <img
-										src="../../img/game_img/dodge.jpg" class="game_img">
+										src="resources/img/game_img/dodge.jpg" class="game_img">
 									</a>
 								</div>
 								<div class="game_content">
@@ -282,7 +282,7 @@
 							<div class="game_box">
 								<div class="game_imgbox">
 									<a href="../game/star_eating.jsp"> <img
-										src="../../img/game_img/star_eating.jpg" class="game_img">
+										src="resources/img/game_img/star_eating.jpg" class="game_img">
 									</a>
 								</div>
 								<div class="game_content">
@@ -300,7 +300,7 @@
 							<div class="game_box">
 								<div class="game_imgbox">
 									<a href="../game/invaders.jsp"> <img
-										src="../../img/game_img/invaders.jpg" class="game_img">
+										src="resources/img/game_img/invaders.jpg" class="game_img">
 									</a>
 								</div>
 								<div class="game_content">
@@ -484,8 +484,8 @@
 	<script type="text/javascript"
 		src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.js"></script>
 
-	<script type="text/javascript" src="../../controller/js/main/home.js"></script>
-	<script type="text/javascript" src="../../controller/js/info/login.js"></script>
+	<script type="text/javascript" src="resources/controller/js/main/home.js"></script>
+	<script type="text/javascript" src="resources/controller/js/info/login.js"></script>
 	
 </body>
 </html>

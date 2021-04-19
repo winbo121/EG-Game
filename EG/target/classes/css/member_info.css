@@ -1,0 +1,726 @@
+@charset "UTF-8";
+
+a, abbr, acronym, address, applet, article, aside, audio, b, big,
+	blockquote, body, button, canvas, caption, center, cite, code, dd, del,
+	details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure,
+	footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe,
+	img, input[type=text], ins, kbd, label, legend, li, mark, menu, nav,
+	object, ol, output, p, pre, q, ruby, s, samp, section, small, span,
+	strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead,
+	time, tr, tt, u, ul, var, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: top;
+	border-radius: 0;
+	box-sizing: border-box;
+	text-size-adjust: none;
+	touch-action: manipulation;
+}
+
+@font-face{
+	font-family: "EG Font"; /*임의로 폰트 이름 지정*/
+	src: url("./font/NEXON Lv2 Gothic Bold.woff") format('woff'),
+		 url("./font/NEXON Lv2 Gothic Bold.ttf") format('truetype');
+}
+
+@font-face{
+	font-family: "EG Font light"; /*임의로 폰트 이름 지정*/
+	src: url("./font/NEXON Lv2 Gothic.woff") format('woff'),
+		 url("./font/NEXON Lv2 Gothic.ttf") format('truetype');
+}
+
+html,body {
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+		Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	width: 100%;
+	height: 100%;
+	line-height: normal;
+	overflow: auto;
+}
+
+#m_nav_btn, #m_nav_btn_close, #m_nav_wrap {
+	display: none;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+.div_top {
+	width: 100%;
+	height: 100px;
+}
+
+.top_menu {
+	height: inherit;
+}
+
+#logo{
+	height: inherit;
+    padding: 20px 0;
+    position: relative;
+}
+
+.top_menu h3 {
+    position: relative;
+    text-align: center;
+}
+
+.top_menu a {
+	color: black;
+    font-size: 1.1em;
+}
+
+.top_menu a>img{
+    height: 70px;
+}
+
+a{
+	text-decoration: none;
+}
+
+#login_wrapper{
+	display: block;
+	overflow: auto;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-width: 320px;
+    height: 100%;
+    background: #fff;
+    font-size: 14px;
+    line-height: 22px;
+    color: rgba(0,0,0,0.87);
+}
+
+.login_main{
+	width: 400px;
+	height: 500px;
+    margin: 150px auto 0 auto;
+    position: relative;
+}
+
+.space_or{
+	height: 56px;
+    margin-bottom: 8px;
+    top: 10px;
+    position: relative;
+    margin: 20px 0px;
+}
+
+.space_or:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(0,0,0,0.08);
+}
+
+.space_or span{
+	display: inline-block;
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    z-index: 2;
+    width: 50px;
+    height: 40px;
+    margin: 0 0 0 -25px;
+    background: #fff;
+    font-size: 14px;
+    line-height: 40px;
+    color: rgba(0,0,0,0.38);
+    text-align: center;
+}
+
+.login_id,.login_password{
+	position: relative;
+    top: 20px;
+    height: 50px;
+    margin-bottom: 20px;
+    padding: 0 10px 0 38px;
+    border: 1px solid rgba(0,0,0,0.26);
+    border-radius: 4px;
+    box-sizing: border-box;
+    left: 50%;
+    transform: translate(-50%);
+}
+.login_id input,.login_password input{
+	position: relative;
+    top: 9px;
+    width: 100%;
+    height: 25px;
+    padding: 0;
+    border: none;
+    font-size: 16px;
+    vertical-align: top;
+}
+
+input:focus {
+	outline:none;
+}
+
+input::placeholder,button {
+	color:#E6E6E6;
+  	border-radius: 0;
+   	font-family: "EG Font light","Apple SD Gothic Neo","맑은 고딕","맑은고딕","Malgun Gothic",sans-serif;
+}
+
+.login_id:after {
+    display: inline-block;
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 11px;
+    width: 18px;
+    height: 14px;
+    background: url(//image.goodchoice.kr/images/web_v3/ico_inp_mail.png) 0 0 no-repeat;
+    background-size: 18px auto;
+}
+
+.login_password:after {
+    display: inline-block;
+    content: '';
+    position: absolute;
+    top: 11px;
+    left: 11px;
+    width: 18px;
+    height: 15px;
+    background: url(//image.goodchoice.kr/images/web_v3/ico_inp_pw.png) 50% 0 no-repeat;
+    background-size: 14px auto;
+}
+
+.btn_click{
+	position: relative;
+    top: 80px;
+    display: block;
+    width: 100%;
+    height: 56px;
+    margin-top: 16px;
+    border-radius: 6px;
+    line-height: 56px;
+    text-align: center;
+    border: none;
+    background: linear-gradient(to right, rgba(255,0,85,1) 1%,rgba(230,34,67,1) 100%);
+}
+
+.btn_click span{
+	font: 16px EG Font;
+	color: #fff;
+}
+
+.login_footer{
+	position: relative;
+    top: -60px;
+    height: 60px;
+    overflow: hidden;
+    margin-top: 25px;
+}
+
+.pw_revise,.sign_up{
+	display: inline-block;
+    float: left;
+    width: 50%;
+    height: 40px;
+    text-align: center;
+}
+
+.pw_revise a,.sign_up a{
+	text-decoration: none;
+	height: 40px;
+    background: none;
+    font: 14px EG Font light;
+    line-height: 40px;
+    color: rgba(0,0,0,0.87);
+    vertical-align: top;
+}
+
+@media all and (max-width: 399px) { 
+	.login_main{
+		width: 350px;
+		height: 500px;
+    	margin: 150px auto 0 auto;
+    	position: relative;
+	}
+	.space_or{
+		width: 80%;
+    	left: 160px;
+    	transform: translate(-50%);
+	}
+	.login_id, .login_password{
+		width: 80%;
+    	left: 160px;
+	}
+	.btn_click{
+		transform: translate(-50%);
+   	 	width: 80%;
+    	left: 160px;
+	}
+}
+
+/* 회원가입 css 부분 */
+
+#join_wrapper{
+	display: block;
+    position: relative;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-width: 320px;
+    background: #fff;
+    font-size: 14px;
+    line-height: 22px;
+    color: rgba(0,0,0,0.87);
+}
+
+
+.join_main{
+	width: 500px;
+    margin: 80px auto 0 auto;
+    position: relative;
+}
+
+.join_title{
+	display: block;
+    margin-bottom: 20px;
+    font-size: 1.6em;
+    font-weight: 600;
+    text-align: center;
+    top: 20px;
+    position: relative;
+}
+
+.image-upload-wrap {
+   	position: relative;
+    width: 200px;
+    height: 200px;
+    top: 10px;
+    border-radius: 10px;
+    margin-left: auto; 
+    margin-right: auto;
+    box-shadow: -10px 19px 38px rgba(83, 83, 83, 0.3), 10px 15px 12px rgba(80, 80, 80, 0.22);
+}
+
+.m_form{
+	position: relative;
+	top: 20px;
+}
+
+#focus{
+	border-radius: 6px;
+	border:1px solid #FE2E2E;
+}
+
+
+.file-upload-input {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.drag-text{
+	height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.drag-text h3 {
+    font-weight: 100;
+    text-transform: uppercase;
+    color: black;
+    width: 100%;
+    padding: 20px 0px;
+    font-size: 15px;
+    text-align: center;
+}
+
+.file-upload-content {
+    display: none;
+   	width: 200px;
+    height: 200px;
+    position: relative;
+    top: 10px;
+    border-radius: 10px;
+    margin-left: auto; 
+    margin-right: auto;
+    box-shadow: -10px 19px 38px rgba(83, 83, 83, 0.3), 10px 15px 12px rgba(80, 80, 80, 0.22);
+}
+
+.file-upload-image {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+
+img{
+	vertical-align: middle;
+	border: 0;
+}
+
+.image-title-wrap {
+    position: absolute;
+	right: 0;
+    color: #222;
+    width: 40%;
+}
+
+.remove-image {
+    width: 80px;
+    margin: 0;
+    color: #fff;
+    height: 30px;
+    float: right;
+    background: #5858FA;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    font-weight: 700;
+    position: relative;
+    top: 5px;
+}
+
+.join_main span{
+    font-size: 1.2em;
+    display: block;
+    margin-bottom: 9px;
+    font-weight: bold;
+    color: rgba(0,0,0,0.56);
+    top: 55px;
+    padding: 0 0 0 75px;
+    position: relative;
+}
+
+.join_id, .join_pw, .join_rfpw, .join_phone{
+	position: relative;
+    top: 55px;
+    width: 70%;
+    height: 48px;
+    left: 50%;
+    transform: translate(-50%);
+    margin-bottom: 38px;
+    padding: 0 16px;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.join_id input, .join_pw input, .join_rfpw input, .join_nickname input, .join_phone input{
+	position: relative;
+    top: 13px;
+    width: 100%;
+    height: 20px;
+    padding: 0;
+    border: none;
+    font-size: 18px;
+    vertical-align: top;
+}
+
+.join_id span, .join_pw span, .join_rfpw span, .join_phone span, .join_nickname span{
+	font-size: 12px;
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    padding: 0;
+}
+
+.join_nickname{
+	position: relative;
+    top: 55px;
+    width: 60%;
+    height: 48px;
+    left: 45%;
+    transform: translate(-50%);
+    margin-bottom: 38px;
+    padding: 0 16px;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 0;
+    cursor: pointer;
+}
+
+.btn_etc{
+	position: absolute;
+    top: 0;
+    right: -60px;
+    width: 55px;
+    height: 48px;
+    border-radius: 6px;
+    background: #ebebeb;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgba(0,0,0,0.56);
+}
+
+.join_btn{
+	position: relative;
+    width: 240px;
+    height: 50px;
+    top: 70px;
+    margin-bottom: 100px;
+    left: 50%;
+    transform: translate(-50%);
+    background: linear-gradient(to right, rgba(255,0,85,1) 1%,rgba(230,34,67,1) 100%);
+}
+
+@media all and (min-width: 400px) and (max-width: 599px) { 
+	.join_main{
+		width: 400px;
+    	margin: 60px auto 0 auto;
+    	position: relative;
+	}
+	.join_main span{
+   		padding: 0 0 0 60px;
+	}
+}
+@media all and (max-width: 399px) { 
+	.join_main{
+		width: 350px;
+    	margin: 60px auto 0 auto;
+    	position: relative;
+	}
+	
+	.join_main span{
+   		padding: 0 0 0 50px;
+	}
+	
+	.join_btn{
+		width: 150px;
+	}
+}
+
+/* 비밀번호 재설정 css 부분 */
+
+#pw_wrapper{
+	display: block;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 400;
+    width: 100%;
+    min-width: 320px;
+    height: 100%;
+    background: #fff;
+    font-size: 14px;
+    line-height: 22px;
+    color: rgba(0,0,0,0.87);
+    touch-action: none;
+}
+
+#pw_wrapper section{
+	width: 336px;
+    margin: 100px auto 0 auto;
+}
+
+#pw_wrapper .sub_title{
+	display: block;
+    margin-bottom: 10px;
+    font-size: 1.6em;
+    text-align: center;
+}
+
+.sub_title{
+	height: 44px;
+    font-size: 18px;
+    font-weight: normal;
+    color: rgba(0,0,0,0.87);
+    font-weight: bold;
+    line-height: 44px;
+}
+
+.txt_top{
+	margin: 12px 0 18px 0;
+    color: rgba(0,0,0,0.56);
+    text-align: center;
+    margin-top: 2px;
+    margin-bottom: 32px;
+    font-size: 1.2em;
+}
+
+.id_form{
+	margin-bottom: 16px;
+	position: relative;
+    height: 50px;
+    padding: 0 10px 0 38px;
+    border: 1px solid rgba(0,0,0,0.26);
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.id_form input{
+	position: relative;
+    top: 15px;
+    width: 100%;
+    height: 20px;
+    padding: 0;
+    border: none;
+    font-size: 18px;
+    vertical-align: top;
+}
+
+.id_form:after {
+	display: inline-block;
+    content: '';
+    position: absolute;
+    top: 16px;
+    left: 11px;
+    width: 18px;
+    height: 14px;
+    background: url(//image.goodchoice.kr/images/web_v3/ico_inp_mail.png) 0 0 no-repeat;
+    background-size: 18px auto;
+}
+
+.reset_btn_click{
+	display: block;
+    width: 100%;
+    height: 56px;
+    margin-top: 16px;
+    border-radius: 6px;
+    font-size: 16px;
+    line-height: 56px;
+    color: #fff;
+    text-align: center;
+    border: none;
+    background: linear-gradient(to right, rgba(255,0,85,1) 1%,rgba(230,34,67,1) 100%);
+}
+
+#pw_wrapper .reset_btn_click:disabled {
+    background: #fafafa;
+    color: rgba(0,0,0,0.16);
+}
+
+
+
+
+
+@media all and (max-width:768px){
+	#wapper {
+		min-width: 0px;
+	}
+#m_nav_btn, #m_nav_btn_close {
+	display: block;
+	width: 50px;
+	height: 50px;
+	position: fixed;
+	top: 30px;
+	left: 0;
+	z-index: 3;
+	transition: all 0.2s;
+}
+
+#m_nav_btn svg, #m_nav_btn_close svg {
+	width: 50px;
+	height: 50px;
+}
+
+#m_nav_btn:hover, #m_nav_btn_close:hover {
+	background-color: rgba(20, 20, 20, 0.1);
+	cursor: pointer;
+}
+
+#m_img_cut {
+	width: 100px;
+	height: 100px;
+	border-radius: 10px;
+	overflow: hidden;
+	background-color: white;
+	display: inline-block;
+	margin-bottom: 20px;
+	box-shadow: -10px 19px 38px rgba(83, 83, 83, 0.3), 10px 15px 12px
+		rgba(80, 80, 80, 0.22);
+}
+
+#m_img_cut img {
+	width: 100px;
+	height: auto;
+}
+
+#m_nav_wrap {
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	right: 0;
+	z-index: 3;
+	background-color: rgba(20, 20, 20, 0.2);
+}
+
+#m_nav {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 70%;
+	height: 100%;
+	background-color: ghostwhite;
+	overflow-y: auto;
+}
+
+#m_user_info {
+	margin-top: 50px;
+	margin-bottom: 30px;
+	width: 80%;
+	text-align: center;
+	margin-left: 10%;
+}
+
+#m_user_info td p {
+	font-size: 18px;
+}
+
+#m_user_info td {
+	height: 30px;
+}
+
+#m_nav ul {
+	width: 100%;
+	margin-bottom: 30px;
+}
+
+#m_nav li {
+	width: 90%;
+	margin-left: 5%;
+	height: 40px;
+	background-color: rgba(20, 20, 20, 0.1);
+	display: block;
+	text-align: center;
+	padding: 5px;
+	transition: all 0.2s;
+}
+
+#m_nav li:hover {
+	background-color: rgba(20, 20, 20, 0.2);
+}
+
+#m_nav li a {
+	color: black;
+}
+
+#m_nav li a:hover {
+	color: black;
+}
+
+#logo h3 {
+		font-size: 25px;
+	}
+}

@@ -1,0 +1,370 @@
+@charset "UTF-8";
+
+a, abbr, acronym, address, applet, article, aside, audio, b, big,
+	blockquote, body, button, canvas, caption, center, cite, code, dd, del,
+	details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure,
+	footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe,
+	img, input[type=text], ins, kbd, label, legend, li, mark, menu, nav,
+	object, ol, output, p, pre, q, ruby, s, samp, section, small, span,
+	strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead,
+	time, tr, tt, u, ul, var, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: top;
+	border-radius: 0;
+	box-sizing: border-box;
+	-webkit-text-size-adjust: none;
+	touch-action: manipulation;
+}
+
+@font-face{
+	font-family: "EG Font"; /*임의로 폰트 이름 지정*/
+	src: url("./font/NEXON Lv2 Gothic Bold.woff") format('woff'),
+		 url("./font/NEXON Lv2 Gothic Bold.ttf") format('truetype');
+}
+
+@font-face{
+	font-family: "EG Font light"; /*임의로 폰트 이름 지정*/
+	src: url("./font/NEXON Lv2 Gothic.woff") format('woff'),
+		 url("./font/NEXON Lv2 Gothic.ttf") format('truetype');
+}
+
+html,body {
+	width: 100%;
+	height: 100%;
+	line-height: normal;
+	overflow-y: scroll;
+}
+
+body,input {
+    color: #737881;
+    font: 14px malgun gothic,sans serif;
+}
+
+h1, h2 {
+    font-weight: 700;
+}
+h1 {
+    font-size: 2em;
+}
+
+
+ol, ul, li {
+    list-style: none;
+}
+
+a {
+    color: #737881;
+    text-decoration: none;
+}
+
+#m_nav_btn, #m_nav_btn_close, #m_nav_wrap {
+	display: none;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+ol, ul, li {
+    list-style: none;
+}
+
+#slider_box{
+	display: none;
+}
+
+.totalSrv{
+	display: none !important;
+}
+
+#wrapper{
+	position: relative;
+    min-width: 360px;
+}
+
+.nav_wrapper{
+	position: relative;
+    width: 100%;
+    height: 55px;
+}
+
+.nav_wrapper .rank_nav {
+    height: 55px;
+    border-bottom: 1px solid #e6e6e6;
+    background-color: #fff;
+    overflow-x: auto;
+}
+
+.nav_wrapper body, .nav_wrapper div, .nav_wrapper html, .nav_wrapper li, .nav_wrapper span, .nav_wrapper ul {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: top;
+    border-radius: 0;
+    box-sizing: border-box;
+    -webkit-text-size-adjust: none;
+    touch-action: manipulation;
+}
+
+.nav_wrapper .rank_nav ul {
+    text-align: center;
+    width: 100%;
+   	white-space: nowrap;
+}
+
+.rank_nav #sub_menu_li{
+	display: inline-block;
+    height: 55px;
+    margin: 0 16px 0 20px;
+}
+
+.nav_wrapper .rank_nav .selected {
+    border-bottom: 2px solid #17191d;
+}
+
+.nav_wrapper .rank_nav .selected a{
+	color: #17191d;
+    font-weight: 700;
+}
+
+.nav_wrapper .rank_nav a {
+    display: block;
+    height: 55px;
+    padding-top: 18px;
+    color: #9fa1a7;
+    font: 16px EG Font;
+    transition: all .15s linear;
+}
+
+#rank_wrapper{
+	max-width: 1200px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.rank_menu_nav {
+	width: 100%;
+	box-shadow: 0 5px 10px rgba(70, 70, 70, 0.1), 0 5px 10px rgba(70, 70, 70, 0.1);
+}
+
+.rank_menu_nav ul{
+	width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.rank_menu_nav ul li {
+	display: inline-block;
+	width: 100%;
+	float: left;
+	text-align: center;
+	background: #f9f9f9;
+	line-height: 40px;
+	border-radius: 5px;
+}
+
+#wrapper a, #wrapper button, #wrapper label {
+    transition: all .15s linear;
+}
+
+#contents {
+	max-width: 1170px;
+	margin: 0 auto;
+}
+
+.ranking {
+	position: relative;
+	padding: 0 35px 150px;
+}
+
+.ranking>h1 {
+	height: 137px;
+	padding-top: 80px;
+	font: 700 28px EG Font;
+	color: #17191d;
+}
+
+table{
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.rankList table{
+	width: 100%;
+}
+
+.rankList caption, .rankList thead {
+    position: absolute;
+    z-index: -1;
+    visibility: hidden;
+}
+
+.rankList col.rank, .rankList col.score {
+    width: 100px;
+}
+
+.rankList col.date {
+    width: 113px;
+}
+
+.rankList tbody {
+    border-top: 2px solid #17191d;
+}
+
+.rankList tr {
+    height: 65px;
+    border-bottom: 1px solid #dde1e5;
+    cursor: pointer;
+}
+
+.rankList td {
+    padding-bottom: 2px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.rankList td a {
+    color: #363940;
+}
+
+.rankList td.rank {
+    font-size: 16px;
+}
+
+.rankList td.nickname {
+    padding-top: 4px;
+    padding-left: 5px;
+    font: 16px EG Font;
+}
+
+.rankList td.date {
+    text-align: right;
+    padding-right: 30px;
+}
+
+.ranking .icon {
+    display: inline-block;
+    background: transparent url(https://rs.nxfs.nexon.com/notice/images/set_notice.png) 0 0 no-repeat;
+}
+
+.rankList td.date .icon {
+    width: 18px;
+    height: 12px;
+    background-position: 0 -50px;
+    background-color: #a1a3a9;
+    margin: 4px 0 0 3px;
+}
+
+#contents, .footer {
+    width: 100%;
+}
+
+@media all and (max-width: 600px) {
+	.rankList td.date {
+    	display: none;
+	}
+}
+@media all and (max-width:768px){
+	#wapper {
+		min-width: 0px;
+	}
+	#m_nav_btn, #m_nav_btn_close {
+		display: block;
+		width: 50px;
+		height: 50px;
+		position: fixed;
+		left: 0;
+		z-index: 3;
+		transition: all 0.2s;
+	}
+	#m_nav_btn svg, #m_nav_btn_close svg {
+		width: 50px;
+		height: 50px;
+	}
+	#m_nav_btn:hover, #m_nav_btn_close:hover {
+		background-color: rgba(20, 20, 20, 0.1);
+		cursor: pointer;
+	}
+	#m_img_cut {
+		width: 100px;
+		height: 100px;
+		border-radius: 10px;
+		overflow: hidden;
+		background-color: white;
+		display: inline-block;
+		margin-bottom: 20px;
+		box-shadow: -10px 19px 38px rgba(83, 83, 83, 0.3), 10px 15px 12px
+			rgba(80, 80, 80, 0.22);
+	}
+	#m_img_cut img {
+		width: 100px;
+		height: auto;
+	}
+	#m_nav_wrap {
+		display: none;
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		right: 0;
+		z-index: 3;
+		background-color: rgba(20, 20, 20, 0.2);
+	}
+	#m_nav {
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 70%;
+		height: 100%;
+		background-color: ghostwhite;
+		overflow-y: auto;
+	}
+	#m_user_info {
+		margin-top: 50px;
+		margin-bottom: 30px;
+		width: 80%;
+		text-align: center;
+		margin-left: 10%;
+	}
+	#m_user_info td p {
+		font-size: 18px;
+	}
+	#m_user_info td {
+		height: 30px;
+	}
+	#m_nav ul {
+		width: 100%;
+		margin-bottom: 30px;
+	}
+	#m_nav li {
+		width: 90%;
+		margin-left: 5%;
+		height: 40px;
+		background-color: rgba(20, 20, 20, 0.1);
+		display: block;
+		text-align: center;
+		padding: 5px;
+		transition: all 0.2s;
+	}
+	#m_nav li:hover {
+		background-color: rgba(20, 20, 20, 0.2);
+	}
+	#m_nav li a {
+		color: black;
+	}
+	#m_nav li a:hover {
+		color: black;
+	}
+	#logo h3 {
+		font-size: 25px;
+	}
+	.menu_pc {
+		display: none;
+	}
+}

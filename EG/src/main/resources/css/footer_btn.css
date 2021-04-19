@@ -1,0 +1,190 @@
+@charset "UTF-8";
+
+.btn_div {
+	position: fixed;
+	right: 35px;
+	bottom: 20px; 
+	z-index: 1000;
+}
+
+.btn_div ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: none;
+	text-decoration: none;
+}
+
+.btn_div .flBtn-first li{
+	display: none;
+}
+
+.btn_div ul li a {
+	display: list-item;
+	width: 110px;
+	height: 36px;
+	padding: 8px 0 0 7px;
+	color: #9fa1a7;
+	transition: all .15s linear, bottom 0s;
+	white-space: nowrap;
+}
+
+.btn_div ul li a span{
+	vertical-align: top;
+	font: 200 14px EG Font;
+}
+
+.btn_div ul i{
+	position: relative;
+    display: inline-block;
+    width: 18px;
+    height: 20px;
+    margin: -1px 5px 0 0;
+}
+
+.btn_div ul .up_move {
+	background: url("../img/btn/up_arrow.png") no-repeat;
+	background-size: contain;
+}
+
+.btn_div ul .games{
+	background: url("../img/btn/games.png") no-repeat;
+	background-size: contain;
+}
+
+.btn_div ul .ranking{
+	background: url("../img/btn/ranking.png") no-repeat;
+	background-size: contain;
+}
+
+.btn_div input:hover+a {
+	background: #FAFAFA;
+	color: #2E2E2E;
+	border-radius: 10px;
+}
+
+.btn_div input:hover+a[tooltip]:before {
+	visibility: visible;
+	opacity: 1;
+}
+
+.btn_div a, .btn_div button {
+	position: relative;
+	z-index: 2;
+	display: inline-block;
+	text-decoration: none;
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+	cursor: pointer;
+	background: #FAFAFA;
+	color: #2E2E2E;
+	transition: background 0.5s;
+}
+
+.btn_div a:hover {
+	background: #FAFAFA;
+	color: #2E2E2E;
+}
+
+.btn_div ul li {
+	width: 110px;
+	height: 36px;
+	margin-top: 15px;
+}
+
+.btn_div [tooltip]:before {
+	position: absolute;
+	content: attr(tooltip);
+	visibility: hidden;
+	opacity: 0;
+	padding: 0 10px;
+	white-space: nowrap;
+	background: rgba(0, 0, 0, 0.8);
+	color: #ffffff;
+	transition: all 0.5s;
+}
+
+.btn_div [tooltip]:hover:before {
+	visibility: visible;
+	opacity: 1;
+}
+
+@media all and (min-width: 1200px) and (max-width: 1620px) {
+	.btn_div ul li a span{
+		display: none;
+	}
+	.btn_div ul li{
+		width: 50px;
+		height: 50px;
+	}
+	.btn_div ul li a{
+		width: 50px;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+	}
+	.btn_div ul i{
+		width: 25px;
+		vertical-align: 0.25em;
+	}
+}
+
+@media all and (min-width: 1080px) and (max-width: 1200px) {
+	.btn_div ul li a span{
+		display: none;
+	}
+	.btn_div ul li{
+		width: 50px;
+		height: 50px;
+	}
+	.btn_div ul li a{
+		width: 50px;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+	}
+	.btn_div ul i{
+		width: 25px;
+		vertical-align: 0.25em;
+	}
+}
+
+@media all and (min-width: 769px) and (max-width: 1080px) {
+	.btn_div ul li a span{
+		display: none;
+	}
+	.btn_div ul li{
+		width: 50px;
+		height: 50px;
+	}
+	.btn_div ul li a{
+		width: 50px;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+	}
+	.btn_div ul i{
+		width: 25px;
+		vertical-align: 0.25em;
+	}
+}
+
+@media all and (max-width: 768px){
+	.btn_div ul li a span{
+		display: none;
+	}
+	.btn_div ul li{
+		width: 50px;
+		height: 50px;
+	}
+	.btn_div ul li a{
+		width: 50px;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+	}
+	.btn_div ul i{
+		width: 25px;
+		vertical-align: 0.25em;
+	}
+}

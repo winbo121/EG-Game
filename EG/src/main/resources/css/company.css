@@ -1,0 +1,340 @@
+@charset "UTF-8";
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+@font-face {
+	font-family: "EG Font"; /*임의로 폰트 이름 지정*/
+	src: url("./font/NEXON Lv2 Gothic Bold.woff") format('woff'),
+		url("./font/NEXON Lv2 Gothic Bold.ttf") format('truetype');
+}
+
+@font-face {
+	font-family: "EG Font light"; /*임의로 폰트 이름 지정*/
+	src: url("./font/NEXON Lv2 Gothic.woff") format('woff'),
+		url("./font/NEXON Lv2 Gothic.ttf") format('truetype');
+}
+
+#m_section {
+	width: 100%;
+	height: 800px;
+	background-color: yellow;
+	position: relative;
+	bottom: 90px;
+	z-index: -1;
+}
+
+#company_title {
+	width: 80%;
+	margin-left: 10%;
+	margin-top: 60px;
+	height: 180px;
+	padding-bottom: 20px;
+	background-color: white;
+	border: 1px solid lightgray;
+	box-shadow: 0 8px 38px rgba(133, 133, 133, 0.3), 0 5px 12px
+		rgba(133, 133, 133, 0.22);
+	z-index: 1;
+	transition: all 0.2s;
+}
+
+#company_img_cut {
+	background-color: white;
+	position: relative;
+	bottom: 50px;
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	left: 30px;
+	border-radius: 100px;
+	overflow: hidden;
+	box-shadow: 0 8px 38px rgba(133, 133, 133, 0.3), 0 5px 12px
+		rgba(133, 133, 133, 0.22);
+	text-align: center;
+	transition: all 0.2s;
+}
+
+#company_img_cut img {
+	height: 100%;
+	width: auto;
+	display: inline-block;
+}
+
+#word {
+	position: relative;
+	bottom: 100px;
+	left: 150px;
+}
+
+#word h3 {
+	display: inline-block;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font: 35px EG Font;
+	font-weight: 600;
+}
+
+#word p{
+	font: 16px EG Font light;
+    display: inline-block;
+}
+
+#word p #word a {
+	margin-left: 20px;
+}
+
+#company_map {
+	width: 100%;
+	height: 500px;
+	overflow: hidden;
+	margin-top: 30px;
+}
+
+#company_map h3 {
+	margin: 10px;
+}
+
+#company_img_cut {
+	display: block;
+}
+
+#container {
+	overflow: hidden;
+	height: 100%;
+	position: relative;
+}
+
+#btnRoadview, #btnMap {
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	padding: 7px 12px;
+	font-size: 14px;
+	border: 1px solid #dbdbdb;
+	background-color: #fff;
+	border-radius: 2px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
+	z-index: 1;
+	cursor: pointer;
+}
+
+#btnRoadview:hover, #btnMap:hover {
+	background-color: #fcfcfc;
+	border: 1px solid #c1c1c1;
+}
+
+#container.view_map #mapWrapper {
+	z-index: 10;
+}
+
+#container.view_map #btnMap {
+	display: none;
+}
+
+#container.view_roadview #mapWrapper {
+	z-index: 0;
+}
+
+#container.view_roadview #btnRoadview {
+	display: none;
+}
+
+#d_section {
+	width: 80%;
+	margin-left: 10%;
+	overflow: hidden;
+}
+
+.title {
+	height: 150px;
+	background-color: rgba(0, 0, 0, 0.2);
+	width: 100%;
+	padding: 20px;
+}
+
+.title h1 {
+	font: 35px EG Font;
+	margin-bottom: 10px;
+	margin-top: 20px;
+}
+
+.dev {
+	border: 1px solid lightgray;
+	background-color: rgba(20, 20, 20, 0.05);
+	padding: 15px;
+	margin: 20px;
+}
+
+.user_img_cut, .user_info {
+	display: inline-block;
+}
+
+.user_img_cut {
+	width: 150px;
+	height: 150px;
+	overflow: hidden;
+	border-radius: 100px;
+	float: left;
+	border: 1px solid lightgray;
+	position: relative;
+	top: 15px;
+	margin-left: 30px;
+}
+
+.user_info {
+	height: 180px;
+	float: left;
+	margin-left: 50px;
+	border-left: 10px solid lightgray;
+	padding-left: 40px;
+	overflow: hidden;
+}
+
+.user_info p {
+	margin-bottom: 5px;
+}
+
+.info_title {
+	margin-bottom: 25px;
+	position: relative;
+	right: 30px;
+}
+
+.info_title h3 {
+	margin-right: 20px;
+}
+
+.info_title svg {
+	width: 20px;
+	height: 20px;
+	position: relative;
+	top: 2px;
+	margin-right: 3px;
+}
+
+.info_title * {
+	display: inline-block;
+}
+
+.bottom {
+	clear: both;
+}
+
+.git {
+	width: 100%;
+	padding: 5px;
+	padding-left: 15px;
+	margin-top: 10px;
+	border: 5px solid white;
+	background-color: rgba(20, 20, 120, 0.2);
+	border-radius: 10px;
+	display: none;
+	transition: all 0.1s;
+}
+
+.user_img_cut img {
+	background-color: yellow;
+}
+
+.bi-arrow-down-short {
+	float: right;
+	position: relative;
+	bottom: 25px;
+	left: 10px;
+	width: 40px;
+	height: 40px;
+}
+
+.bi-arrow-down-short:hover {
+	cursor: pointer;
+}
+
+#slider_box{
+	display: none;
+}
+
+.totalSrv{
+	display: none !important;
+}
+
+@media ( max-width : 1000px) {
+	#d_section {
+		width: 100%;
+		margin-left: 0;
+	}
+	.title {
+		text-align: center;
+	}
+	.dev {
+		text-align: center;
+		padding: 0;
+		margin-bottom: 50px;
+	}
+	.dev>div {
+		float: none;
+	}
+	.user_img_cut {
+		top: 0;
+		margin: 20px;
+	}
+	.user_info {
+		width: 100%;
+		height: auto;
+		margin: 0;
+		padding: 20px;
+		border: 0;
+		padding-top: 10px;
+		padding-bottom: 50px;
+		border-top: 1px solid lightgray;
+		background-color: rgba(20, 20, 20, 0.05);
+		text-align: left;
+	}
+	.user_info svg {
+		width: 40px;
+		height: 40px;
+		top: 10px;
+		margin-right: 10px;
+	}
+	.info_title {
+		right: 0;
+	}
+	.info_title * {
+		
+	}
+	.bi-arrow-down-short {
+		bottom: 40px;
+		margin-right: 10px;
+	}
+}
+
+@media all and (max-width : 900px) {
+	#m_section {
+		padding: 0;
+		margin: 0;
+		width: 100%;
+	}
+	#company_title {
+		height: 200px;
+		width: 100%;
+		margin-left: 0;
+		text-align: center;
+	}
+	#word {
+		left: 0;
+	}
+}
+
+@media all and (max-width : 600px) {
+	#m_section {
+		text-align: center;
+	}
+	#company_img_cut {
+		display: none;
+	}
+	#word {
+		bottom: 0;
+	}
+}

@@ -29,7 +29,7 @@
 								<tr>
 									<td>
 										<div id="m_img_cut">
-											<img src="/img/game_img/dodge.jpg">
+											<img src="resources/img/game_img/dodge.jpg">
 										</div>
 									</td>
 								</tr>
@@ -61,7 +61,7 @@
 					</div>
 					<!-- 로고 -->
 					<h3>
-						<a href="../main/home.jsp"><img src="../../img/main/logo.png" alt="EG"></a>
+						<a href="../main/home.jsp"><img src="resources/img/main/logo.png" alt="EG"></a>
 					</h3>
 					<!-- PC 메뉴 -->
 					<ul class="menu_pc">
@@ -87,22 +87,22 @@
 			<div class="swiper-container-pc">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">
-						<img src="../../img/swiper/img.jpg">
+						<img src="resources/img/swiper/img.jpg">
 					</div>
 					<div class="swiper-slide">
-						<img src="../../img/swiper/img2.jpg">
+						<img src="resources/img/swiper/img2.jpg">
 					</div>
 					<div class="swiper-slide">
-						<img src="../../img/swiper/img3.jpg">
+						<img src="resources/img/swiper/img3.jpg">
 					</div>
 					<div class="swiper-slide">
-						<img src="../../img/swiper/img4.jpg">
+						<img src="resources/img/swiper/img4.jpg">
 					</div>
 					<div class="swiper-slide">
-						<img src="../../img/swiper/img5.jpg">
+						<img src="resources/img/swiper/img5.jpg">
 					</div>
 					<div class="swiper-slide">
-						<img src="../../img/swiper/img6.jpg">
+						<img src="resources/img/swiper/img6.jpg">
 					</div>
 				</div>
 				<!-- Add Pagination -->
@@ -115,21 +115,21 @@
 			<div class="swiper-container-mobile">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide"
-						style="background-image: url(../../img/swiper/img.jpg)"></div>
+						style="background-image: url(resources/img/swiper/img.jpg)"></div>
 					<div class="swiper-slide"
-						style="background-image: url(../../img/swiper/img2.jpg)"></div>
+						style="background-image: url(resources/img/swiper/img2.jpg)"></div>
 					<div class="swiper-slide"
-						style="background-image: url(../../img/swiper/img3.jpg)"></div>
+						style="background-image: url(resources/img/swiper/img3.jpg)"></div>
 					<div class="swiper-slide"
-						style="background-image: url(../../img/swiper/img4.jpg)"></div>
+						style="background-image: url(resources/img/swiper/img4.jpg)"></div>
 					<div class="swiper-slide"
-						style="background-image: url(../../img/swiper/img5.jpg)"></div>
+						style="background-image: url(resources/img/swiper/img5.jpg)"></div>
 					<div class="swiper-slide"
-						style="background-image: url(../../img/swiper/img6.jpg)"></div>
+						style="background-image: url(resources/img/swiper/img6.jpg)"></div>
 				</div>
 			</div>
 		</div>
 	</header>
 
 	
-	<script type="text/javascript" src="../../controller/js/main/header.js"></script>
+	<script type="text/javascript" src="resources/controller/js/main/header.js"></script>

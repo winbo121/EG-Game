@@ -36,4 +36,10 @@ public class HomeController {
 		return "main/home";
 	}
 	
+	@RequestMapping(value = "/header", method = RequestMethod.GET)
+	public String home1(Locale locale, Model model) {
+	
+		
+		return "layout/header";
+	}
 }

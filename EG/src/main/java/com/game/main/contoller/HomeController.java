@@ -1,4 +1,4 @@
-package com.game.main;
+package com.game.main.contoller;
 
 import java.text.DateFormat;
 import java.util.Date;

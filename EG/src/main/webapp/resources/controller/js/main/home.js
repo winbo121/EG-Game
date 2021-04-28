@@ -2,9 +2,9 @@
 $(document).ready(function() {
 	
 	$("#header").load("/main/header/");
-	$(".chat_wrapper").load("./chatting.jsp");
-	$(".btn_div").load("./footer_btn.jsp");
-	$(".footer").load("../layout/footer.jsp");
+	$(".chat_wrapper").load("/main/chatting/");
+	$(".btn_div").load("/main/footer_btn/");
+	$(".footer").load("/main/footer/");
 
 	$(window).scroll(function() {
 		if ($(this).scrollTop() > 40) {

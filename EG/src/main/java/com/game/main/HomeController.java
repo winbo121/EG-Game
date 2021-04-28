@@ -37,9 +37,31 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/header", method = RequestMethod.GET)
-	public String home1(Locale locale, Model model) {
+	public String header(Locale locale, Model model) {
 	
 		
 		return "layout/header";
 	}
+	
+	@RequestMapping(value = "/footer", method = RequestMethod.GET)
+	public String footer(Locale locale, Model model) {
+	
+		
+		return "layout/footer";
+	}
+	
+	@RequestMapping(value = "/chatting", method = RequestMethod.GET)
+	public String chatting(Locale locale, Model model) {
+	
+		
+		return "main/chatting";
+	}
+	
+	@RequestMapping(value = "/footer_btn", method = RequestMethod.GET)
+	public String footer_btn(Locale locale, Model model) {
+	
+		
+		return "main/footer_btn";
+	}
+	
 }

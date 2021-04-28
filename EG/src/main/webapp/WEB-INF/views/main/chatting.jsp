@@ -14,7 +14,7 @@
 		<textarea placeholder="Press Enter for send message."></textarea>
 	</div>
 	<div class="chat_click">
-		<img src="../../img/main/more.png" id="chat">
+		<img src="resources/img/main/more.png" id="chat">
 		<div class="hidden_desc">
 			<p class="no_chat" id="no_chat">채팅 보지 않기</p>
 			<p class="show_chat" id="show_chat">채팅 보기</p>
@@ -42,4 +42,4 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.js" type="text/javascript"></script>
-<script type="text/javascript" src="../../controller/js/main/chat.js"></script>
+<script type="text/javascript" src="resources/controller/js/main/chat.js"></script>

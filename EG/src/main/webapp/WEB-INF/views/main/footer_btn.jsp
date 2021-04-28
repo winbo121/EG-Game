@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<link rel="stylesheet" type="text/css" href="../../css/footer_btn.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/footer_btn.css" />
 
 		<ul class="flBtn-first">
 			<li><a href="?pagefile=map.jsp" tooltip="map"><i

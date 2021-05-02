@@ -12,7 +12,7 @@ public class UserBoardController {
 	
 	
 	
-	@RequestMapping(value = "/userBoard/list", method = RequestMethod.GET)
+	@RequestMapping(value = "/userBoardList", method = RequestMethod.GET)
 	public String userBoardList(Locale locale, Model model) {
 	
 		System.out.println("@@@@@@@@@@@@@@@@@@");

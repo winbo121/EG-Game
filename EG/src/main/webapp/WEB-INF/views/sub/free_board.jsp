@@ -6,8 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>자유 게시판</title>
-<link rel="stylesheet" type="text/css" href="../../css/board.css" />
-<link rel="stylesheet" type="text/css" href="../../css/main.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/board.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/main.css" />
 </head>
 <body>
 	<div id="header"></div>
@@ -78,6 +78,6 @@
 	<!-- Swiper JS -->
 	<script type="text/javascript"
 		src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.js"></script>
-	<script type="text/javascript" src="../../controller/js/board/board.js"></script>
+	<script type="text/javascript" src="resources/controller/js/board/board.js"></script>
 </body>
 </html>

@@ -72,7 +72,7 @@
 							</button>
 							<ul class="list_sub">
 								<li><a href="../sub/company.jsp">회사 소개</a></li>
-								<li><a href="/EG/userBoard/list">자유 게시판</a></li>
+								<li><a href="/EG/userBoardList">자유 게시판</a></li>
 								<li><a href="../sub/help.jsp">고객센터</a></li>
 								<li><a href="../sub/notice.jsp">공지사항</a></li>
 							</ul>

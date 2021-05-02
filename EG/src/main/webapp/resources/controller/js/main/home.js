@@ -1,10 +1,10 @@
 
 $(document).ready(function() {
 	
-	$("#header").load("/main/header/");
-	$(".chat_wrapper").load("/main/chatting/");
-	$(".btn_div").load("/main/footer_btn/");
-	$(".footer").load("/main/footer/");
+	$("#header").load("/EG/header/");
+	$(".chat_wrapper").load("/EG/chatting/");
+	$(".btn_div").load("/EG/footer_btn/");
+	$(".footer").load("/EG/footer/");
 
 	$(window).scroll(function() {
 		if ($(this).scrollTop() > 40) {

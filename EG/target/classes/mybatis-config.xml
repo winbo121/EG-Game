@@ -5,7 +5,7 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 <typeAliases>
-
+<typeAlias alias="UserBoardVo" type="com.game.userBoard.vo.UserBoardVo"/>
 
 </typeAliases>
 </configuration>

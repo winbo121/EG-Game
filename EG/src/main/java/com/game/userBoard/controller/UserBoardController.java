@@ -2,6 +2,8 @@ package com.game.userBoard.controller;
 
 import java.util.Locale;
 
+import javax.inject.Inject;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,12 +11,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.game.json.utill.JsonUtill;
+import com.game.userBoard.service.UserBoardService;
 
 import net.sf.json.JSONObject;
 
 @Controller
 public class UserBoardController extends JsonUtill{
 	
+	@Inject
+	private UserBoardService userBoardService;
 	
 	
 	@RequestMapping(value = "/userBoardList", method = RequestMethod.GET)

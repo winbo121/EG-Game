@@ -16,7 +16,7 @@
 </head>
 <body>
 	<div id="header"></div>
-	<!--내용-->
+	<!-- 내용1-->
 	<section id="contents_wrapper">
 		<div id="contents">
 			<div class="myInfo">

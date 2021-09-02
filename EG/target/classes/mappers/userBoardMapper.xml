@@ -3,8 +3,8 @@
 
 <mapper namespace="userBoard">
 
-<select id="list"  resultType="java.util.List" parameterType="UserBoardVo">
-
+<select id="list"  resultType="UserBoardVo" parameterType="UserBoardVo">
+SELECT board_num, title, contents, user_id, file, cotegory, cnt, created FROM USER_BOARD
 </select>
 
 <insert id="insert" parameterType="UserBoardVo">
@@ -19,7 +19,7 @@
 
 </update>
 
-<delete id="delete" parameterType="java.util.List">
+<delete id="delete" parameterType="UserBoardVo">
 
 </delete>
 

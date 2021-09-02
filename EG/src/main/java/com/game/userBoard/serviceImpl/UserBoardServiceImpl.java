@@ -7,6 +7,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.game.userBoard.dao.UserBoardDao;
 import com.game.userBoard.service.UserBoardService;
 import com.game.userBoard.vo.UserBoardVo;
 
@@ -14,7 +15,7 @@ import com.game.userBoard.vo.UserBoardVo;
 public class UserBoardServiceImpl implements UserBoardService{
 	
 	@Inject
-	private UserBoardService userBoardDao;
+	private UserBoardDao userBoardDao;
 
 	@Override
 	public List<Map<String, Object>> userBoardList(UserBoardVo vo) {

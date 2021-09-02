@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -48,15 +49,16 @@
 				<th>작성시각</th>
 				<th>조회수</th>
 			</tr>
-
+			<c:forEach var="list" items="${list }">
 			<tr>
-				<td>1</td>
-				<td>일반</td>
-				<td><a href="#">안녕하세요</a></td>
-				<td>김은택</td>
-				<td>11:11:11</td>
-				<td>4</td>
+				<td>${list.board_num }</td>
+				<td>${list.cotegory }</td>
+				<td><a href="#">${list.title }</a></td>
+				<td>${list.user_id }</td>
+				<td>${list.created }</td>
+				<td>${list.cnt }</td>
 			</tr>
+			</c:forEach>
 		</table>
 
 		<div class="bottom"></div>

@@ -19,8 +19,7 @@ public class UserBoardDaoImpl implements UserBoardDao{
 
 	@Override
 	public List<Map<String, Object>> userBoardList(UserBoardVo vo) {
-		
-		return sqlSession.selectList("UserBoard.list",vo);
+		return sqlSession.selectList("userBoard.list",vo);
 	}
 
 	@Override

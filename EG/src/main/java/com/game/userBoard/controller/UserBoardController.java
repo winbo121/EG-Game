@@ -1,6 +1,8 @@
 package com.game.userBoard.controller;
 
+import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.game.json.utill.JsonUtill;
 import com.game.userBoard.service.UserBoardService;
+import com.game.userBoard.vo.UserBoardVo;
 
 import net.sf.json.JSONObject;
 
@@ -23,8 +26,12 @@ public class UserBoardController extends JsonUtill{
 	
 	
 	@RequestMapping(value = "/userBoardList", method = RequestMethod.GET)
-	public String userBoardList(Locale locale, Model model) {
-	
+	public String userBoardList(Locale locale, Model model, UserBoardVo vo) {
+		
+		List<Map<String,Object>> list =userBoardService.userBoardList(vo);
+		
+		model.addAttribute("list", list);
+		
 		return "sub/free_board";
 	}
 	

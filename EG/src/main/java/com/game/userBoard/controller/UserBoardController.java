@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.game.json.utill.JsonUtill;
 import com.game.userBoard.service.UserBoardService;
 import com.game.userBoard.vo.UserBoardVo;
+import com.game.utill.json.JsonUtill;
 
 import net.sf.json.JSONObject;
 

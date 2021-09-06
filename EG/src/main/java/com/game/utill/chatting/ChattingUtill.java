@@ -1,4 +1,4 @@
-package com.game.chatting.utill;
+package com.game.utill.chatting;
 
 public class ChattingUtill {
 

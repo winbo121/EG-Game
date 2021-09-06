@@ -1,6 +1,8 @@
 package com.game.userBoard.vo;
 
-public class UserBoardVo {
+import com.game.utill.pageinfo.PageMaker;
+
+public class UserBoardVo extends PageMaker{
 	
 	private Integer board_num;
 	private String title;

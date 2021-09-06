@@ -47,4 +47,10 @@ public class UserBoardServiceImpl implements UserBoardService{
 		userBoardDao.userBoardDelete(del_list);
 	}
 
+	@Override
+	public Integer userBoardListCnt(UserBoardVo vo) {
+		
+		return userBoardDao.userBoardListCnt(vo);
+	}
+
 }

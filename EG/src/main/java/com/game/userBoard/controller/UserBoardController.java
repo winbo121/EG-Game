@@ -30,17 +30,29 @@ public class UserBoardController extends JsonUtill{
 	public String userBoardList(Locale locale, Model model,@ModelAttribute UserBoardVo vo) {
 		
 		List<Map<String,Object>> list =userBoardService.userBoardList(vo);
+		Integer list_cnt = userBoardService.userBoardListCnt(vo);
+		
+			
+		vo.setTotalCount(list_cnt);
 		
 		model.addAttribute("list", list);
+		model.addAttribute("vo",vo);
 		
 		return "sub/free_board";
 	}
 	
-	@RequestMapping(value = "/userBoardInsert", method = RequestMethod.GET)
-	@ResponseBody
-	public JSONObject userBoardInsert(Locale locale, Model model) {
+	@RequestMapping(value = "/userBoardInserPro", method = RequestMethod.GET)
+	public String userBoardInsertPro(Locale locale, Model model) {
+		
+		return "sub/write";
+	}
 	
-		return super.jsonView("Success");
+	@RequestMapping(value = "/userBoardInsert", method = RequestMethod.POST)
+	public String userBoardInsert(Locale locale, Model model) {
+		
+		
+		
+		return "redirect:/userBoardList";
 	}
 	
 	@RequestMapping(value = "/userBoardRead", method = RequestMethod.GET)

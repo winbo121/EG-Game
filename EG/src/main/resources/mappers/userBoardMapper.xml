@@ -4,7 +4,11 @@
 <mapper namespace="userBoard">
 
 <select id="list"  resultType="UserBoardVo" parameterType="UserBoardVo">
-SELECT board_num, title, contents, user_id, file, cotegory, cnt, created FROM USER_BOARD
+SELECT board_num, title, contents, user_id, file, cotegory, cnt, created FROM USER_BOARD LIMIT #{queryFirstStart}, #{displayContentNum}
+</select>
+
+<select id="listCnt" resultType="java.lang.Integer" parameterType="UserBoardVo">
+SELECT COUNT(*) FROM USER_BOARD
 </select>
 
 <insert id="insert" parameterType="UserBoardVo">

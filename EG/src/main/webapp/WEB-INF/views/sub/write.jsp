@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="../../css/board.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/board.css" />
 </head>
 <body>
 	<div id="w_section">
@@ -63,6 +63,6 @@
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	
-	<script type="text/javascript" src="../../controller/js/board/board.js"></script>
+	<script type="text/javascript" src="resources/controller/js/board/board.js"></script>
 </body>
 </html>

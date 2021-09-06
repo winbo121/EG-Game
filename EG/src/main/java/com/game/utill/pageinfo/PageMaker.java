@@ -3,10 +3,12 @@ package com.game.utill.pageinfo;
 public class PageMaker {
 	
 	private int totalCount;
+	private int page=1;
 	private int startPage;
 	private int endPage;
 	private boolean prev;
 	private boolean next;
+	private int queryFirstStart;
 	
 	private int displayPageNum=5; //다음 가기전까지 페이지 갯수
 	private int displayContentNum=10; //각 페이지당 게시물 갯수
@@ -15,9 +17,8 @@ public class PageMaker {
 		return totalCount;
 	}
 
-	public void setTotalCount(int totalCount,int page) {
+	public void setTotalCount(int totalCount) {
 		this.totalCount = totalCount;
-		
 		endPage=(int)(Math.ceil(page/(double)displayPageNum)*displayPageNum);
 	
 		startPage=(endPage-displayPageNum)+1;
@@ -31,8 +32,9 @@ public class PageMaker {
 		prev=startPage==1?false:true;
 		next=(endPage*displayContentNum)>=totalCount?false:true;
 
-		
 	}
+	
+	
 
 	public int getStartPage() {
 		return startPage;
@@ -82,5 +84,21 @@ public class PageMaker {
 		this.displayContentNum = displayContentNum;
 	}
 
+	public int getPage() {
+		return page;
+	}
+
+	public void setPage(int page) {
+		this.page = page;
+	}
+
+	public int getQueryFirstStart() {
+		return (page-1)*10;
+	}
+
+	public void setQueryFirstStart(int queryFirstStart) {
+		this.queryFirstStart = queryFirstStart;
+	}
+	
 
 }

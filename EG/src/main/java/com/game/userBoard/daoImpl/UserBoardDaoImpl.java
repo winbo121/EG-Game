@@ -25,25 +25,31 @@ public class UserBoardDaoImpl implements UserBoardDao{
 	@Override
 	public void userBoardInsert(UserBoardVo vo) {
 		
-		sqlSession.insert("UserBoard.insert", vo);
+		sqlSession.insert("userBoard.insert", vo);
 	}
 
 	@Override
 	public UserBoardVo UserBoardRead(Integer bno) {
 		
-		return sqlSession.selectOne("UserBoard.read", bno);
+		return sqlSession.selectOne("userBoard.read", bno);
 	}
 
 	@Override
 	public void userBoardUpdate(UserBoardVo vo) {
 	
-		sqlSession.update("UserBoard.update", vo);
+		sqlSession.update("userBoard.update", vo);
 	}
 
 	@Override
 	public void userBoardDelete(List<String> del_list) {
 		
-		sqlSession.delete("UserBoard.delete", del_list);
+		sqlSession.delete("userBoard.delete", del_list);
+	}
+
+	@Override
+	public Integer userBoardListCnt(UserBoardVo vo) {
+		
+		return sqlSession.selectOne("userBoard.listCnt", vo);
 	}
 
 }

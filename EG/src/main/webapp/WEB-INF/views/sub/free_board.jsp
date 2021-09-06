@@ -66,10 +66,22 @@
 
 		<hr>
 		<div id="paging">
-			<a href="#">1</a> <a href="#">2</a> <a href="#">3</a>
+		
+			<c:if test="${vo.prev }">
+			<a href="/EG/userBoardList?page=${vo.startPage-1 }"><-</a>
+			</c:if>
+			
+			<c:forEach begin="${vo.startPage }" end="${vo.endPage }" var="idx">
+			<a href="/EG/userBoardList?page=${idx }">${idx }</a>
+			</c:forEach>
+			
+			<c:if test="${vo.next }">
+			<a href="/EG/userBoardList?page=${vo.endPage+1 }">-></a>
+			</c:if>
+			
 		</div>
 
-		<button id="write_btn" onclick="javascript: location.href='./write.jsp'" id="write_btm">글쓰기</button>
+		<button id="write_btn" onclick="javascript: location.href='/EG/userBoardInserPro'" id="write_btm">글쓰기</button>
 	</div>
 	<footer class="footer">
 	

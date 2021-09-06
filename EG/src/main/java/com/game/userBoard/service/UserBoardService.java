@@ -11,4 +11,5 @@ public interface UserBoardService {
 	public UserBoardVo UserBoardRead (Integer bno);
 	public void userBoardUpdate(UserBoardVo vo);
 	public void userBoardDelete(List<String> del_list);
+	public Integer userBoardListCnt(UserBoardVo vo);
 }

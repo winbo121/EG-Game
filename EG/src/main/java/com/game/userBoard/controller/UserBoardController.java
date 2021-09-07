@@ -71,9 +71,9 @@ public class UserBoardController extends JsonUtill{
 			MultipartFile mFile =  M.getFile(fileName);
 			
 			
-			realFileName=mFile.getOriginalFilename();
+			realFileName=mFile.getOriginalFilename()+UUID.randomUUID().toString();
 			
-			file =new File(request.getRealPath("WEB-INF/upload/" +UUID.randomUUID().toString()+realFileName));
+			file =new File(request.getRealPath("WEB-INF/upload/" +realFileName));
 			
 			if(mFile.getSize()!=0) {
 				
@@ -83,7 +83,7 @@ public class UserBoardController extends JsonUtill{
 			}
 			
 		}
-		vo.setFile(UUID.randomUUID().toString()+realFileName);
+		vo.setFile(realFileName);
 		
 		userBoardService.userBoardInsert(vo);
 		

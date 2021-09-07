@@ -14,33 +14,24 @@
 $(document).ready(function(){
 	
 	
-	
-	
 
 	
 	$("#submitBtn").on("click",function(){
 		
-		var data=new Object();
 		
-		data.title=$("#title").val();
-		data.user_id="winbo121";
-		data.category=$("#category").val();
-		data.created=$("#created").val();
-		data.contents=$("#contents").val();
-		data.file=$("#file")[0].files[0];
+		var formData = new FormData($('#userBoardForm')[0]);
 		
-		
-		console.log(data);
-		
-// 		$.ajax({
-// 			type: "POST" ,
-// 			url:  "/userBoardInsert" ,
-// 			enctype: 'multipart/form-data',
-// 			data: data,
-// 			success: function(data){
-// 				console.log(data);
-// 			}
-// 		});	
+		$.ajax({
+			type: "POST" ,
+			url:  "/EG/userBoardInsert" ,
+			enctype: 'multipart/form-data',
+			data: formData,
+			processData: false,
+			contentType: false, 
+			success: function(data){
+				location.href="/EG/userBoardList"
+			}
+		});	
 		
 	})
 	
@@ -61,7 +52,7 @@ $(document).ready(function(){
 				<p>&nbsp;&nbsp;커뮤니티 게시물을 작성할 수 있습니다</p>
 			</div>
 			
-			<form:form modelAttribute="vo" method="GET">
+			<form id="userBoardForm" enctype="multipart/form-data">
 				
 				<table>
 					<tr>
@@ -70,15 +61,15 @@ $(document).ready(function(){
 					</tr>
 					<tr>
 						<td>작성자</td>
-						<td></td>
+						<td><input type="text" name="user_id"  id="user_id" value="winbo121" readonly></td>
 					</tr>
 					<tr>
 						<td>카테고리</td>
 						<td>
-							<select name = "category">
-								<option value="BOOO1">자기소개</option>
-								<option value="BOOO2">자유게시판</option>
-								<option value="BOOO3">질문게시판</option>
+							<select name = "cotegory">
+								<option value="B0001">자기소개</option>
+								<option value="B0002">자유게시판</option>
+								<option value="B0003">질문게시판</option>
 							</select>
 						</td>
 					</tr>
@@ -89,11 +80,11 @@ $(document).ready(function(){
 					</tr>
 					<tr>
 						<td>첨부파일</td>
-						<td><input type="file" name="file" id="file"></td>
+						<td><input type="file" name="file123" id="file"></td>
 					</tr>
 				</table><hr>
 				<button type = "button" id="submitBtn">등록하기</button>				
-		</form:form>
+		</form>
 		</div>
 	</div>
 	

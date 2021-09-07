@@ -1,10 +1,18 @@
 package com.game.userBoard.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +20,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.game.userBoard.service.UserBoardService;
 import com.game.userBoard.vo.UserBoardVo;
@@ -48,8 +58,34 @@ public class UserBoardController extends JsonUtill{
 	}
 	
 	@RequestMapping(value = "/userBoardInsert", method = RequestMethod.POST)
-	public JSONObject userBoardInsert(Locale locale, Model model,@ModelAttribute UserBoardVo vo) {
+	@ResponseBody
+	public JSONObject userBoardInsert(HttpServletRequest request, HttpServletResponse response,Locale locale, Model model,@ModelAttribute UserBoardVo vo) throws IOException {
+		String realFileName="";
+
+		MultipartHttpServletRequest M=(MultipartHttpServletRequest)request;
+		Iterator<String> fileNames = M.getFileNames();
+		File file=null;
+		while(fileNames.hasNext()) {
+			String fileName=fileNames.next();
+			
+			MultipartFile mFile =  M.getFile(fileName);
+			
+			
+			realFileName=mFile.getOriginalFilename();
+			
+			file =new File(request.getRealPath("WEB-INF/upload/" +UUID.randomUUID().toString()+realFileName));
+			
+			if(mFile.getSize()!=0) {
+				
+				file.createNewFile();
+				mFile.transferTo(file);
+							
+			}
+			
+		}
+		vo.setFile(UUID.randomUUID().toString()+realFileName);
 		
+		userBoardService.userBoardInsert(vo);
 		
 		
 		return super.jsonView("Success");

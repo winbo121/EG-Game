@@ -71,7 +71,7 @@ public class UserBoardController extends JsonUtill{
 			MultipartFile mFile =  M.getFile(fileName);
 			
 			
-			realFileName=mFile.getOriginalFilename()+UUID.randomUUID().toString();
+			realFileName=UUID.randomUUID().toString()+mFile.getOriginalFilename();
 			
 			file =new File(request.getRealPath("WEB-INF/upload/" +realFileName));
 			

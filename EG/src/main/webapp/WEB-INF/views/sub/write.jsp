@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +9,44 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="resources/css/board.css" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+	
+	
+	
+
+	
+	$("#submitBtn").on("click",function(){
+		
+		var data=new Object();
+		
+		data.title=$("#title").val();
+		data.user_id="winbo121";
+		data.category=$("#category").val();
+		data.created=$("#created").val();
+		data.contents=$("#contents").val();
+		data.file=$("#file")[0].files[0];
+		
+		
+		console.log(data);
+		
+// 		$.ajax({
+// 			type: "POST" ,
+// 			url:  "/userBoardInsert" ,
+// 			enctype: 'multipart/form-data',
+// 			data: data,
+// 			success: function(data){
+// 				console.log(data);
+// 			}
+// 		});	
+		
+	})
+	
+});
+
+</script>
 </head>
 <body>
 	<div id="w_section">
@@ -21,11 +61,12 @@
 				<p>&nbsp;&nbsp;커뮤니티 게시물을 작성할 수 있습니다</p>
 			</div>
 			
-			<form name = "f1" onsubmit="write(); return false;">
+			<form:form modelAttribute="vo" method="GET">
+				
 				<table>
 					<tr>
 						<td>제목</td>
-						<td><label for = "title"></label><input type="text" name="title" placeholder="제목"></td>
+						<td><label for = "title"></label><input type="text" name="title" placeholder="제목" id="title"></td>
 					</tr>
 					<tr>
 						<td>작성자</td>
@@ -35,27 +76,24 @@
 						<td>카테고리</td>
 						<td>
 							<select name = "category">
-								<option>자기소개</option>
-								<option selected>자유게시판</option>
-								<option>질문게시판</option>
+								<option value="BOOO1">자기소개</option>
+								<option value="BOOO2">자유게시판</option>
+								<option value="BOOO3">질문게시판</option>
 							</select>
 						</td>
 					</tr>
-					<tr>
-						<td>작성일</td>
-						<td></td>
-					</tr>
+
 					<tr>
 						<td>내용</td>
-						<td><textarea placeholder="내용을 입력하세요" name="contents"></textarea></td>
+						<td><textarea placeholder="내용을 입력하세요" name="contents" id="contents"></textarea></td>
 					</tr>
 					<tr>
 						<td>첨부파일</td>
-						<td><input type="file" name="file"></td>
+						<td><input type="file" name="file" id="file"></td>
 					</tr>
 				</table><hr>
-				<button type = "submit">등록하기</button>				
-			</form>
+				<button type = "button" id="submitBtn">등록하기</button>				
+		</form:form>
 		</div>
 	</div>
 	

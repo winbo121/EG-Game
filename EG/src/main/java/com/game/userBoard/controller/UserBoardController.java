@@ -42,17 +42,17 @@ public class UserBoardController extends JsonUtill{
 	}
 	
 	@RequestMapping(value = "/userBoardInserPro", method = RequestMethod.GET)
-	public String userBoardInsertPro(Locale locale, Model model) {
+	public String userBoardInsertPro(Locale locale, Model model,@ModelAttribute UserBoardVo vo) {
 		
 		return "sub/write";
 	}
 	
 	@RequestMapping(value = "/userBoardInsert", method = RequestMethod.POST)
-	public String userBoardInsert(Locale locale, Model model) {
+	public JSONObject userBoardInsert(Locale locale, Model model,@ModelAttribute UserBoardVo vo) {
 		
 		
 		
-		return "redirect:/userBoardList";
+		return super.jsonView("Success");
 	}
 	
 	@RequestMapping(value = "/userBoardRead", method = RequestMethod.GET)

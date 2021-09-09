@@ -10,6 +10,45 @@
 <title>자유 게시판</title>
 <link rel="stylesheet" type="text/css" href="resources/css/board.css" />
 <link rel="stylesheet" type="text/css" href="resources/css/main.css" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+	
+	
+
+	
+	$(".read_form").on("click",function(){
+		
+		
+		var formData = new FormData($('#vo')[0]);
+		formData.append("board_num",$( this ).children().eq(0).text())
+		
+		var form = $('<form></form>');
+		form.attr('action', "/EG/userBoardRead");
+		form.attr('method', "GET");
+		
+		
+		for (var item of formData.entries()) {
+		    console.log(item[0] + " : " + item[1]);
+		    
+	        var name = item[0];
+	        var value = item[1];
+			var field = $('<input></input>');
+			field.attr("type", "hidden");
+			field.attr("name", name);
+			field.attr("value", value);
+			form.append( field );
+		}
+		
+		form.appendTo('body');
+		form.submit();
+		
+	})
+	
+});
+
+</script>
 </head>
 <body>
 	<div id="header"></div>
@@ -51,10 +90,10 @@
 				<th>조회수</th>
 			</tr>
 			<c:forEach var="list" items="${list }">
-			<tr>
+			<tr class="read_form">
 				<td>${list.board_num }</td>
 				<td>${list.cotegory }</td>
-				<td><a href="#">${list.title }</a></td>
+				<td>${list.title }</td>
 				<td>${list.user_id }</td>
 				<td>${list.created }</td>
 				<td>${list.cnt }</td>
@@ -81,12 +120,13 @@
 			
 		</div>
 
-		<button id="write_btn" onclick="javascript: location.href='/EG/userBoardInserPro'" id="write_btm">글쓰기</button>
+		<button id="write_btn" onclick="javascript: location.href='/EG/userBoardInsertPro'" >글쓰기</button>
 	</div>
 	<footer class="footer">
 	
 	</footer>
 	<form:form modelAttribute="vo" method="GET">
+		<form:hidden path="page"/>
 	</form:form>
 	
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>

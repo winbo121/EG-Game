@@ -16,7 +16,7 @@ INSERT INTO USER_BOARD (title, contents, user_id, file, cotegory) VALUES (#{titl
 </insert>
 
 <select id="read"  resultType="UserBoardVo" parameterType="java.lang.Integer">
-
+SELECT board_num, title, contents, user_id, file, cotegory FROM USER_BOARD WHERE board_num = #{board_num}
 </select>
 
 <update id="update" parameterType="UserBoardVo"> 

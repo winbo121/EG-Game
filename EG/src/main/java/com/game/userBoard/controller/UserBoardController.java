@@ -19,12 +19,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.game.userBoard.service.UserBoardService;
 import com.game.userBoard.vo.UserBoardVo;
+import com.game.utill.file.FileUtill;
 import com.game.utill.json.JsonUtill;
 
 import net.sf.json.JSONObject;
@@ -35,6 +37,7 @@ public class UserBoardController extends JsonUtill{
 	@Inject
 	private UserBoardService userBoardService;
 	
+	private FileUtill fileUtill =new FileUtill();
 	
 	@RequestMapping(value = "/userBoardList", method = RequestMethod.GET)
 	public String userBoardList(Locale locale, Model model,@ModelAttribute UserBoardVo vo) {
@@ -51,8 +54,8 @@ public class UserBoardController extends JsonUtill{
 		return "sub/free_board";
 	}
 	
-	@RequestMapping(value = "/userBoardInserPro", method = RequestMethod.GET)
-	public String userBoardInsertPro(Locale locale, Model model,@ModelAttribute UserBoardVo vo) {
+	@RequestMapping(value = "/userBoardInsertPro", method = RequestMethod.GET)
+	public String userBoardInsertPro(Locale locale, Model model) {
 		
 		return "sub/write";
 	}
@@ -60,42 +63,28 @@ public class UserBoardController extends JsonUtill{
 	@RequestMapping(value = "/userBoardInsert", method = RequestMethod.POST)
 	@ResponseBody
 	public JSONObject userBoardInsert(HttpServletRequest request, HttpServletResponse response,Locale locale, Model model,@ModelAttribute UserBoardVo vo) throws IOException {
-		String realFileName="";
+		
+		String realFileName = fileUtill.fileUploadMethod(request);
 
-		MultipartHttpServletRequest M=(MultipartHttpServletRequest)request;
-		Iterator<String> fileNames = M.getFileNames();
-		File file=null;
-		while(fileNames.hasNext()) {
-			String fileName=fileNames.next();
-			
-			MultipartFile mFile =  M.getFile(fileName);
-			
-			
-			realFileName=UUID.randomUUID().toString()+mFile.getOriginalFilename();
-			
-			file =new File(request.getRealPath("WEB-INF/upload/" +realFileName));
-			
-			if(mFile.getSize()!=0) {
-				
-				file.createNewFile();
-				mFile.transferTo(file);
-							
-			}
-			
-		}
 		vo.setFile(realFileName);
 		
 		userBoardService.userBoardInsert(vo);
-		
-		
+	
 		return super.jsonView("Success");
 	}
 	
-	@RequestMapping(value = "/userBoardRead", method = RequestMethod.GET)
-	public String userBoardRead(Locale locale, Model model) {
+
 	
-		return "sub/free_board";
+	@RequestMapping(value = "/userBoardRead", method = RequestMethod.GET)
+	public String userBoardRead(Locale locale, Model model,@ModelAttribute UserBoardVo vo) {
+		
+		UserBoardVo userBoard=userBoardService.UserBoardRead(vo.getBoard_num());
+
+		model.addAttribute("userBoard",userBoard);
+		model.addAttribute("vo",vo);
+		return "sub/update";
 	}
+	
 	@RequestMapping(value = "/userBoardUpdate", method = RequestMethod.GET)
 	@ResponseBody
 	public JSONObject userBoardUpdate(Locale locale, Model model) {

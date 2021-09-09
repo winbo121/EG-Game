@@ -1,12 +1,71 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="../../css/board.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/board.css" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+	
+
+	
+	$("#updateBtn").on("click",function(){
+		
+		
+		var formData = new FormData($('#userBoard')[0]);
+		
+		for (var item of formData.entries()) {
+		    console.log(item[0] + " : " + item[1]);
+		}
+	
+// 		$.ajax({
+// 			type: "POST" ,
+// 			url:  "/EG/userBoardUpdate" ,
+// 			enctype: 'multipart/form-data',
+// 			data: formData,
+// 			processData: false,
+// 			contentType: false, 
+// 			success: function(data){
+// 				location.href="/EG/userBoardList"
+// 			}
+// 		});	
+		
+	})
+	
+	$("#backBtn").on("click",function(){
+	
+		var formData = new FormData($('#vo')[0]);
+		
+		var form = $('<form></form>');
+		form.attr('action', "/EG/userBoardList");
+		form.attr('method', "GET");
+		
+		
+		for (var item of formData.entries()) {
+		    console.log(item[0] + " : " + item[1]);
+		    
+	        var name = item[0];
+	        var value = item[1];
+			var field = $('<input></input>');
+			field.attr("type", "hidden");
+			field.attr("name", name);
+			field.attr("value", value);
+			form.append( field );
+		}
+		
+		form.appendTo('body');
+		form.submit();
+	})
+	
+});
+
+</script>
 </head>
 <body>
 	<div id="up_section">
@@ -21,41 +80,47 @@
 				<p>&nbsp;&nbsp;커뮤니티 게시물을 작성할 수 있습니다</p>
 			</div>
 			
-			<form name = "f1" onsubmit="write(); return false;">
+			<form:form modelAttribute="vo" method="GET" >
+			<form:hidden path="page"/>
+			</form:form>
+			
+			<form:form modelAttribute="userBoard" method="POST" >
 				<table>
 					<tr>
 						<td>제목</td>
-						<td><label for = "title"></label><input type="text" name="title" placeholder="제목"></td>
+						<td><label for = "title"></label><form:input path="title"  /></td>
 					</tr>
 					<tr>
 						<td>작성자</td>
-						<td></td>
+						<td><form:input path="user_id" readonly="true" /></td>
 					</tr>
 					<tr>
 						<td>카테고리</td>
 						<td>
-							<select name = "category">
-								<option>자기소개</option>
-								<option selected>자유게시판</option>
-								<option>질문게시판</option>
-							</select>
+							<form:select path= "cotegory">
+								<form:option value="B0001">자기소개</form:option>
+								<form:option value="B0002">자유게시판</form:option>
+								<form:option value="B0003">질문게시판</form:option>
+							</form:select>
 						</td>
 					</tr>
-					<tr>
-						<td>작성일</td>
-						<td></td>
-					</tr>
+
 					<tr>
 						<td>내용</td>
-						<td><textarea placeholder="내용을 입력하세요" name="contents"></textarea></td>
+						<td><form:textarea path="contents" /></td>
 					</tr>
 					<tr>
 						<td>첨부파일</td>
-						<td><input type="file" name="file"></td>
+						<td><input type="file" name="fileUpload" id="file"></td>
+					</tr>
+					<tr>
+					<td></td>
+					<td><a href="/EG/fileDownload?filename=${userBoard.file}">${userBoard.file}</a></td>
 					</tr>
 				</table><hr>
-				<button type = "submit">등록하기</button>				
-			</form>
+				<button type = "button" id="updateBtn">수정하기</button>	
+				<button type = "button" id="backBtn">뒤로가기</button>					
+			</form:form>
 		</div>
 	</div>
 	
@@ -63,6 +128,6 @@
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	
-	<script type="text/javascript" src="../../controller/js/board/board.js"></script>
+	<script type="text/javascript" src="resources/controller/js/board/board.js"></script>
 </body>
 </html>

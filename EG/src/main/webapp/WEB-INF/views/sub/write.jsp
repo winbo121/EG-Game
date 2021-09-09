@@ -19,8 +19,12 @@ $(document).ready(function(){
 	$("#submitBtn").on("click",function(){
 		
 		
-		var formData = new FormData($('#userBoardForm')[0]);
+		var formData = new FormData($('#userBoard')[0]);
 		
+		for (var item of formData.entries()) {
+		    console.log(item[0] + " : " + item[1]);
+		}
+	
 		$.ajax({
 			type: "POST" ,
 			url:  "/EG/userBoardInsert" ,
@@ -33,6 +37,10 @@ $(document).ready(function(){
 			}
 		});	
 		
+	})
+	
+	$("#backBtn").on("click",function(){
+		location.href="/EG/userBoardList";
 	})
 	
 });
@@ -52,7 +60,7 @@ $(document).ready(function(){
 				<p>&nbsp;&nbsp;커뮤니티 게시물을 작성할 수 있습니다</p>
 			</div>
 			
-			<form id="userBoardForm" enctype="multipart/form-data">
+			<form id="userBoard" enctype="multipart/form-data">
 				
 				<table>
 					<tr>
@@ -80,10 +88,11 @@ $(document).ready(function(){
 					</tr>
 					<tr>
 						<td>첨부파일</td>
-						<td><input type="file" name="file123" id="file"></td>
+						<td><input type="file" name="fileUpload" id="file"></td>
 					</tr>
 				</table><hr>
-				<button type = "button" id="submitBtn">등록하기</button>				
+				<button type = "button" id="submitBtn">등록하기</button>
+				<button type = "button" id="backBtn">뒤로가기</button>						
 		</form>
 		</div>
 	</div>

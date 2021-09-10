@@ -19,22 +19,22 @@ $(document).ready(function(){
 		
 		
 		var formData = new FormData($('#userBoard')[0]);
-		
+		formData.append("file",$("#originFileName").text());
 		for (var item of formData.entries()) {
 		    console.log(item[0] + " : " + item[1]);
 		}
-	
-// 		$.ajax({
-// 			type: "POST" ,
-// 			url:  "/EG/userBoardUpdate" ,
-// 			enctype: 'multipart/form-data',
-// 			data: formData,
-// 			processData: false,
-// 			contentType: false, 
-// 			success: function(data){
-// 				location.href="/EG/userBoardList"
-// 			}
-// 		});	
+		
+		$.ajax({
+			type: "POST" ,
+			url:  "/EG/userBoardUpdate" ,
+			enctype: 'multipart/form-data',
+			data: formData,
+			processData: false,
+			contentType: false, 
+			success: function(data){
+				 $("#backBtn").trigger("click");
+			}
+		});	
 		
 	})
 	
@@ -85,6 +85,7 @@ $(document).ready(function(){
 			</form:form>
 			
 			<form:form modelAttribute="userBoard" method="POST" >
+			<form:hidden path="board_num" readonly="true" />
 				<table>
 					<tr>
 						<td>제목</td>
@@ -115,7 +116,7 @@ $(document).ready(function(){
 					</tr>
 					<tr>
 					<td></td>
-					<td><a href="/EG/fileDownload?filename=${userBoard.file}">${userBoard.file}</a></td>
+					<td><a href="/EG/fileDownload?filename=${userBoard.file}" id="originFileName">${userBoard.file}</a></td>
 					</tr>
 				</table><hr>
 				<button type = "button" id="updateBtn">수정하기</button>	

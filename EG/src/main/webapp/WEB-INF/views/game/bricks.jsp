@@ -6,10 +6,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title></title>
-<link rel="stylesheet" type="text/css" href="../../css/game.css" />
-<link rel="stylesheet" type="text/css" href="../../css/main.css" />
+<link rel="stylesheet" type="text/css" href="/resources/css/game.css" />
+<link rel="stylesheet" type="text/css" href="/resources/css/main.css" />
 </head>
-<script type="text/javascript" src="../../controller/js/phaser.min.js"></script>
+<script type="text/javascript" src="/resources/controller/js/phaser.min.js"></script>
 <script type="text/javascript"
 	src="../../controller/js/game/bricks/bricks.js"></script>
 <body>
@@ -111,6 +111,6 @@
 	<footer class="footer"></footer>
 
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script type="text/javascript" src="../../controller/js/game/g_total.js"></script>
+	<script type="text/javascript" src="/resources/controller/js/game/g_total.js"></script>
 </body>
 </html>

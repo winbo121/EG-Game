@@ -7,6 +7,7 @@ import java.net.URLEncoder;
 import java.util.Iterator;
 import java.util.UUID;
 
+import javax.inject.Inject;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+
+import com.game.userBoard.service.UserBoardService;
+import com.game.userBoard.vo.UserBoardVo;
 
 @Controller
 public class FileUtill {
@@ -44,9 +48,70 @@ public class FileUtill {
 				mFile.transferTo(file);
 							
 			}
+			else {
+				realFileName="";
+			}
 			
 		}
 		
+		return realFileName;
+	}
+	
+	public String fileUpdateMethod(HttpServletRequest request, UserBoardVo UserBoard) throws IOException {
+		
+
+		String realFileName="";
+
+
+		MultipartHttpServletRequest M=(MultipartHttpServletRequest)request;
+		Iterator<String> fileNames = M.getFileNames();
+		
+		File file=null;
+		while(fileNames.hasNext()) {
+			String fileName=fileNames.next();
+			
+			MultipartFile mFile =  M.getFile(fileName);
+			
+			
+
+
+			if(!mFile.getOriginalFilename().equals(UserBoard.getFile()) && !mFile.getOriginalFilename().equals("")) {
+				File fileDelete = new File(request.getRealPath("WEB-INF/upload/" +UserBoard.getFile()));
+				
+				if(fileDelete.exists()) {
+					fileDelete.delete();
+				}
+				realFileName=UUID.randomUUID().toString()+mFile.getOriginalFilename();
+				
+				file =new File(request.getRealPath("WEB-INF/upload/" +realFileName));
+				file.createNewFile();
+				mFile.transferTo(file);
+			}
+			
+			else if (mFile.getOriginalFilename().equals(UserBoard.getFile()) && !mFile.getOriginalFilename().equals("") ) {
+				
+				File fileDelete = new File(request.getRealPath("WEB-INF/upload/" +UserBoard.getFile()));
+				
+				if(fileDelete.exists()) {
+					fileDelete.delete();
+				}
+				
+				realFileName=UserBoard.getFile();
+				
+				file =new File(request.getRealPath("WEB-INF/upload/" +realFileName));
+				file.createNewFile();
+				mFile.transferTo(file);
+			}
+			
+			else if ( mFile.getOriginalFilename().equals("")) {
+				realFileName=UserBoard.getFile();
+			}
+			
+
+			
+		}
+		
+			
 		return realFileName;
 	}
 	

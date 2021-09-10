@@ -60,7 +60,7 @@ public class UserBoardController extends JsonUtill{
 	
 	@RequestMapping(value = "/userBoardInsert", method = RequestMethod.POST)
 	@ResponseBody
-	public JSONObject userBoardInsert(HttpServletRequest request, HttpServletResponse response,Locale locale, Model model,@ModelAttribute UserBoardVo vo) throws IOException {
+	public JSONObject userBoardInsert(HttpServletRequest request, HttpServletResponse response,Locale locale, Model model,UserBoardVo vo) throws IOException {
 		
 		String realFileName = fileUtill.fileUploadMethod(request);
 
@@ -83,10 +83,19 @@ public class UserBoardController extends JsonUtill{
 		return "sub/update";
 	}
 	
-	@RequestMapping(value = "/userBoardUpdate", method = RequestMethod.GET)
+	@RequestMapping(value = "/userBoardUpdate", method = RequestMethod.POST)
 	@ResponseBody
-	public JSONObject userBoardUpdate(Locale locale, Model model) {
-	
+	public JSONObject userBoardUpdate(HttpServletRequest request, HttpServletResponse response,Locale locale, Model model,UserBoardVo userBoard) throws IOException {
+		
+		
+
+		
+		String realFileName = fileUtill.fileUpdateMethod(request,userBoard);
+
+		userBoard.setFile(realFileName);
+
+		userBoardService.userBoardUpdate(userBoard);
+		
 		return super.jsonView("Success");
 	}
 	
@@ -97,4 +106,5 @@ public class UserBoardController extends JsonUtill{
 		return super.jsonView("Success");
 	}
 	
+
 }

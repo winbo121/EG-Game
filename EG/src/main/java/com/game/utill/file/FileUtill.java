@@ -115,6 +115,15 @@ public class FileUtill {
 		return realFileName;
 	}
 	
+	public void fileDeleteMethod(HttpServletRequest request, UserBoardVo UserBoard) throws IOException {
+		
+		File fileDelete = new File(request.getRealPath("WEB-INF/upload/" +UserBoard.getFile()));
+		
+		if(fileDelete.exists()) {
+			fileDelete.delete();
+		}
+	}
+	
 	
 	@RequestMapping("/fileDownload")
 	public void getFile( HttpServletRequest request,HttpServletResponse response,@RequestParam String filename) throws Exception {

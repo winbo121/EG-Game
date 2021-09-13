@@ -42,9 +42,9 @@ public class UserBoardServiceImpl implements UserBoardService{
 	}
 
 	@Override
-	public void userBoardDelete(List<String> del_list) {
+	public void userBoardDelete(Integer bno) {
 		
-		userBoardDao.userBoardDelete(del_list);
+		userBoardDao.userBoardDelete(bno);
 	}
 
 	@Override

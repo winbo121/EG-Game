@@ -63,6 +63,28 @@ $(document).ready(function(){
 		form.submit();
 	})
 	
+	$("#deleteBtn").on("click",function(){
+		
+		var formData = new FormData($('#userBoard')[0]);
+		
+		formData.append("file",$("#originFileName").text());
+		for (var item of formData.entries()) {
+		    console.log(item[0] + " : " + item[1]);
+		}
+		
+		$.ajax({
+			type: "POST" ,
+			url:  "/EG/userBoardDelete" ,
+			enctype: 'multipart/form-data',
+			data: formData,
+			processData: false,
+			contentType: false, 
+			success: function(data){
+				 $("#backBtn").trigger("click");
+			}
+		});
+	})
+	
 });
 
 </script>
@@ -82,6 +104,7 @@ $(document).ready(function(){
 			
 			<form:form modelAttribute="vo" method="GET" >
 			<form:hidden path="page"/>
+			<form:hidden path="search_text"/>
 			</form:form>
 			
 			<form:form modelAttribute="userBoard" method="POST" >
@@ -119,7 +142,8 @@ $(document).ready(function(){
 					<td><a href="/EG/fileDownload?filename=${userBoard.file}" id="originFileName">${userBoard.file}</a></td>
 					</tr>
 				</table><hr>
-				<button type = "button" id="updateBtn">수정하기</button>	
+				<button type = "button" id="updateBtn">수정하기</button>
+				<button type = "button" id="deleteBtn">삭제하기</button>		
 				<button type = "button" id="backBtn">뒤로가기</button>					
 			</form:form>
 		</div>

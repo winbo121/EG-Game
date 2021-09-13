@@ -15,7 +15,13 @@
 <script>
 $(document).ready(function(){
 	
+	$("#vo").submit(function() {
+		$( this ).find( "#page" ).val("1");
+	});
 	
+	$("#search_btn").click(function() {
+		$("#vo").submit();
+	});
 
 	
 	$(".read_form").on("click",function(){
@@ -44,10 +50,10 @@ $(document).ready(function(){
 		form.appendTo('body');
 		form.submit();
 		
-	})
+		
+	});
 	
 });
-
 </script>
 </head>
 <body>
@@ -58,11 +64,17 @@ $(document).ready(function(){
 	</div>
 
 	<div id="free_section">
-		<div id="search_box">
-			<label for="search"><b>검색어</b></label><input type="text"
-				name="search" placeholder="검색어를 입력하세요">
-			<button onclick="search();">검색</button>
-		</div>
+		<form:form modelAttribute="vo" method="GET">
+		
+			<div id="search_box">
+				<form:hidden path="page"/>
+				<label for="search"><b>검색어</b></label>
+				<form:input path="search_text" placeholder="검색어를 입력하세요" />
+				<button id="search_btn">검색</button>
+			</div>
+			
+		</form:form>
+		
 		<div id="select_div">
 			<select name="cat" id="cat">
 				<option value="자유게시판" selected>자유게시판</option>
@@ -107,15 +119,15 @@ $(document).ready(function(){
 		<div id="paging">
 		
 			<c:if test="${vo.prev }">
-			<a href="/EG/userBoardList?page=${vo.startPage-1 }"><-</a>
+			<a href="/EG/userBoardList?page=${vo.startPage-1 }&search_text=${vo.search_text}"><-</a>
 			</c:if>
 			
 			<c:forEach begin="${vo.startPage }" end="${vo.endPage }" var="idx">
-			<a href="/EG/userBoardList?page=${idx }">${idx }</a>
+			<a href="/EG/userBoardList?page=${idx }&search_text=${vo.search_text}">${idx }</a>
 			</c:forEach>
 			
 			<c:if test="${vo.next }">
-			<a href="/EG/userBoardList?page=${vo.endPage+1 }">-></a>
+			<a href="/EG/userBoardList?page=${vo.endPage+1 }&search_text=${vo.search_text}">-></a>
 			</c:if>
 			
 		</div>
@@ -125,9 +137,7 @@ $(document).ready(function(){
 	<footer class="footer">
 	
 	</footer>
-	<form:form modelAttribute="vo" method="GET">
-		<form:hidden path="page"/>
-	</form:form>
+
 	
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

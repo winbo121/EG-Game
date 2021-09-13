@@ -99,9 +99,14 @@ public class UserBoardController extends JsonUtill{
 		return super.jsonView("Success");
 	}
 	
-	@RequestMapping(value = "/userBoardDelete", method = RequestMethod.GET)
+	@RequestMapping(value = "/userBoardDelete", method = RequestMethod.POST)
 	@ResponseBody
-	public JSONObject userBoardDelete(Locale locale, Model model) {
+	public JSONObject userBoardDelete(HttpServletRequest request, HttpServletResponse response,Locale locale, Model model,UserBoardVo userBoard) throws IOException {
+		
+		
+		userBoardService.userBoardDelete(userBoard.getBoard_num());
+		
+		fileUtill.fileDeleteMethod(request,userBoard);
 		
 		return super.jsonView("Success");
 	}

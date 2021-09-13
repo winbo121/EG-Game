@@ -12,6 +12,9 @@ public class UserBoardVo extends PageMaker{
 	private String cotegory;
 	private Integer cnt;
 	private String created;
+	private String search_text;
+	
+	
 	public Integer getBoard_num() {
 		return board_num;
 	}
@@ -60,9 +63,12 @@ public class UserBoardVo extends PageMaker{
 	public void setCreated(String created) {
 		this.created = created;
 	}
-	
-	
-	
+	public String getSearch_text() {
+		return search_text;
+	}
+	public void setSearch_text(String search_text) {
+		this.search_text = search_text;
+	}
 	
 
 }

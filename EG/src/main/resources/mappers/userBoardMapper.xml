@@ -4,11 +4,20 @@
 <mapper namespace="userBoard">
 
 <select id="list"  resultType="UserBoardVo" parameterType="UserBoardVo">
-SELECT board_num, title, contents, user_id, file, cotegory, cnt, created FROM USER_BOARD ORDER BY board_num DESC LIMIT #{queryFirstStart}, #{displayContentNum}  
+SELECT A.board_num, A.title, A.contents, A.user_id, A.file, B.code_name AS cotegory, A.cnt, A.created FROM USER_BOARD A
+INNER JOIN CATEGORY_CODE B ON B.code_cd = A.cotegory
+WHERE 1=1
+<if test="search_text != null and search_text != '' ">
+and title LIKE concat( '%', #{search_text} , '%' )
+</if> 
+ORDER BY board_num DESC LIMIT #{queryFirstStart}, #{displayContentNum}  
 </select>
 
 <select id="listCnt" resultType="java.lang.Integer" parameterType="UserBoardVo">
-SELECT COUNT(*) FROM USER_BOARD
+SELECT COUNT(*) FROM USER_BOARD WHERE 1=1
+<if test="search_text != null and search_text != '' ">
+and title LIKE concat( '%', #{search_text} , '%' )
+</if> 
 </select>
 
 <insert id="insert" parameterType="UserBoardVo">
@@ -24,7 +33,7 @@ UPDATE USER_BOARD SET title = #{title}, contents = #{contents}, user_id = #{user
 </update>
 
 <delete id="delete" parameterType="UserBoardVo">
-
+DELETE FROM USER_BOARD WHERE board_num=#{board_num}
 </delete>
 
 </mapper>

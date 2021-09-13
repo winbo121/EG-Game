@@ -41,9 +41,9 @@ public class UserBoardDaoImpl implements UserBoardDao{
 	}
 
 	@Override
-	public void userBoardDelete(List<String> del_list) {
+	public void userBoardDelete(Integer bno) {
 		
-		sqlSession.delete("userBoard.delete", del_list);
+		sqlSession.delete("userBoard.delete", bno);
 	}
 
 	@Override

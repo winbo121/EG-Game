@@ -53,4 +53,10 @@ public class UserBoardServiceImpl implements UserBoardService{
 		return userBoardDao.userBoardListCnt(vo);
 	}
 
+	@Override
+	public void userBoardReadCnt(Integer bno) {
+		
+		userBoardDao.userBoardReadCnt(bno);
+	}
+
 }

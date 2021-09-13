@@ -52,4 +52,9 @@ public class UserBoardDaoImpl implements UserBoardDao{
 		return sqlSession.selectOne("userBoard.listCnt", vo);
 	}
 
+	@Override
+	public void userBoardReadCnt(Integer bno) {
+		sqlSession.update("userBoard.readCnt", bno);
+	}
+
 }

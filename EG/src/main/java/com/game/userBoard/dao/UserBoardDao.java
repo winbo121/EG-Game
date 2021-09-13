@@ -12,4 +12,5 @@ public interface UserBoardDao {
 	public void userBoardUpdate(UserBoardVo vo);
 	public void userBoardDelete(Integer bno);
 	public Integer userBoardListCnt(UserBoardVo vo);
+	public void userBoardReadCnt(Integer bno);
 }

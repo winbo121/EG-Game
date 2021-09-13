@@ -77,7 +77,7 @@ public class UserBoardController extends JsonUtill{
 	public String userBoardRead(Locale locale, Model model,@ModelAttribute UserBoardVo vo) {
 		
 		UserBoardVo userBoard=userBoardService.UserBoardRead(vo.getBoard_num());
-
+		userBoardService.userBoardReadCnt(vo.getBoard_num());
 		model.addAttribute("userBoard",userBoard);
 		model.addAttribute("vo",vo);
 		return "sub/update";

@@ -32,7 +32,11 @@ SELECT board_num, title, contents, user_id, file, cotegory FROM USER_BOARD WHERE
 UPDATE USER_BOARD SET title = #{title}, contents = #{contents}, user_id = #{user_id}, file = #{file}, cotegory= #{cotegory}  WHERE board_num = #{board_num}
 </update>
 
-<delete id="delete" parameterType="UserBoardVo">
+<update id="readCnt" parameterType="java.lang.Integer"> 
+UPDATE USER_BOARD SET cnt = IFNULL(cnt, 0)+1  WHERE board_num = #{board_num}
+</update>
+
+<delete id="delete" parameterType="java.lang.Integer">
 DELETE FROM USER_BOARD WHERE board_num=#{board_num}
 </delete>
 

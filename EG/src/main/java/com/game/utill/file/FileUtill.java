@@ -7,7 +7,6 @@ import java.net.URLEncoder;
 import java.util.Iterator;
 import java.util.UUID;
 
-import javax.inject.Inject;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.game.userBoard.service.UserBoardService;
+
 import com.game.userBoard.vo.UserBoardVo;
 
 @Controller
@@ -57,7 +56,7 @@ public class FileUtill {
 		return realFileName;
 	}
 	
-	public String fileUpdateMethod(HttpServletRequest request, UserBoardVo UserBoard) throws IOException {
+	public String fileUpdateMethod(HttpServletRequest request, String requestFileName ) throws IOException {
 		
 
 		String realFileName="";
@@ -75,8 +74,8 @@ public class FileUtill {
 			
 
 
-			if(!mFile.getOriginalFilename().equals(UserBoard.getFile()) && !mFile.getOriginalFilename().equals("")) {
-				File fileDelete = new File(request.getRealPath("WEB-INF/upload/" +UserBoard.getFile()));
+			if(!mFile.getOriginalFilename().equals(requestFileName) && !mFile.getOriginalFilename().equals("")) {
+				File fileDelete = new File(request.getRealPath("WEB-INF/upload/" +requestFileName));
 				
 				if(fileDelete.exists()) {
 					fileDelete.delete();
@@ -88,15 +87,15 @@ public class FileUtill {
 				mFile.transferTo(file);
 			}
 			
-			else if (mFile.getOriginalFilename().equals(UserBoard.getFile()) && !mFile.getOriginalFilename().equals("") ) {
+			else if (mFile.getOriginalFilename().equals(requestFileName) && !mFile.getOriginalFilename().equals("") ) {
 				
-				File fileDelete = new File(request.getRealPath("WEB-INF/upload/" +UserBoard.getFile()));
+				File fileDelete = new File(request.getRealPath("WEB-INF/upload/" +requestFileName));
 				
 				if(fileDelete.exists()) {
 					fileDelete.delete();
 				}
 				
-				realFileName=UserBoard.getFile();
+				realFileName=requestFileName;
 				
 				file =new File(request.getRealPath("WEB-INF/upload/" +realFileName));
 				file.createNewFile();
@@ -104,7 +103,7 @@ public class FileUtill {
 			}
 			
 			else if ( mFile.getOriginalFilename().equals("")) {
-				realFileName=UserBoard.getFile();
+				realFileName=requestFileName;
 			}
 			
 
@@ -115,9 +114,9 @@ public class FileUtill {
 		return realFileName;
 	}
 	
-	public void fileDeleteMethod(HttpServletRequest request, UserBoardVo UserBoard) throws IOException {
+	public void fileDeleteMethod(HttpServletRequest request, String requestFileName) throws IOException {
 		
-		File fileDelete = new File(request.getRealPath("WEB-INF/upload/" +UserBoard.getFile()));
+		File fileDelete = new File(request.getRealPath("WEB-INF/upload/" +requestFileName));
 		
 		if(fileDelete.exists()) {
 			fileDelete.delete();

@@ -29,7 +29,7 @@ public class UserBoardDaoImpl implements UserBoardDao{
 	}
 
 	@Override
-	public UserBoardVo UserBoardRead(Integer bno) {
+	public UserBoardVo userBoardRead(Integer bno) {
 		
 		return sqlSession.selectOne("userBoard.read", bno);
 	}

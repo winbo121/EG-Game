@@ -30,9 +30,9 @@ public class UserBoardServiceImpl implements UserBoardService{
 	}
 
 	@Override
-	public UserBoardVo UserBoardRead(Integer bno) {
+	public UserBoardVo userBoardRead(Integer bno) {
 
-		return userBoardDao.UserBoardRead(bno);
+		return userBoardDao.userBoardRead(bno);
 	}
 
 	@Override

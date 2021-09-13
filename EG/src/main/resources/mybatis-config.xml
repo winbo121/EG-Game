@@ -6,6 +6,7 @@
 <configuration>
 <typeAliases>
 <typeAlias alias="UserBoardVo" type="com.game.userBoard.vo.UserBoardVo"/>
+<typeAlias alias="CenterBoardVo" type="com.game.centerBoard.vo.CenterBoardVo"/>
 
 </typeAliases>
 </configuration>

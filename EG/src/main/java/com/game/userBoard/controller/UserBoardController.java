@@ -76,7 +76,7 @@ public class UserBoardController extends JsonUtill{
 	@RequestMapping(value = "/userBoardRead", method = RequestMethod.GET)
 	public String userBoardRead(Locale locale, Model model,@ModelAttribute UserBoardVo vo) {
 		
-		UserBoardVo userBoard=userBoardService.UserBoardRead(vo.getBoard_num());
+		UserBoardVo userBoard=userBoardService.userBoardRead(vo.getBoard_num());
 		userBoardService.userBoardReadCnt(vo.getBoard_num());
 		model.addAttribute("userBoard",userBoard);
 		model.addAttribute("vo",vo);
@@ -90,7 +90,7 @@ public class UserBoardController extends JsonUtill{
 		
 
 		
-		String realFileName = fileUtill.fileUpdateMethod(request,userBoard);
+		String realFileName = fileUtill.fileUpdateMethod(request,userBoard.getFile());
 
 		userBoard.setFile(realFileName);
 
@@ -106,7 +106,7 @@ public class UserBoardController extends JsonUtill{
 		
 		userBoardService.userBoardDelete(userBoard.getBoard_num());
 		
-		fileUtill.fileDeleteMethod(request,userBoard);
+		fileUtill.fileDeleteMethod(request,userBoard.getFile());
 		
 		return super.jsonView("Success");
 	}

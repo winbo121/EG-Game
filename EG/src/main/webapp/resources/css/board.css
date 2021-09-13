@@ -1576,7 +1576,19 @@ caption, em, strong, th{
     height: 32px;
 }
 
+.qa_tbl_content #inquiry_name{
+	width: 250px;
+}
+
+select:required:invalid {
+  color: gray;
+}
+option[value=""][disabled] {
+  display: none;
+}
+
 .qa_tbl_content .input_st {
+	width: 285px;
     height: 30px;
     padding-left: 10px;
     border: 1px solid #ccc;
@@ -1601,7 +1613,7 @@ caption, em, strong, th{
 }
 
 .file_del_list_new div {
-    width: 300px;
+    width: 285px;
     height: 100px;
     padding: 5px 10px;
     border: 1px solid #ccc;

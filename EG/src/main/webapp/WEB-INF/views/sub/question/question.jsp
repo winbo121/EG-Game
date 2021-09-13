@@ -29,20 +29,28 @@
 					<table>
 						<caption>상담 문의입력</caption>
 						<colgroup>
-							<col style="width: 18%">
-							<col style="width: 37%">
-							<col style="width: 45%">
+							<col style="width: 17%">
+							<col style="width: 33%">
+							<col style="width: 16%">
+							<col style="width: 34%">
 						</colgroup>
 						<tbody>
 							<tr>
 								<th scope="row">문의유형</th>
-								<td id="inquiry_name"></td>
-								<th scope="row">닉네임</th>
-								<td><span id="longinNickname"></span></td>
+								<td colspan="3">
+									<select id="inquiry_name" required style="width: 250px" class="select_st" title="문의 유형을 선택하세요.">
+										<option value="" disabled selected>문의 유형을 선택하세요.</option>
+										<option value="아이디정보/보안">아이디정보/보안</option>
+										<option value="게임문의">게임문의</option>
+										<option value="오류 및 복구">오류 및 복구</option>
+								</select>
+								</td>
 							</tr>
 							<tr class="" id="sessionlogin">
 								<th scope="row">ID</th>
 								<td><span id="longinid"></span></td>
+								<th scope="row">닉네임</th>
+								<td><span id="longinNickname"></span></td>
 							</tr>
 							<tr>
 								<th scope="row">제목</th>
@@ -76,7 +84,7 @@
 								<th scope="row">첨부파일</th>
 								<td colspan="3">
 									<div class="file_sch">
-										<input type="text" style="width: 300px" class="input_st">
+										<input type="text" class="input_st">
 										<input type="file" style="width: 100%" class="input_st"
 											id="my_file" name="my_file" multiple="multiple"
 											accept=".gif, .jpeg, .jpg, .png, .bmp, .doc, .docx, .xls, .xlsx, .ppt, .pptx, .csv, .html, .htm, .7z, .zip, .pdf, .txt, .hwp"

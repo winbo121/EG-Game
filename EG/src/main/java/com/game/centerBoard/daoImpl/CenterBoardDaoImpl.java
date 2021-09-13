@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.game.centerBoard.dao.CenterBoardDao;
 import com.game.centerBoard.vo.CenterBoardVo;
-import com.game.userBoard.vo.UserBoardVo;
+
 
 @Repository
 public class CenterBoardDaoImpl implements CenterBoardDao{
@@ -33,7 +33,7 @@ public class CenterBoardDaoImpl implements CenterBoardDao{
 	}
 
 	@Override
-	public UserBoardVo centerBoardRead(Integer bno) {
+	public CenterBoardVo centerBoardRead(Integer bno) {
 
 		return sqlSession.selectOne("centerBoard.read", bno);
 	}

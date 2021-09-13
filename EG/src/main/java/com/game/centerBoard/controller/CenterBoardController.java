@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.game.centerBoard.service.CenterBoardService;
 import com.game.centerBoard.vo.CenterBoardVo;
-import com.game.userBoard.vo.UserBoardVo;
+
 import com.game.utill.file.FileUtill;
 import com.game.utill.json.JsonUtill;
 
@@ -45,13 +45,13 @@ public class CenterBoardController extends JsonUtill{
 		model.addAttribute("list", list);
 		model.addAttribute("vo",vo);
 		
-		return "sub/free_board";
+		return "sub/help";
 	}
 	
 	@RequestMapping(value = "/centerBoardInsertPro", method = RequestMethod.GET)
 	public String centerBoardInsertPro(Locale locale, Model model) {
 		
-		return "sub/write";
+		return "sub/question";
 	}
 	
 	@RequestMapping(value = "/centerBoardInsert", method = RequestMethod.POST)
@@ -70,21 +70,18 @@ public class CenterBoardController extends JsonUtill{
 
 	
 	@RequestMapping(value = "/centerBoardRead", method = RequestMethod.GET)
-	public String centerBoardRead(Locale locale, Model model,@ModelAttribute UserBoardVo vo) {
+	public String centerBoardRead(Locale locale, Model model,@ModelAttribute CenterBoardVo vo) {
 		
-		UserBoardVo userBoard=centerBoardService.centerBoardRead(vo.getBoard_num());
+		CenterBoardVo centerBoard=centerBoardService.centerBoardRead(vo.getBoard_num());
 		centerBoardService.centerBoardReadCnt(vo.getBoard_num());
-		model.addAttribute("userBoard",userBoard);
+		model.addAttribute("userBoard",centerBoard);
 		model.addAttribute("vo",vo);
-		return "sub/update";
+		return "sub/question_content";
 	}
 	
 	@RequestMapping(value = "/centerBoardUpdate", method = RequestMethod.POST)
 	@ResponseBody
 	public JSONObject centerBoardUpdate(HttpServletRequest request, HttpServletResponse response,Locale locale, Model model,CenterBoardVo centerBoard) throws IOException {
-		
-		
-
 		
 		String realFileName = fileUtill.fileUpdateMethod(request,centerBoard.getFile());
 

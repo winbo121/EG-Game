@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import com.game.centerBoard.dao.CenterBoardDao;
 import com.game.centerBoard.service.CenterBoardService;
 import com.game.centerBoard.vo.CenterBoardVo;
-import com.game.userBoard.vo.UserBoardVo;
 
 @Service
 public class CenterBoardServiceImpl implements CenterBoardService{
@@ -32,7 +31,7 @@ public class CenterBoardServiceImpl implements CenterBoardService{
 	}
 
 	@Override
-	public UserBoardVo centerBoardRead(Integer bno) {
+	public CenterBoardVo centerBoardRead(Integer bno) {
 
 		return centerBoardDao.centerBoardRead(bno);
 	}

@@ -51,7 +51,7 @@
 			<artifactId>spring-context-support</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-		              <!-- 	mysql db연동 -->
+		<!-- 	mysql db연동 -->
         	<dependency>
 		    <groupId>mysql</groupId>
 		    <artifactId>mysql-connector-java</artifactId>
@@ -122,9 +122,10 @@
 		
 		<!-- 웹채팅 -->		
 		<dependency>
-		    <groupId>org.apache.tiles</groupId>
-		    <artifactId>tiles-core</artifactId>
-		    <version>2.2.1</version>
+		    <groupId>javax.websocket</groupId>
+		    <artifactId>javax.websocket-api</artifactId>
+		    <version>1.1</version>
+		    <scope>provided</scope>
 		</dependency>
 		
 		<!-- 웹채팅 -->	

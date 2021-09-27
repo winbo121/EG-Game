@@ -1,16 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>고객센터</title>
-<link rel="stylesheet" type="text/css" href="../../css/board.css" />
-<link rel="stylesheet" type="text/css" href="../../css/main.css" />
-<link rel="stylesheet" type="text/css" href="../../css/footer_btn.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/board.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/main.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/footer_btn.css" />
 <link rel='stylesheet'
 	href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css'>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	
+	<script>
+$(document).ready(function(){
+	
+	$("#vo").submit(function() {
+		$( this ).find( "#page" ).val("1");
+	});
+	
+	$("#search_btn").click(function() {
+		$("#vo").submit();
+	});
+
+
+	
+});
+</script>
 </head>
 <body>
 	<div id="header"></div>
@@ -38,14 +57,14 @@
 						<ul>
 							<li class="tab1"><strong>답변 중</strong> <em>+0개</em>의 문의가 답변중
 								<a href="#"
-								onclick="window.open ('question/help_answering.jsp',
+								onclick="window.open ('/EG/centerBoardAnsweringList',
 									'cong_window' , 'toolbar=0, location=0, status=0, menubar=0, scrollbars=1, resizable=no, top=50, left=20, width=700, height=730');
 										return false"
 								onfocus='this.blur()' class="btn_link" id="answering">확인</a></li>
 
 							<li class="tab2"><strong>답변 완료</strong> <em>+0개</em>의 문의가 답변
 								완료 <a href="#"
-								onclick="window.open ('question/help_answer.jsp',
+								onclick="window.open ('/EG/centerBoardAnswerList',
 									'cong_window' , 'toolbar=0, location=0, status=0, menubar=0, scrollbars=1, resizable=no, top=50, left=20, width=700, height=730');
 										return false"
 								onfocus='this.blur()' class="btn_link" id="btn2">확인</a></li>
@@ -67,7 +86,7 @@
 									<div class="ns_item swiper-slide">
 										<a href=""> 
 											<span class="ns_thumb"> 
-											<img src="../../img/1.jpg" alt="">
+											<img src="resources/img/1.jpg" alt="">
 										</span> <span class="tit">(예시)공지사항 제목입니다. 알겠습니까</span> 
 										<span class="desc">요약 내용</span> <span class="etc"> <em class="date">어제</em> <em
 												class="name"><span>운영자</span></em>
@@ -77,7 +96,7 @@
 									<div class="ns_item swiper-slide">
 										<a href=""> 
 											<span class="ns_thumb"> 
-											<img src="../../img/2.jpg" alt="">
+											<img src="resources/img/2.jpg" alt="">
 										</span> <span class="tit">(예시)공지사항 제목입니다. 알겠습니까</span> 
 										<span class="desc">요약 내용</span> <span class="etc"> <em class="date">어제</em> <em
 												class="name"><span>운영자</span></em>
@@ -87,7 +106,7 @@
 									<div class="ns_item swiper-slide">
 										<a href=""> 
 											<span class="ns_thumb"> 
-											<img src="../../img/3.jpg" alt="">
+											<img src="resources/img/3.jpg" alt="">
 										</span> <span class="tit">(예시)공지사항 제목입니다. 알겠습니까</span> 
 										<span class="desc">요약 내용</span> <span class="etc"> <em class="date">어제</em> <em
 												class="name"><span>운영자</span></em>
@@ -97,7 +116,7 @@
 									<div class="ns_item swiper-slide">
 										<a href=""> 
 											<span class="ns_thumb"> 
-											<img src="../../img/4.jpg" alt="">
+											<img src="resources/img/4.jpg" alt="">
 										</span> <span class="tit">(예시)공지사항 제목입니다. 알겠습니까</span> 
 										<span class="desc">요약 내용</span> <span class="etc"> <em class="date">어제</em> <em
 												class="name"><span>운영자</span></em>
@@ -107,7 +126,7 @@
 									<div class="ns_item swiper-slide">
 										<a href=""> 
 											<span class="ns_thumb"> 
-											<img src="../../img/5.jpg" alt="">
+											<img src="resources/img/5.jpg" alt="">
 										</span> <span class="tit">(예시)공지사항 제목입니다. 알겠습니까</span> 
 										<span class="desc">요약 내용</span> <span class="etc"> <em class="date">어제</em> <em
 												class="name"><span>운영자</span></em>
@@ -123,52 +142,66 @@
 			<div class="wrap">
 				<div class="help_list">
 					<div class="header">
-						<div class="search__container">
-							<input class="search__input" type="text" placeholder="Search">
-							<input class="search__button" type="button">
-						</div>
+					
+				<form:form modelAttribute="vo" method="GET">
+		
+					<div class="search__container">
+						<form:hidden path="page"/>
+						<form:input path="search_text" placeholder="검색어를 입력하세요"  class="search__input"/>
+						<input class="search__button" type="button">
+					</div>
+			
+				</form:form>
+					
+
 					</div>
 					<div class="help_content">
 						<div class="list_wrap">
 							<div class="thead">
 								<div class="tr">
-									<span class="th sort">닉네임</span> <span class="th subject">제목</span>
+									<span class="th sort">아이디</span> <span class="th subject">제목</span>
 									<span class="th date">작성일</span> <span class="th count">조회수</span>
 								</div>
 							</div>
 							<div class="tbody">
+										
+
+			
 								<div class="tr">
-								<a href="#"
-								onclick="window.open ('question/question_content.jsp',
-									'cong_window' , 'toolbar=0, location=0, status=0, menubar=0, scrollbars=1, resizable=no, top=50, left=20, width=700, height=730');
-										return false"
-								onfocus='this.blur()' class="btn_link" id="answering">
-									<span class="td sort">닉네임</span> <span class="td subject">제목</span>
-									<span class="td date">작성일</span> <span class="td count">조회수</span>
-								</a>
-								</div>
-								<div class="tr">
-									<span class="td sort">닉네임</span> <span class="td subject">제목</span>
-									<span class="td date">작성일</span> <span class="td count">조회수</span>
-								</div>
-								<div class="tr">
-									<span class="td sort">닉네임</span> <span class="td subject">제목</span>
-									<span class="td date">작성일</span> <span class="td count">조회수</span>
-								</div>
-								<div class="tr">
-									<span class="td sort">닉네임</span> <span class="td subject">제목</span>
-									<span class="td date">작성일</span> <span class="td count">조회수</span>
-								</div>
-								<div class="tr">
-									<span class="td sort">닉네임</span> <span class="td subject">제목</span>
-									<span class="td date">작성일</span> <span class="td count">조회수</span>
+									<c:forEach var="list" items="${list }">
+										<a href="#"
+										onclick="window.open ('/EG/centerBoardRead',
+											'cong_window' , 'toolbar=0, location=0, status=0, menubar=0, scrollbars=1, resizable=no, top=50, left=20, width=700, height=730');
+												return false"
+										onfocus='this.blur()' class="btn_link" id="answering">
+											<span class="td sort">${list.user_id }</span> <span class="td subject">${list.title }</span>
+											<span class="td date">${list.created }</span> <span class="td count">${list.cnt }</span>
+										</a>
+									</c:forEach>
 								</div>
 							</div>
 						</div>
 					</div>
+					
+			<div id="paging">
+		
+				<c:if test="${vo.prev }">
+				<a href="/EG/centerBoardList?page=${vo.startPage-1 }&search_text=${vo.search_text}"><-</a>
+				</c:if>
+				
+				<c:forEach begin="${vo.startPage }" end="${vo.endPage }" var="idx">
+				<a href="/EG/centerBoardList?page=${idx }&search_text=${vo.search_text}">${idx }</a>
+				</c:forEach>
+				
+				<c:if test="${vo.next }">
+				<a href="/EG/centerBoardList?page=${vo.endPage+1 }&search_text=${vo.search_text}">-></a>
+				</c:if>
+			
+			</div>
+					
 					<div class="question">
 						<a href="#"
-								onclick="window.open ('question/question.jsp',
+								onclick="window.open ('/EG/centerBoardInsertPro',
 									'cong_window' , 'toolbar=0, location=0, status=0, menubar=0, scrollbars=1, resizable=no, top=50, left=20, width=700, height=730');
 										return false"
 								onfocus='this.blur()' class="inquiry">
@@ -203,6 +236,6 @@
 	<!-- Swiper JS -->
 	<script type="text/javascript"
 		src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.js"></script>
-	<script type="text/javascript" src="../../controller/js/board/board.js"></script>
+	<script type="text/javascript" src="resources/controller/js/board/board.js"></script>
 </body>
 </html>

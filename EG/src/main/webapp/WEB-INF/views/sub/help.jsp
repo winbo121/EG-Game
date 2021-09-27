@@ -148,7 +148,7 @@ $(document).ready(function(){
 					<div class="search__container">
 						<form:hidden path="page"/>
 						<form:input path="search_text" placeholder="검색어를 입력하세요"  class="search__input"/>
-						<button id="search_btn">검색</button>
+						<input class="search__button" type="button">
 					</div>
 			
 				</form:form>

@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>EG 고객센터 문의</title>
-<link rel="stylesheet" type="text/css" href="../../../css/board.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/board.css" />
 </head>
 <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
 <body>
@@ -14,9 +14,9 @@
 		<div class="qa_nav">
 			<ul>
 				<li id="qa_menu_li" class="qa_menu_on"><a class="qa_on"><strong>1대1문의</strong></a></li>
-				<li id="qa_menu_li"><a onclick="location.href='help_answering.jsp'"><strong>답변중</strong></a>
+				<li id="qa_menu_li"><a onclick="location.href='/EG/centerBoardAnsweringList'"><strong>답변중</strong></a>
 				</li>
-				<li id="qa_menu_li"><a onclick="location.href='help_answer.jsp'"><strong>답변완료</strong></a>
+				<li id="qa_menu_li"><a onclick="location.href='/EG/centerBoardAnswerList'"><strong>답변완료</strong></a>
 				</li>
 			</ul>
 		</div>
@@ -89,13 +89,13 @@
 											id="my_file" name="my_file" multiple="multiple"
 											accept=".gif, .jpeg, .jpg, .png, .bmp, .doc, .docx, .xls, .xlsx, .ppt, .pptx, .csv, .html, .htm, .7z, .zip, .pdf, .txt, .hwp"
 											onchange="readURL(this);"> <img id="bt_fileImage"
-											src="../../../img/board/btn_help_filesch.gif" alt="첨부파일 찾아보기"
+											src="resources/img/board/btn_help_filesch.gif" alt="첨부파일 찾아보기"
 											align="right">
 									</div>
 									<div class="file_del_list_new clfix">
 										<div id="fileList" title="첨부파일 목록" class="list_add"></div>
 										<a title="첨부파일 삭제" id="fileDelete" onclick="remove_file();">
-											<img src="../../../img/board/btn_help_del.gif" alt="파일삭제"
+											<img src="resources/img/board/btn_help_del.gif" alt="파일삭제"
 											align="right">
 										</a>
 
@@ -144,14 +144,14 @@
 				</div>
 				<div class="btn_zone">
 					<a> 
-						<img src="../../../img/board/bt_question.png">
+						<img src="resources/img/board/bt_question.png">
 					</a>
 				</div>
 			</div>
 		</div>
 	</div>
 	
-	<script type="text/javascript" src="../../../controller/js/board/board.js"></script>
+	<script type="text/javascript" src="resources/controller/js/board/board.js"></script>
 	
 </body>
 </html>

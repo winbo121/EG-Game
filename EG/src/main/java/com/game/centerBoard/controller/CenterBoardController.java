@@ -50,8 +50,17 @@ public class CenterBoardController extends JsonUtill{
 	
 	@RequestMapping(value = "/centerBoardInsertPro", method = RequestMethod.GET)
 	public String centerBoardInsertPro(Locale locale, Model model) {
-		
-		return "sub/question";
+		return "sub/question/question";
+	}
+	
+	@RequestMapping(value = "/centerBoardAnswerList", method = RequestMethod.GET)
+	public String centerBoardAnswerList(Locale locale, Model model) {
+		return "sub/question/help_answer";
+	}
+	
+	@RequestMapping(value = "/centerBoardAnsweringList", method = RequestMethod.GET)
+	public String centerBoardAnsweringList(Locale locale, Model model) {
+		return "sub/question/help_answering";
 	}
 	
 	@RequestMapping(value = "/centerBoardInsert", method = RequestMethod.POST)
@@ -76,7 +85,7 @@ public class CenterBoardController extends JsonUtill{
 		centerBoardService.centerBoardReadCnt(vo.getBoard_num());
 		model.addAttribute("userBoard",centerBoard);
 		model.addAttribute("vo",vo);
-		return "sub/question_content";
+		return "sub/question/question_content";
 	}
 	
 	@RequestMapping(value = "/centerBoardUpdate", method = RequestMethod.POST)

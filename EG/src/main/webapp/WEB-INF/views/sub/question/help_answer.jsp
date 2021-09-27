@@ -6,15 +6,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>EG 고객센터 문의</title>
-<link rel="stylesheet" type="text/css" href="../../../css/board.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/board.css" />
 </head>
 <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
 <body>
 	<div id="qa_wrapper" class="clfix">
 		<div class="qa_nav">
 			<ul>
-				<li id="qa_menu_li"><a onclick="location.href='question.jsp'"><strong>1대1문의</strong></a></li>
-				<li id="qa_menu_li"><a onclick="location.href='help_answering.jsp'"><strong>답변중</strong></a>
+				<li id="qa_menu_li"><a onclick="location.href='/EG/centerBoardInsertPro'"><strong>1대1문의</strong></a></li>
+				<li id="qa_menu_li"><a onclick="location.href='/EG/centerBoardAnsweringList'"><strong>답변중</strong></a>
 				</li>
 				<li id="qa_menu_li" class="qa_menu_on"><a class="qa_on"><strong>답변완료</strong></a>
 				</li>
@@ -56,7 +56,7 @@
 		</div>
 	</div>
 	
-	<script type="text/javascript" src="../../../controller/js/board/board.js"></script>
+	<script type="text/javascript" src="resources/controller/js/board/board.js"></script>
 	
 </body>
 </html>

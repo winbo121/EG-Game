@@ -52,10 +52,12 @@ public class CenterBoardController extends JsonUtill{
 	public String centerBoardInsertPro(Locale locale, Model model) {
 		return "sub/question/question";
 	}
+	
 	@RequestMapping(value = "/centerBoardAnswerList", method = RequestMethod.GET)
 	public String centerBoardAnswerList(Locale locale, Model model) {
 		return "sub/question/help_answer";
 	}
+	
 	@RequestMapping(value = "/centerBoardAnsweringList", method = RequestMethod.GET)
 	public String centerBoardAnsweringList(Locale locale, Model model) {
 		return "sub/question/help_answering";

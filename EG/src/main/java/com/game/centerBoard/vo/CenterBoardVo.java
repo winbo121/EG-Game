@@ -13,6 +13,21 @@ public class CenterBoardVo extends PageMaker{
 	private Integer cnt;
 	private String created;
 	private String search_text;
+	private String email;
+	private String process;
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getProcess() {
+		return process;
+	}
+	public void setProcess(String process) {
+		this.process = process;
+	}
 	public Integer getBoard_num() {
 		return board_num;
 	}

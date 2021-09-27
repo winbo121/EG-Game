@@ -4,7 +4,7 @@
 <mapper namespace="centerBoard">
 
 <select id="list"  resultType="CenterBoardVo" parameterType="CenterBoardVo">
-SELECT A.board_num, A.title, A.contents, A.user_id, A.file, B.code_name AS cotegory, A.cnt, A.created FROM CENTER_BOARD A
+SELECT A.board_num, A.title, A.contents, A.user_id, A.file, B.code_name AS cotegory, A.cnt, DATE_FORMAT(A.created, '%y-%m-%d') AS created FROM CENTER_BOARD A
 INNER JOIN CATEGORY_CODE B ON B.code_cd = A.cotegory
 WHERE 1=1
 <if test="search_text != null and search_text != '' ">
@@ -21,7 +21,7 @@ and title LIKE concat( '%', #{search_text} , '%' )
 </select>
 
 <insert id="insert" parameterType="CenterBoardVo">
-INSERT INTO CENTER_BOARD (title, contents, user_id, file, cotegory) VALUES (#{title},#{contents},#{user_id},#{file},#{cotegory})
+INSERT INTO CENTER_BOARD (title, contents, user_id, file, cotegory,email) VALUES (#{title},#{contents},#{user_id},#{file},#{cotegory},#{email})
 </insert>
 
 <select id="read"  resultType="UserBoardVo" parameterType="java.lang.Integer">

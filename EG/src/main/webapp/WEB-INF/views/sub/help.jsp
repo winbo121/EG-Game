@@ -125,6 +125,7 @@
 					<div class="header">
 						<div class="search__container">
 							<input class="search__input" type="text" placeholder="Search">
+							<input class="search__button" type="button">
 						</div>
 					</div>
 					<div class="help_content">

@@ -10,8 +10,8 @@ $(".inquiry .icon").hover(function() {
 
 $(document).ready(function() {
 	
-	$("#header").load("../layout/header.jsp");
-	$(".footer").load("../layout/footer.jsp");
+	$("#header").load("/EG/header/");
+	$(".footer").load("/EG/footer/");
 	
 	$(window).scroll(function() {
 		if ($(this).scrollTop() > 40) {

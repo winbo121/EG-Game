@@ -24,8 +24,8 @@ and title LIKE concat( '%', #{search_text} , '%' )
 INSERT INTO CENTER_BOARD (title, contents, user_id, file, cotegory,email) VALUES (#{title},#{contents},#{user_id},#{file},#{cotegory},#{email})
 </insert>
 
-<select id="read"  resultType="UserBoardVo" parameterType="java.lang.Integer">
-SELECT board_num, title, contents, user_id, file, cotegory FROM CENTER_BOARD WHERE board_num = #{board_num}
+<select id="read"  resultType="CenterBoardVo" parameterType="java.lang.Integer">
+SELECT A.board_num, A.title, A.contents, A.user_id, A.file, B.code_name AS cotegory FROM CENTER_BOARD A INNER JOIN CATEGORY_CODE B ON B.code_cd = A.cotegory WHERE board_num = #{board_num}
 </select>
 
 <update id="update" parameterType="CenterBoardVo"> 

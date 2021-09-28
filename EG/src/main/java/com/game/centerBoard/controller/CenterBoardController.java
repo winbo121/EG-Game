@@ -80,11 +80,11 @@ public class CenterBoardController extends JsonUtill{
 	
 	@RequestMapping(value = "/centerBoardRead", method = RequestMethod.GET)
 	public String centerBoardRead(Locale locale, Model model,@ModelAttribute CenterBoardVo vo) {
-		
+
 		CenterBoardVo centerBoard=centerBoardService.centerBoardRead(vo.getBoard_num());
 		centerBoardService.centerBoardReadCnt(vo.getBoard_num());
-		model.addAttribute("userBoard",centerBoard);
-		model.addAttribute("vo",vo);
+		model.addAttribute("centerBoard",centerBoard);
+		
 		return "sub/question/question_content";
 	}
 	

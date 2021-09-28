@@ -27,30 +27,29 @@
 						<tbody>
 							<tr>
 								<th scope="row">문의유형</th>
-								<td id="inquiry_name"></td>
-								<th scope="row">닉네임</th>
-								<td><span id="longinNickname"></span></td>
+								<td  colspan="3" id="inquiry_name">${centerBoard.cotegory }</td>
+
 							</tr>
 							<tr class="" id="sessionlogin">
 								<th scope="row">ID</th>
-								<td><span id="longinid"></span></td>
+								<td colspan="3"><span id="longinid">${centerBoard.user_id }</span></td>
 							</tr>
 							<tr>
 								<th scope="row">제목</th>
 								<td colspan="3"><input type="text" style="width: 100%"
-									class="input_st" id="inquiry_ctitle"></td>
+									class="input_st" id="inquiry_ctitle" value="${centerBoard.title }"></td>
 							</tr>
 							<tr id="inquirytrText">
 								<th>내용</th>
 								<td colspan="3"><textarea class="input_st"
 										id="inquiry_receptionform"
-										style="width: 95%; height: 150px; resize: none"></textarea></td>
+										style="width: 95%; height: 150px; resize: none">${centerBoard.contents }</textarea></td>
 							</tr>
 							<tr>
 								<th scope="row">첨부파일</th>
 								<td colspan="3">
 									<div class="file_del_list_new clfix">
-										<div id="fileList" title="첨부파일 목록" class="list_add"></div>
+										<div id="fileList" title="첨부파일 목록" class="list_add"><a href="/EG/fileDownload?filename=${centerBoard.file}">${centerBoard.file }</a></div>
 									</div>
 								</td>
 							</tr>

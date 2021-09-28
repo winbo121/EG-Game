@@ -172,7 +172,7 @@ function gotoBack(){
 								<div class="tr">
 									<c:forEach var="list" items="${list }">
 										<a href="#"
-										onclick="window.open ('/EG/centerBoardRead',
+										onclick="window.open ('/EG/centerBoardRead?board_num=${list.board_num}',
 											'cong_window' , 'toolbar=0, location=0, status=0, menubar=0, scrollbars=1, resizable=no, top=50, left=20, width=700, height=730');
 												return false"
 										onfocus='this.blur()' class="btn_link" id="answering">

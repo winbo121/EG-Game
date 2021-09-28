@@ -1,0 +1,521 @@
+  
+apt-get install docker.io (밖 우분투에서 도커 깔기)
+docker pull ubuntu:16.04 (없을시)
+
+-------------- 컨테이너 생성 --------------
+docker run -d --privileged -p{포워딩할 임의 포트}:8080 -p{포워딩할 임의 포트}:3306 --name {컨테이너 이름} ubuntu:16.04 /sbin/init
+docker exec -it {컨테이너 이름} /bin/bash
+
+
+-------------- 우분투 들어올시 ---------
+apt-get update
+apt-get install git
+
+
+apt-get install openjdk-8-jre-headless
+apt-get install openjdk-8-jdk
+java -version
+
+apt-get install tomcat8
+/usr/share/tomcat8/bin/version.sh
+service tomcat8 start
+http://서버의아이피:{도커쪽으로 포워딩할 임의 포트}
+
+***.war ---> /var/lib/tomcat8/webapps/ 파일저장
+
+-------------#mysql 설치-------------
+
+apt-get install -y mysql-server ufw
+
+vim /etc/mysql/mysql.conf.d/mysqld.cnf
+
+#bind-address 127.0.0.1  <-- 주석처리
+
+service mysql restart
+
+mysql -u root -p
+
+create user 'root'@'%' identified by '123456';
+
+grant all privileges on *.* to 'root'@'%' with grant option;
+
+flush privileges;
+
+service mysql restart
+
+ufw allow out 3306/tcp
+
+ufw allow in 3306/tcp
+
+service mysql restart
+
+
+-------------#mariadb 설치-------------
+apt-get update
+apt-get install mariadb-server
+service mysql restart -> mysql 재기동
+mysql_secure_installation -> 비밀번호 초기화 후 y
+
+
+mysql -u root -p (접속)
+
+show databases;
+
+use [데이터베이스 명<스키마 명>]
+
+use mysql (모든유저 관리) 
+{
+select * from user\G; (유저들 조회)
+update user set plugin='' where user='root' and host = 'localhost'; (root 비번없이 들어가지는것을 방지)
+flush privileges;
+create user [아이디] @localhost identified by '[비번]'; (유저 추가)
+drop user [아이디] @localhost; (유저 삭제)
+grant all privileges on [스키마 명].[테이블 명] to 'winbo121' @localhost identified by '[비번]'; (권한주기)
+show grants for '[아이디]' @localhost; 
+revoke all on [스키마 명].[테이블 명] from '[아이디]' @localhost; (권한삭제)
+}
+
+create schema [데이터베이스 명] (데이터베이스<스키마> 만들기)
+
+mysqldump -u [자신아이디] -p [스키마명] > [파일명].sql (데이터베이스 export하기)
+mysqldump -u [자신아이디] -p [스키마명] < [파일명].sql (데이터베이스 import하기)
+
+(일반 콘솔창)mysqldump -h [외부 아이피] -u[외부 아이디] -p[외부 비번] [외부에서 가져올 스키마 명] | mysql -u[자신 아이디] -p[자신 비번] [자신의 적용할 <만들어진>스키마 명]; (외부에서 디비 가져오기)
+
+
+-------------------------------데이터베이스 오라클 -----------------------------------------------
+
+/*인덱스 설정*/
+CREATE INDEX userinfo_index on userinfo(name);
+
+
+/*함수 설정*/
+CREATE or REPLACE FUNCTION userinfo_function1 (test VARCHAR2) RETURN VARCHAR2 
+	IS num1 NUMBER;
+    
+   BEGIN
+	    
+  	IF TEST = 'EX1' THEN
+      		SELECT count(*) INTO  num1 FROM userinfo;
+      
+ 	ELSIF TEST = 'EX2' THEN
+        	SELECT count(*)+10 INTO  num1 FROM userinfo;
+        
+    	END IF;
+    
+      RETURN num1;
+        
+   END userinfo_function1;
+
+
+/*함수 확인*/
+SELECT userinfo_function1('EX2') FROM DUAL;
+
+
+/*시퀀스 생성*/
+CREATE SEQUENCE idx_userinfo INCREMENT BY 1 MINVALUE 1 MAXVALUE 999999;
+
+
+/*시퀀스 증가 및 조회*/
+SELECT idx_userinfo.nextVal FROM DUAL;
+
+
+/*사용자가 만든 시퀀스 목록 조회*/
+SELECT * FROM user_sequences;
+
+
+/*프로시저 만들기*/
+CREATE  PROCEDURE auto_input (num1 IN NUMBER)
+IS
+    vn_num NUMBER := num1;
+BEGIN
+
+    LOOP
+    
+     insert into userinfo (name,password) values (concat('test',idx_userinfo.nextVal),'9999');
+     
+     dbms_output.put_line(vn_num); <-콘솔로 숫자 찍기
+     
+     vn_num := vn_num+1;
+     
+     EXIT WHEN vn_num > 10;
+     
+    END LOOP;
+
+END;
+
+
+/*콘솔 찍기위한 옵션켜기*/
+SET SERVEROUTPUT ON;
+
+
+/*프로시저 실행*/
+EXECUTE auto_input(0);
+
+
+/*프로시저 삭제*/
+DROP PROCEDURE auto_input;
+
+
+/*콤마로 한꺼번에 정리해서 name과 password 출력 */
+select LISTAGG(name, ',') within group (order by name asc) AS NAMES , LISTAGG(PASSWORD, ',') within group (order by name asc) AS NAMES from userinfo;
+
+
+
+/*mysql 프로시저*/
+DELIMITER $$
+ DROP PROCEDURE IF EXISTS test_mysql_while_loop$$
+ CREATE PROCEDURE test_mysql_while_loop()
+ BEGIN
+ DECLARE x INT;
+ 
+ SET x = 0;
+
+ 
+ WHILE x  <= 100 DO
+
+insert into userinfo values (concat('test',x),7878);
+
+ SET  x = x + 1; 
+ END WHILE;
+ 
+ END
+ $$ DELIMITER ;
+ 
+ /*프로시저 호출*/
+ CALL test_mysql_while_loop();
+
+
+
+
+
+<<우분투 오라클 설치 명령어>>
+https://www.oracle.com/database/technologies/xe-prior-releases.html 다운로드 받는곳
+
+docker cp oracle-xe-11.2.0-1.0.x86_64.rpm.zip <컨테이너 이름>:/
+
+apt-get install bc
+
+unzip oracle*
+
+cd Disk1/
+
+apt-get -y install alien libaio1 unixodbc
+
+alien --scripts -d oracle*
+
+dpkg --install oracle*.deb
+
+apt-get install net-tools
+
+/etc/init.d/oracle-xe configure
+
+systemctl start oracle-xe
+
+systemctl status oracle-xe
+
+vim /etc/bash.bashrc  -> 맨 밑에 . /u01/app/oracle/product/11.2.0/xe/bin/oracle_env.sh 추가
+
+mkdir /oradata
+
+chmod 777 /oradata/
+
+cd /etc/init.d
+
+apt-get remove insserv
+
+vim oracle
+
+<추가     
+#!/bin/bash
+su - oracle
+. /u01/app/oracle/product/11.2.0/xe/bin/oracle_env.sh
+systemctl start oracle-xe
+
+### BEGIN INIT INFO
+# Provides:          dovecot
+# Required-Start:    $local_fs $network
+# Required-Stop:     $local_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: dovecot
+# Description:       dovecot pop & imap daemon
+### END INIT INFO >
+
+ll /etc/rc* | grep oracle
+
+reboot
+
+systemctl status oracle-xe
+
+mkdir -p /u01/app/oracle/product/11.2.0/xe
+
+chown -R oracle.dba /u01/
+
+su - oracle
+
+/u01/app/oracle/product/11.2.0/xe/bin/createdb.sh
+
+sqlplus / as sysdba
+
+----------------------------------------------자바 젠킨스 버전 -------------------------------------------------------
+
+docker run -d --privileged -p8020:8080 -p8021:9000 --name test333 ubuntu:16.04 /sbin/init
+
+docker exec -it test333 /bin/bash
+
+apt-get install -y wget vim sudo git openjdk-8-jre-headless openjdk-8-jdk tomcat8 mariadb-server maven apt-transport-https ca-certificates
+
+wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | apt-key add -
+  
+sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'  
+
+apt-get update  
+
+apt-get install jenkins  
+
+service jenkins status
+
+vi /etc/default/jenkins
+
+HTTP_PORT=8080 -> HTTP_PORT=9000 (변경)
+
+vi /etc/sudoers
+
+root ALL=(ALL:ALL) ALL 밑에 -> jenkins ALL=(ALL:ALL) NOPASSWD: ALL 추가
+
+service jenkins restart
+
+cat /var/lib/jenkins/secrets/initialAdminPassword (젠킨스 비밀번호 확인 -> 사이트 들어가자 마자 바로 넣을 비번)
+
+cd /home/
+
+vi deploy.sh
+
+------------------------------
+echo "start kice core deploy"
+
+cd /var/lib/jenkins/workspace/test5/test5/
+
+mvn install
+
+cd /var/lib/jenkins/workspace/test5/test5/target/
+
+mv test5-1.0.0.war test5.war
+
+mv test5.war /var/lib/tomcat8/webapps/
+
+echo "end kice core deploy"
+------------------------------ (작성)
+
+그리고 나머지는 사진들로 대체 및 참고
+
+/var/lib/jenkins/workspace/ 에서 잘 프로젝트가 들어왔는지 확인가능!
+
+https://github.com/winbo121/MVC-Spring-eGovFrameVersion-/tree/main/test5/src/main/webapp/WEB-INF/jsp/%EC%9A%B0%EB%B6%84%ED%88%AC%EC%97%90%EC%84%9C%20%EC%A0%A0%ED%82%A8%EC%8A%A4%20%EC%84%9C%EB%B2%84%20%EB%B0%B0%ED%8F%AC%20%EB%B0%A9%EB%B2%95/%EC%82%AC%EC%A7%84%EB%93%A4%EB%A1%9C%20%EB%8C%80%EC%B2%B4%20%EB%B0%8F%20%EC%B0%B8%EA%B3%A0
+(나머지는 사진으로 대체)
+
+-------------<<쉘 스크립트 부가설명>>---------------------
+
+echo "start kice core deploy"
+
+cd /var/lib/jenkins/workspace/test5/test5/ (pom.xml 있는 안쪽 프로젝트까지 들어가기)
+
+mvn install (maven 에서 제공하는 명령어 이고 pom.xml이 있어야 작동된다) 
+
+cd /var/lib/jenkins/workspace/test5/test5/target/ (mvn 인스톨시 타겟 파일 안에 war파일이 생긴다) 
+
+ex) war파일 생기는 방식 
+###################################
+<groupId>test5</groupId>
+	<artifactId>test5</artifactId>
+	<packaging>war</packaging>
+	<version>1.0.0</version>
+	<name>test5</name>
+<url>http://www.egovframe.go.kr</url>
+------> test5-1.0.0.war ( artifactId-version.war 형식)
+###################################
+
+
+mv test5-1.0.0.war test5.war (파일명 변경)
+
+mv test5.war /var/lib/tomcat8/webapps/ (톰캣으로 파일을 옮기기)
+
+echo "end kice core deploy"
+
+
+-----------------------------------------------파이썬------------------------------------------------------------
+
+
+docker pull ubuntu:16.04 (없을시)
+
+-------------- 컨테이너 생성 --------------
+docker run -d --privileged -p{포워딩할 임의 포트}:{포워딩 당할 포트} -v /d/test_workspace:/code --restart=always --name {컨테이너 이름} ubuntu:16.04 /sbin/init
+docker exec -it {컨테이너 이름} /bin/bash
+
+-------------- 도커 컨테이너 내부 --------------
+apt-get update
+apt-get install vim
+cp /etc/apt/sources.list /etc/apt/sources.list_back
+vi /etc/apt/sources.list
+:%s/archive.ubuntu.com/ftp.daumkakao.com (명령어 편집기 모드에서) (카카오모드 우분투)
+apt-get update
+apt-get install -y  git wget software-properties-common libmysqlclient-dev build-essential uuid-dev libcap-dev libpcre3-dev libssl-dev curl libffi-dev  libxml2-dev libxslt1-dev zlib1g-dev
+***한글설정
+apt-get install -y language-pack-ko
+locale-gen ko_KR.UTF-8
+
+
+-------------- 파이썬 3.6 --------------
+add-apt-repository ppa:deadsnakes/ppa
+apt-get update
+apt-get install -y python3.6
+update-alternatives --install /usr/bin/python python /usr/bin/python3.6 1
+apt-get install -y python3.6-dev
+python --version
+
+-------------- 3.6vertualenv --------------
+apt-get install -y virtualenv
+mkdir code
+cd /code
+virtualenv -p python3.6 venv
+
+
+
+-------------- 파이썬 3.8.6 ppa--------------
+apt-get update
+add-apt-repository ppa:deadsnakes/ppa
+apt-get update
+apt-get install python3.8
+update-alternatives --install /usr/bin/python python /usr/bin/python3.8 1
+apt-get install -y python3.8-dev
+
+-------------- 3.8vertualenv --------------
+apt-get install -y virtualenv
+mkdir code
+cd /code
+apt-get install python3.8-venv
+python -m venv venv
+. venv/bin/activate
+ 
+-------------- Git에서 master 브랜치 코드 가져오기 --------------
+cd /code
+. venv/bin/activate
+git clone (깃허브 주소)
+(이후 세부 branch 조정)
+cd Django-Tutorial
+git fetch --all
+vi requirements.txt (맨 밑에 있는 z로 되있는 것을 삭제) (있을시)
+mkdir log
+chmod 777 log
+pip install -r requirements.txt
+
+
+
+
+-------------#mariadb 설치-------------
+apt-get update
+apt-get install mariadb-server
+service mysql restart -> mysql 재기동
+mysql_secure_installation -> 비밀번호 초기화 후 y
+
+
+mysql -u root -p (접속)
+
+show databases;
+
+use [데이터베이스 명<스키마 명>]
+
+use mysql (모든유저 관리) 
+{
+select * from user\G; (유저들 조회)
+update user set plugin='' where user='root' and host = 'localhost'; (root 비번없이 들어가지는것을 방지)
+flush privileges;
+create user [아이디] @localhost identified by '[비번]'; (유저 추가)
+drop user [아이디] @localhost; (유저 삭제)
+grant all privileges on [스키마 명].[테이블 명] to 'winbo121' @localhost identified by '[비번]'; (권한주기)
+show grants for '[아이디]' @localhost; 
+revoke all on [스키마 명].[테이블 명] from '[아이디]' @localhost; (권한삭제)
+}
+
+(일반 콘솔창)mysqldump -h [외부 아이피] -u[외부 아이디] -p[외부 비번] [외부에서 가져올 스키마 명] | mysql -u[자신 아이디] -p[자신 비번] [자신의 적용할 <만들어진>스키마 명]; (외부에서 디비 가져오기)
+
+-------------- 프로젝트 생성--------------  (새로만들시)
+django-admin startproject [이름]
+프로젝트 안에서 파이썬 파일 생성
+python manage.py startapp [이름]
+python manage.py runserver 0.0.0.0:8000
+
+ create table sample (
+ id int auto_increment,
+ book_name varchar(30),
+ created_at datetime default now(),
+ primary key(id,book_name));
+ 
+ 
+ -------------- Uwsgi--------------
+apt-get install -y uwsgi uwsgi-src
+vi /etc/uwsgi/apps-available/cms.ini
+<uwsgi 설정>
+[uwsgi]
+env =  LANG=ko_KR.utf8
+host = true
+plugin = python36
+chmod-socket = 666
+socket = /tmp/Django-Tutorial.sock
+master = true
+enable-threads = true
+processes = 2
+threads = 8
+venv = /code/venv
+wsgi-file = /code/Django-Tutorial/django_test/wsgi.py
+chdir = /code/Django-Tutorial
+
+ln -s /etc/uwsgi/apps-available/cms.ini /etc/uwsgi/apps-enabled/cms.ini
+apt-get install uwsgi-plugin-python3
+cd /tmp
+export PYTHON=python3.6
+uwsgi --build-plugin "/usr/src/uwsgi/plugins/python python36"
+mv python36_plugin.so /usr/lib/uwsgi/plugins/python36_plugin.so
+ls -al /usr/lib/uwsgi/plugins/python36_plugin.so
+chmod 644 /usr/lib/uwsgi/plugins/python36_plugin.so
+service uwsgi restart
+tail -f /var/log/uwsgi/app/cms.log 
+
+-------------- Nginx --------------
+cd /tmp/
+wget http://nginx.org/keys/nginx_signing.key (키 받을수 있을시 가능)
+apt-key add nginx_signing.key (키 받을수 있을시 가능)
+apt-get update
+apt install -y nginx
+nginx -v
+
+<nginx 설정>
+vi /etc/nginx/sites-available/cms
+
+server {
+        listen 80 default_server;
+
+        server_name cms.kr;
+
+        access_log /var/log/nginx/access.log;
+        error_log /var/log/nginx/error.log;
+
+        location / {
+            uwsgi_pass unix:///tmp/Django-Tutorial.sock;
+            include uwsgi_params;
+        }
+
+        location /static/ {
+            alias /code/cms/backend/static/;
+            expires -1;
+        }
+}
+
+vi /etc/nginx/sites-available/default
+server {
+        listen 80;
+        listen [::]:80;
+
+ln -s /etc/nginx/sites-available/cms /etc/nginx/sites-enabled/cms
+service nginx restart

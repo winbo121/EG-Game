@@ -42,7 +42,8 @@ $(document).ready(function(){
 			processData: false,
 			contentType: false, 
 			success: function(data){
-				location.href="/EG/centerBoardList"
+				opener.parent.gotoBack();
+				window.close();
 			}
 		});	
 		

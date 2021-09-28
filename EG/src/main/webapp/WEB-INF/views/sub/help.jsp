@@ -15,7 +15,7 @@
 	href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css'>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 	
-	<script>
+<script>
 $(document).ready(function(){
 	
 	$("#vo").submit(function() {
@@ -28,6 +28,9 @@ $(document).ready(function(){
 
 	
 });
+function gotoBack(){
+	location.href="/EG/centerBoardList"
+}
 </script>
 </head>
 <body>

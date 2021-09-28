@@ -53,16 +53,27 @@ public class CenterBoardController extends JsonUtill{
 		return "sub/question/question";
 	}
 	
-	@RequestMapping(value = "/centerBoardAnswerList", method = RequestMethod.GET)
-	public String centerBoardAnswerList(Locale locale, Model model) {
-		return "sub/question/help_answer";
-	}
 	
 	@RequestMapping(value = "/centerBoardAnsweringList", method = RequestMethod.GET)
-	public String centerBoardAnsweringList(Locale locale, Model model) {
+	public String centerBoardAnsweringList(Locale locale, Model model, CenterBoardVo vo) {
+		
+		List<Map<String,Object>> list =centerBoardService.centerBoardAnsweringList(vo);
+		
+		model.addAttribute("answeringList", list);
+		
 		return "sub/question/help_answering";
 	}
 	
+	@RequestMapping(value = "/centerBoardAnswerList", method = RequestMethod.GET)
+	public String centerBoardAnswerList(Locale locale, Model model, CenterBoardVo vo) {
+		
+		List<Map<String,Object>> list =centerBoardService.centerBoardAnswerList(vo);
+		
+		model.addAttribute("answerList", list);
+		
+		return "sub/question/help_answer";
+	}
+		
 	@RequestMapping(value = "/centerBoardInsert", method = RequestMethod.POST)
 	@ResponseBody
 	public JSONObject centerBoardInsert(HttpServletRequest request, HttpServletResponse response,Locale locale, Model model,CenterBoardVo vo) throws IOException {

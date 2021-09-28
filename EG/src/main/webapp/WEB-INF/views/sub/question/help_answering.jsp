@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +17,7 @@
 				<li id="qa_menu_li"><a onclick="location.href='/EG/centerBoardInsertPro'"><strong>1대1문의</strong></a></li>
 				<li id="qa_menu_li" class="qa_menu_on"><a class="qa_on"><strong>답변중</strong></a>
 				</li>
-				<li id="qa_menu_li"><a onclick="location.href='/EG/centerBoardAnswerList'"><strong>답변완료</strong></a>
+				<li id="qa_menu_li"><a onclick="location.href='/EG/centerBoardAnswerList?user_id=winbo121'"><strong>답변완료</strong></a>
 				</li>
 			</ul>
 		</div>
@@ -46,9 +47,11 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr name="historylist_no" class="">
-								<td colspan="4">최근 문의하신 내역이 없습니다.</td>
+						<c:forEach var="answeringList" items="${answeringList }">
+							<tr>
+								<td>${answeringList.board_num}</td><td>${answeringList.title}</td><td>${answeringList.created}</td><td >${answeringList.process}</td>
 							</tr>
+						</c:forEach>
 						</tbody>
 					</table>
 				</div>

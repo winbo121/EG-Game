@@ -15,4 +15,6 @@ public interface CenterBoardDao {
 	public void centerBoardDelete(Integer bno);
 	public Integer centerBoardListCnt(CenterBoardVo vo);
 	public void centerBoardReadCnt(Integer bno);
+	public List<Map<String,Object>> centerBoardAnsweringList(CenterBoardVo vo);
+	public List<Map<String,Object>> centerBoardAnswerList(CenterBoardVo vo);
 }

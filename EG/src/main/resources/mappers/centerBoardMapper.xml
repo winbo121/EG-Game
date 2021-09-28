@@ -40,4 +40,12 @@ UPDATE CENTER_BOARD SET cnt = IFNULL(cnt, 0)+1  WHERE board_num = #{board_num}
 DELETE FROM CENTER_BOARD WHERE board_num=#{board_num}
 </delete>
 
+<select id="answering" resultType="CenterBoardVo" parameterType="CenterBoardVo">
+SELECT board_num, title, DATE_FORMAT(created, '%Y-%m-%d') AS created, process FROM CENTER_BOARD WHERE user_id = #{user_id} AND process = 'N'
+</select>
+
+<select id="answer" resultType="CenterBoardVo" parameterType="CenterBoardVo">
+SELECT board_num, title, DATE_FORMAT(created, '%Y-%m-%d') AS created, process FROM CENTER_BOARD WHERE user_id = #{user_id} AND process = 'Y'
+</select>
+
 </mapper>

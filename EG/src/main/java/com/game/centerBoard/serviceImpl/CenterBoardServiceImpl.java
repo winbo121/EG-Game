@@ -60,4 +60,16 @@ public class CenterBoardServiceImpl implements CenterBoardService{
 		centerBoardDao.centerBoardReadCnt(bno);
 	}
 
+	@Override
+	public List<Map<String, Object>> centerBoardAnsweringList(CenterBoardVo vo) {
+		
+		return centerBoardDao.centerBoardAnsweringList(vo);
+	}
+
+	@Override
+	public List<Map<String, Object>> centerBoardAnswerList(CenterBoardVo vo) {
+		
+		return centerBoardDao.centerBoardAnswerList(vo);
+	}
+
 }

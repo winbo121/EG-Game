@@ -46,17 +46,7 @@ var swiper = new Swiper('.ns_content', {
  * console.log(i); });
  */
 
-//enter 키 이벤트
-$(document).on('keydown', '.search__container .search__input', function(e){
-    if(e.keyCode == 13 && !e.shiftKey) {
-        e.preventDefault();
-        
-        var search_txt=$(this).val();
-        
-        // 입력창 clear
-        $(this).val("");
-    }
-});
+
 
 	
 	$("#inquiry_email_etc").click(function() {

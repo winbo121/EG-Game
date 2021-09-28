@@ -22,10 +22,9 @@ $(document).ready(function(){
 		$( this ).find( "#page" ).val("1");
 	});
 	
-	$("#search_btn").click(function() {
+	$(".search__button").click(function() {
 		$("#vo").submit();
 	});
-
 
 	
 });
@@ -182,6 +181,8 @@ $(document).ready(function(){
 							</div>
 						</div>
 					</div>
+			<br>
+			<br>
 					
 			<div id="paging">
 		

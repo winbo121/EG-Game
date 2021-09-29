@@ -6,18 +6,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title></title>
-<link rel="stylesheet" type="text/css" href="../../css/game.css" />
-<link rel="stylesheet" type="text/css" href="../../css/main.css" />
+<link rel="stylesheet" type="text/css" href="/EG/resources/css/game.css" />
+<link rel="stylesheet" type="text/css" href="/EG/resources/css/main.css" />
 </head>
-	<script type="text/javascript" src="../../controller/js/game/dodge/phaser.min.js"></script>
+	<script type="text/javascript" src="/EG/resources/controller/js/game/dodge/phaser.min.js"></script>
 	<!-- 단순 이미지 디스플레이이며, 클릭시 게임으로 진입 -->
-	<script type="text/javascript" src="../../controller/js/game/dodge/menu.js"></script>
+	<script type="text/javascript" src="/EG/resources/controller/js/game/dodge/menu.js"></script>
 	<!-- 게임을 플레이 할 수 있게 해주는 파일 -->
-	<script type="text/javascript" src="../../controller/js/game/dodge/game.js"></script>
+	<script type="text/javascript" src="/EG/resources/controller/js/game/dodge/game.js"></script>
 	<!-- 단순 game over 이미지를 출력해주며, 클릭시 다시 게임으로 진입한다.-->
-	<script type="text/javascript" src="../../controller/js/game/dodge/game_over.js"></script>
+	<script type="text/javascript" src="/EG/resources/controller/js/game/dodge/game_over.js"></script>
 	<!-- 모든 js 를 컨트롤 하는 파일 -->
-	<script type="text/javascript" src="../../controller/js/game/dodge/main.js"></script>
+	<script type="text/javascript" src="/EG/resources/controller/js/game/dodge/main.js"></script>
 <body>
 	<div id="g_header"></div>
 	<div id="section">
@@ -116,6 +116,6 @@
 	
 	
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script type="text/javascript" src="../../controller/js/game/g_total.js"></script>
+	<script type="text/javascript" src="/EG/resources/controller/js/game/g_total.js"></script>
 </body>
 </html>

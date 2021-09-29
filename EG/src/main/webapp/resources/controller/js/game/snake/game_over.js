@@ -2,7 +2,7 @@ var Game_Over = {
  
     preload : function() {
         // 게임 화면에 필요한 이미지를 로드.
-        game.load.image('gameover', '../../img/snake/gameover.png');
+        game.load.image('gameover', '/EG/resources/img/snake/gameover.png');
     },
  
     create : function() {

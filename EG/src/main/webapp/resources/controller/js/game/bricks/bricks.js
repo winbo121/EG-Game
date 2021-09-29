@@ -27,11 +27,11 @@ function preload() {
     game.scale.pageAlignHorizontally = true;
     game.scale.pageAlignVertically = true;
 	
-    game.load.atlas('breakout', '../../img/bricks/breakout.png', '../../controller/js/game/bricks/test.json');
-    game.load.image('starfield', '../../img/bricks/starfield.jpg');
+    game.load.atlas('breakout', '/EG/resources/img/bricks/breakout.png', '/EG/resources/controller/js/game/bricks/test.json');
+    game.load.image('starfield', '/EG/resources/img/bricks/starfield.jpg');
     
     // 바운스 효과음
-    game.load.audio('audio-bounce', '../../audio/bounce.m4a');
+    game.load.audio('audio-bounce', '/EG/resources/audio/bounce.m4a');
 }
 //preload 함수 후에 호출
 function create() {

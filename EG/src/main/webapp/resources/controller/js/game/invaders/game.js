@@ -20,12 +20,12 @@ var livingEnemies = [];
  
 var Game = {
     preload : function() {
-    	 	game.load.image('bullet', '../../img/invaders/bullet.png');
-    	    game.load.image('enemyBullet', '../../img/invaders/enemy-bullet.png');
-    	    game.load.spritesheet('invader', '../../img/invaders/invader32x32x4.png', 32, 32);
-    	    game.load.image('ship', '../../img/invaders/player.png');
-    	    game.load.spritesheet('kaboom', '../../img/invaders/explode.png', 128, 128);
-    	    game.load.image('starfield', '../../img/invaders/starfield.png');
+    	 	game.load.image('bullet', '/EG/resources/img/invaders/bullet.png');
+    	    game.load.image('enemyBullet', '/EG/resources/img/invaders/enemy-bullet.png');
+    	    game.load.spritesheet('invader', '/EG/resources/img/invaders/invader32x32x4.png', 32, 32);
+    	    game.load.image('ship', '/EG/resources/img/invaders/player.png');
+    	    game.load.spritesheet('kaboom', '/EG/resources/img/invaders/explode.png', 128, 128);
+    	    game.load.image('starfield', '/EG/resources/img/invaders/starfield.png');
     },
  
     create : function() {

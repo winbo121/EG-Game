@@ -16,11 +16,11 @@ var Game = {
 		// 처음에 실행되는 부분
 		//이미지와 사운드를 로드하는 부분
 		preload:function(){
-			game.load.image('bird', '../../img/flappy_bird/bird.png');
+			game.load.image('bird', '/EG/resources/img/flappy_bird/bird.png');
 			// 파이프 스프라이트 로드
-			game.load.image('pipe', '../../img/flappy_bird/pipe.png');
+			game.load.image('pipe', '/EG/resources/img/flappy_bird/pipe.png');
 			// 점프 사운드 로드
-			game.load.audio('jump','../../audio/jump.wav');
+			game.load.audio('jump','/EG/resources/audio/jump.wav');
 			
 		},
 		// preload 함수 후에 호출

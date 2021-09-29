@@ -1,7 +1,7 @@
 var Menu = {
 		preload : function () {
 			//game 객체에서 menu 이미지를 로드한다.
-			game.load.image('menu', '../../img/flappy_bird/start.png');
+			game.load.image('menu', '/EG/resources/img/flappy_bird/start.png');
 		},
 		
 		create: function (){

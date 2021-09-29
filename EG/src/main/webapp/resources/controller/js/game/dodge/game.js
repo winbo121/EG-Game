@@ -15,10 +15,10 @@
 var Game = {
 		// 데이터를 불러 올 떄 사용하는 함수
 		preload: function (){
-			game.load.image('box', '../../img/dodge/box.png');
-			game.load.image('player', '../../img/dodge/player.png',20, 20);
-			game.load.image('ball', '../../img/dodge/ball.png',10, 10);
-			game.load.image('button', '../../img/dodge/start.png');
+			game.load.image('box', '/EG/resources/img/dodge/box.png');
+			game.load.image('player', '/EG/resources/img/dodge/player.png',20, 20);
+			game.load.image('ball', '/EG/resources/img/dodge/ball.png',10, 10);
+			game.load.image('button', '/EG/resources/img/dodge/start.png');
 		},
 		
 		// 처음 게임을 실행할 때 수행되는 함수

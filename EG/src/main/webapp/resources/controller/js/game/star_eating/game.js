@@ -35,16 +35,16 @@ var config = {
 	    function preload() {
 			// 4개의 이미지와 스포라이트 이미지 불러오기
 	    	
-			this.load.image('sky', '../../img/star_eating/sky.png');
-			this.load.image('ground', '../../img/star_eating/platform.png');
-			this.load.image('star', '../../img/star_eating/star.png');
-			this.load.image('bomb', '../../img/star_eating/bomb.png');
-			this.load.spritesheet('dude', '../../img/star_eating/dude.png', {
+			this.load.image('sky', '/EG/resources/img/star_eating/sky.png');
+			this.load.image('ground', '/EG/resources/img/star_eating/platform.png');
+			this.load.image('star', '/EG/resources/img/star_eating/star.png');
+			this.load.image('bomb', '/EG/resources/img/star_eating/bomb.png');
+			this.load.spritesheet('dude', '/EG/resources/img/star_eating/dude.png', {
 				frameWidth : 32,
 				frameHeight : 48
 			});
 			// 버튼 스프라이트 이미지 로드
-		    this.load.image('button', '../../img/invaders/start.png');
+		    this.load.image('button', '/EG/resources/img/invaders/start.png');
 		}
 
 		function create() {

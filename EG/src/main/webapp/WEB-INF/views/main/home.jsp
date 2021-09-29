@@ -108,7 +108,7 @@
 				<div id="game_wrapper">
 					<div class="game_box">
 						<div class="game_imgbox">
-							<a href="../game/bricks.jsp"> <img
+							<a href="/EG/bricks"> <img
 								src="resources/img/game_img/bricks.jpg" class="game_img">
 							</a>
 						</div>
@@ -124,7 +124,7 @@
 					</div>
 					<div class="game_box">
 						<div class="game_imgbox">
-							<a href="../game/snake.jsp"> <img
+							<a href="/EG/snake"> <img
 								src="resources/img/game_img/snake.jpg" class="game_img">
 							</a>
 						</div>
@@ -140,7 +140,7 @@
 					</div>
 					<div class="game_box">
 						<div class="game_imgbox">
-							<a href="../game/flappy_bird.jsp"> <img
+							<a href="/EG/flappyBird"> <img
 								src="resources/img/game_img/flappy_bird.jpg" class="game_img">
 							</a>
 						</div>
@@ -156,7 +156,7 @@
 					</div>
 					<div class="game_box">
 						<div class="game_imgbox">
-							<a href="../game/dodge.jsp"> <img
+							<a href="/EG/dodge"> <img
 								src="resources/img/game_img/dodge.jpg" class="game_img">
 							</a>
 						</div>
@@ -172,7 +172,7 @@
 					</div>
 					<div class="game_box">
 						<div class="game_imgbox">
-							<a href="../game/star_eating.jsp"> <img
+							<a href="/EG/starEating"> <img
 								src="resources/img/game_img/star_eating.jpg" class="game_img">
 							</a>
 						</div>
@@ -188,7 +188,7 @@
 					</div>
 					<div class="game_box">
 						<div class="game_imgbox">
-							<a href="../game/invaders.jsp"> <img
+							<a href="/EG/invaders"> <img
 								src="resources/img/game_img/invaders.jpg" class="game_img">
 							</a>
 						</div>
@@ -209,7 +209,7 @@
 						<div class="swiper-slide">
 							<div class="game_box">
 								<div class="game_imgbox">
-									<a href="../game/bricks.jsp"> <img
+									<a href="/EG/bricks"> <img
 										src="resources/img/game_img/bricks.jpg" class="game_img">
 									</a>
 								</div>
@@ -227,7 +227,7 @@
 						<div class="swiper-slide">
 							<div class="game_box">
 								<div class="game_imgbox">
-									<a href="../game/snake.jsp"> <img
+									<a href="/EG/snake"> <img
 										src="resources/img/game_img/snake.jpg" class="game_img">
 									</a>
 								</div>
@@ -245,7 +245,7 @@
 						<div class="swiper-slide">
 							<div class="game_box">
 								<div class="game_imgbox">
-									<a href="../game/flappy_bird.jsp"> <img
+									<a href="/EG/flappyBird"> <img
 										src="resources/img/game_img/flappy_bird.jpg" class="game_img">
 									</a>
 								</div>
@@ -263,7 +263,7 @@
 						<div class="swiper-slide">
 							<div class="game_box">
 								<div class="game_imgbox">
-									<a href="../game/dodge.jsp"> <img
+									<a href="/EG/dodge"> <img
 										src="resources/img/game_img/dodge.jpg" class="game_img">
 									</a>
 								</div>
@@ -281,7 +281,7 @@
 						<div class="swiper-slide">
 							<div class="game_box">
 								<div class="game_imgbox">
-									<a href="../game/star_eating.jsp"> <img
+									<a href="/EG/starEating"> <img
 										src="resources/img/game_img/star_eating.jpg" class="game_img">
 									</a>
 								</div>
@@ -299,7 +299,7 @@
 						<div class="swiper-slide">
 							<div class="game_box">
 								<div class="game_imgbox">
-									<a href="../game/invaders.jsp"> <img
+									<a href="/EG/invaders"> <img
 										src="resources/img/game_img/invaders.jpg" class="game_img">
 									</a>
 								</div>

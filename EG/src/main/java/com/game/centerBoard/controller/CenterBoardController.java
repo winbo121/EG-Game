@@ -39,9 +39,16 @@ public class CenterBoardController extends JsonUtill{
 		List<Map<String,Object>> list =centerBoardService.centerBoardList(vo);
 		Integer list_cnt = centerBoardService.centerBoardListCnt(vo);
 		
+		
+		//세션으로 아이디 가져오기
+		vo.setUser_id("winbo121");
+		Integer answering_cnt = centerBoardService.centerBoardAnsweringListCnt(vo);
+		Integer answer_cnt = centerBoardService.centerBoardAnswerListCnt(vo);
 			
 		vo.setTotalCount(list_cnt);
 		
+		model.addAttribute("answering_cnt", answering_cnt);
+		model.addAttribute("answer_cnt", answer_cnt);
 		model.addAttribute("list", list);
 		model.addAttribute("vo",vo);
 		
@@ -57,6 +64,10 @@ public class CenterBoardController extends JsonUtill{
 	@RequestMapping(value = "/centerBoardAnsweringList", method = RequestMethod.GET)
 	public String centerBoardAnsweringList(Locale locale, Model model, CenterBoardVo vo) {
 		
+		
+		//세션으로 아이디 가져오기
+		vo.setUser_id("winbo121");
+		
 		List<Map<String,Object>> list =centerBoardService.centerBoardAnsweringList(vo);
 		
 		model.addAttribute("answeringList", list);
@@ -66,6 +77,10 @@ public class CenterBoardController extends JsonUtill{
 	
 	@RequestMapping(value = "/centerBoardAnswerList", method = RequestMethod.GET)
 	public String centerBoardAnswerList(Locale locale, Model model, CenterBoardVo vo) {
+		
+		
+		//세션으로 아이디 가져오기
+		vo.setUser_id("winbo121");
 		
 		List<Map<String,Object>> list =centerBoardService.centerBoardAnswerList(vo);
 		

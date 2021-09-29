@@ -16,4 +16,6 @@ public interface CenterBoardService {
 	public void centerBoardReadCnt(Integer bno);
 	public List<Map<String,Object>> centerBoardAnsweringList(CenterBoardVo vo);
 	public List<Map<String,Object>> centerBoardAnswerList(CenterBoardVo vo);
+	public Integer centerBoardAnsweringListCnt(CenterBoardVo vo);
+	public Integer centerBoardAnswerListCnt(CenterBoardVo vo);
 }

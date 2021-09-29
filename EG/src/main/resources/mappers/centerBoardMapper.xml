@@ -48,4 +48,12 @@ SELECT board_num, title, DATE_FORMAT(created, '%Y-%m-%d') AS created, process FR
 SELECT board_num, title, DATE_FORMAT(created, '%Y-%m-%d') AS created, process FROM CENTER_BOARD WHERE user_id = #{user_id} AND process = 'Y'
 </select>
 
+<select id="answeringCnt" resultType="java.lang.Integer" parameterType="CenterBoardVo">
+SELECT count(*) FROM CENTER_BOARD WHERE user_id = #{user_id} AND process = 'N'
+</select>
+
+<select id="answerCnt" resultType="java.lang.Integer" parameterType="CenterBoardVo">
+SELECT count(*) FROM CENTER_BOARD WHERE user_id = #{user_id} AND process = 'Y'
+</select>
+
 </mapper>

@@ -16,7 +16,6 @@ import com.game.centerBoard.vo.CenterBoardVo;
 public class CenterBoardDaoImpl implements CenterBoardDao{
 
 	
-	
 	@Inject
 	private SqlSession sqlSession;
 	
@@ -70,6 +69,16 @@ public class CenterBoardDaoImpl implements CenterBoardDao{
 	@Override
 	public List<Map<String, Object>> centerBoardAnswerList(CenterBoardVo vo) {
 		return sqlSession.selectList("centerBoard.answer",vo);
+	}
+
+	@Override
+	public Integer centerBoardAnsweringListCnt(CenterBoardVo vo) {
+		return sqlSession.selectOne("centerBoard.answeringCnt", vo);
+	}
+
+	@Override
+	public Integer centerBoardAnswerListCnt(CenterBoardVo vo) {
+		return sqlSession.selectOne("centerBoard.answerCnt", vo);
 	}
 
 }

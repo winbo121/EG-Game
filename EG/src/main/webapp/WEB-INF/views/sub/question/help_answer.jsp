@@ -15,7 +15,7 @@
 		<div class="qa_nav">
 			<ul>
 				<li id="qa_menu_li"><a onclick="location.href='/EG/centerBoardInsertPro'"><strong>1대1문의</strong></a></li>
-				<li id="qa_menu_li"><a onclick="location.href='/EG/centerBoardAnsweringList?user_id=winbo121'"><strong>답변중</strong></a>
+				<li id="qa_menu_li"><a onclick="location.href='/EG/centerBoardAnsweringList'"><strong>답변중</strong></a>
 				</li>
 				<li id="qa_menu_li" class="qa_menu_on"><a class="qa_on"><strong>답변완료</strong></a>
 				</li>

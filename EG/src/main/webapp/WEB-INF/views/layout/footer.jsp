@@ -8,7 +8,7 @@
 	<ul class="nav">
 		<li class="company"><a href="../sub/company.jsp"><span>회사소개</span>
 		</a></li>
-		<li class="help"><a href="../sub/help.jsp"><span>고객센터</span>
+		<li class="help"><a href="/EG/centerBoardList"><span>고객센터</span>
 		</a></li>
 		<li class="notice_sec"><a href="../sub/notice.jsp"><span>공지사항</span>
 		</a></li>

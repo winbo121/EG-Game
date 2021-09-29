@@ -72,4 +72,16 @@ public class CenterBoardServiceImpl implements CenterBoardService{
 		return centerBoardDao.centerBoardAnswerList(vo);
 	}
 
+	@Override
+	public Integer centerBoardAnsweringListCnt(CenterBoardVo vo) {
+		
+		return centerBoardDao.centerBoardAnsweringListCnt(vo);
+	}
+
+	@Override
+	public Integer centerBoardAnswerListCnt(CenterBoardVo vo) {
+		
+		return centerBoardDao.centerBoardAnswerListCnt(vo);
+	}
+
 }

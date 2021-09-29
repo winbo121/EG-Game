@@ -57,14 +57,14 @@ function gotoBack(){
 					</div>
 					<div class="customer_tabs">
 						<ul>
-							<li class="tab1"><strong>답변 중</strong> <em>+0개</em>의 문의가 답변중
+							<li class="tab1"><strong>답변 중</strong> <em>+${answering_cnt }개</em>의 문의가 답변중
 								<a href="#"
 								onclick="window.open ('/EG/centerBoardAnsweringList',
 									'cong_window' , 'toolbar=0, location=0, status=0, menubar=0, scrollbars=1, resizable=no, top=50, left=20, width=700, height=730');
 										return false"
 								onfocus='this.blur()' class="btn_link" id="answering">확인</a></li>
 
-							<li class="tab2"><strong>답변 완료</strong> <em>+0개</em>의 문의가 답변
+							<li class="tab2"><strong>답변 완료</strong> <em>+${answer_cnt }개</em>의 문의가 답변
 								완료 <a href="#"
 								onclick="window.open ('/EG/centerBoardAnswerList',
 									'cong_window' , 'toolbar=0, location=0, status=0, menubar=0, scrollbars=1, resizable=no, top=50, left=20, width=700, height=730');

@@ -71,6 +71,7 @@ $(".over").hover(function() {
 });
 
 
+
 function readURL(input) {
 	  if (input.files && input.files[0]) {
 
@@ -91,9 +92,9 @@ function readURL(input) {
 }
 
 function remove_file(){
-	$('#my_file').replaceWith($('#my_file').clone());
+	$('#fileUpload').replaceWith($('#fileUpload').clone());
 	$('.file_name').remove();
-	$("#my_file").val("");
+	$("#fileUpload").val("");
 }
 
 

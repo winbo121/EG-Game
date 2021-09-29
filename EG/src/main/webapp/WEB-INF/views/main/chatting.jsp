@@ -11,7 +11,7 @@
 		</ul>
 	</div>
 	<div class="input-div">
-		<textarea placeholder="Press Enter for send message."></textarea>
+		<textarea placeholder="Press Enter for send message." style="resize: none;"></textarea>
 	</div>
 	<div class="chat_click">
 		<img src="resources/img/main/more.png" id="chat">

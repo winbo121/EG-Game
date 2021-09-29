@@ -1529,6 +1529,10 @@ input, button, textarea, select {
     border-top: 1px solid #949da9;
 }
 
+.qa_page .qa_tbl_content form{
+	background: white;
+}
+
 .qa_tbl_content table {
     width: 100%;
     line-height: 1.4;
@@ -1620,7 +1624,7 @@ option[value=""][disabled] {
 }
 
 .file_del_list_new div {
-    width: 285px;
+    width: 270px;
     height: 100px;
     padding: 5px 10px;
     border: 1px solid #ccc;

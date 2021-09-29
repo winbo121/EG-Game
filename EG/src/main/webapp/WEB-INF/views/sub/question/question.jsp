@@ -9,7 +9,6 @@
 <link rel="stylesheet" type="text/css" href="resources/css/board.css" />
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script type="text/javascript">
-
 $(document).ready(function(){
 	$("#submitBtn").on("click",function(){
 		
@@ -48,9 +47,7 @@ $(document).ready(function(){
 		
 	})
 });
-
 </script>
-
 </head>
 <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
 <body>
@@ -129,20 +126,20 @@ $(document).ready(function(){
 							<tr>
 								<th scope="row">첨부파일</th>
 								<td colspan="3">
-
-										<input type="file"  name="fileUpload" >
-<!-- 											 <img id="bt_fileImage" -->
-<!-- 											src="resources/img/board/btn_help_filesch.gif" alt="첨부파일 찾아보기" -->
-<!-- 											align="right"> -->
-
-<!-- 									<div class="file_del_list_new clfix"> -->
-<!-- 										<div id="fileList" title="첨부파일 목록" class="list_add"></div> -->
-<!-- 										<a title="첨부파일 삭제" id="fileDelete" onclick="remove_file();"> -->
-<!-- 											<img src="resources/img/board/btn_help_del.gif" alt="파일삭제" -->
-<!-- 											align="right"> -->
-<!-- 										</a> -->
-
-<!-- 									</div> -->
+									<div class="file_sch">
+										<input type="text" style="width: 270px" class="input_st">
+										<input type="file" id="fileUpload" name="fileUpload" onchange="readURL(this);" style="width: 100%" class="input_st">
+ 											 <img id="bt_fileImage"
+ 											src="resources/img/board/btn_help_filesch.gif" alt="첨부파일 찾아보기" 
+ 											align="right"> 
+									</div>
+ 									<div class="file_del_list_new clfix"> 
+ 										<div id="fileList" title="첨부파일 목록" class="list_add"></div> 
+ 										<a title="첨부파일 삭제" id="fileDelete" onclick="remove_file();"> 
+ 											<img src="resources/img/board/btn_help_del.gif" alt="파일삭제" 
+ 											align="right"> 
+ 										</a> 
+ 									</div> 
 									<p class="n_txt" style="padding-top: 10px;">
 										<span>※</span> [1:1문의하기]의 첨부파일을 통해 개인정보 서류를 접수하지 않습니다. <br>
 										첨부 파일은 게임관련 오류 및 신고 이미지만 접수 가능합니다.(<b id="filesize">0MB</b>/최대

@@ -61,7 +61,7 @@
 					</div>
 					<!-- 로고 -->
 					<h3>
-						<a href="../main/home.jsp"><img src="resources/img/main/logo.png" alt="EG"></a>
+						<a href="/EG/"><img src="resources/img/main/logo.png" alt="EG"></a>
 					</h3>
 					<!-- PC 메뉴 -->
 					<ul class="menu_pc">

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+		<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -339,39 +341,21 @@
 									<div class="board_content">
 										<div class="board_page" id="free_board">
 											<table border="1">
-												<tr class="board_title">
+											<tr class="board_title">
 													<th>작성자</th>
 													<th>제목</th>
 													<th>작성 날짜</th>
-												</tr>
+											</tr>
+											<c:forEach var="mainUserBoardList" items="${mainUserBoardList }">
 												<tr>
-													<td>1</td>
-													<td>2</td>
-													<td>3</td>
+													<th>${mainUserBoardList.user_id }</th>
+													<th>${mainUserBoardList.title }</th>
+													<th>${mainUserBoardList.created }</th>
 												</tr>
-												<tr>
-													<td>1</td>
-													<td>2</td>
-													<td>3</td>
-												</tr>
-												<tr>
-													<td>1</td>
-													<td>2</td>
-													<td>3</td>
-												</tr>
-												<tr>
-													<td>1</td>
-													<td>2</td>
-													<td>3</td>
-												</tr>
-												<tr style="border-bottom: none;">
-													<td>1</td>
-													<td>2</td>
-													<td>3</td>
-												</tr>
+											</c:forEach>
 											</table>
 											<div class="board_viewmore">
-												<span><a href="../sub/free_board.jsp">더보기</a></span>
+												<span><a href="/EG/userBoardList">더보기</a></span>
 											</div>
 										</div>
 										<div class="board_page" id="help_board">
@@ -381,34 +365,16 @@
 													<th>제목</th>
 													<th>작성 날짜</th>
 												</tr>
+											<c:forEach var="mainCenterBoardList" items="${mainCenterBoardList }">
 												<tr>
-													<td>1</td>
-													<td>2</td>
-													<td>3</td>
+													<th>${mainCenterBoardList.user_id }</th>
+													<th>${mainCenterBoardList.title }</th>
+													<th>${mainCenterBoardList.created }</th>
 												</tr>
-												<tr>
-													<td>1</td>
-													<td>2</td>
-													<td>3</td>
-												</tr>
-												<tr>
-													<td>1</td>
-													<td>2</td>
-													<td>3</td>
-												</tr>
-												<tr>
-													<td>1</td>
-													<td>2</td>
-													<td>3</td>
-												</tr>
-												<tr style="border-bottom: none;">
-													<td>1</td>
-													<td>2</td>
-													<td>3</td>
-												</tr>
+											</c:forEach>
 											</table>
 											<div class="board_viewmore">
-												<span><a href="../sub/help.jsp">더보기</a></span>
+												<span><a href="/EG/centerBoardList">더보기</a></span>
 											</div>
 										</div>
 										<div class="board_page" id="notice_board">

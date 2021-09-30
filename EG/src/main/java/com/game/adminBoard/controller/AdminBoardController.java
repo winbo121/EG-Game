@@ -47,7 +47,7 @@ public class AdminBoardController extends JsonUtill{
 		model.addAttribute("list", list);
 		model.addAttribute("vo",vo);
 		
-		return "sub/free_board";
+		return "sub/notice";
 	}
 	
 	@RequestMapping(value = "/adminBoardInsertPro", method = RequestMethod.GET)

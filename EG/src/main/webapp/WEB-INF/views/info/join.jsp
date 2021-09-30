@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>회원가입</title>
-<link rel="stylesheet" type="text/css" href="../../css/member_info.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/member_info.css" />
 </head>
 <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
@@ -73,6 +73,6 @@
 	</div>
 
 	<script type="text/javascript"
-		src="../../controller/js/info/info_main.js"></script>
+		src="resources/controller/js/info/info_main.js"></script>
 </body>
 </html>

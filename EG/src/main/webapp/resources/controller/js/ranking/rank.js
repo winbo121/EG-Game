@@ -1,8 +1,8 @@
 
 $(document).ready(function() {
 	
-	$("#header").load("../layout/header.jsp");
-	$(".footer").load("../layout/footer.jsp");
+	$("#header").load("/EG/header/");
+	$(".footer").load("/EG/footer/");
 	
 	
 	$(".game_rankpage").hide(); 

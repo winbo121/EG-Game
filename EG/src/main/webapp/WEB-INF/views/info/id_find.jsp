@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>ID 찾기</title>
-<link rel="stylesheet" type="text/css" href="../../css/find.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/find.css" />
 </head>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -14,7 +14,7 @@
 		<div class="popup_find2">
 			<ul class="find2_tab">
 				<li class="id"><a class="on">EG ID찾기</a></li>
-				<li class="password"><a onclick="location.href='pw_find.jsp'">비밀번호 찾기</a></li>
+				<li class="password"><a onclick="location.href='/EG/pwFind'">비밀번호 찾기</a></li>
 			</ul>
 			<div class="contents">
 				<p class="stit">EG ID 찾기를 위한 휴대전화를 입력해주세요.</p>
@@ -53,6 +53,6 @@
 	</form>
 	
 	
-	<script type="text/javascript" src="../../controller/js/main/find.js"></script>
+	<script type="text/javascript" src="resources/controller/js/main/find.js"></script>
 </body>
 </html>

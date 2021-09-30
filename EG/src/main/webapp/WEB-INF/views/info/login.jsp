@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>로그인</title>
-<link rel="stylesheet" type="text/css" href="../../css/member_info.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/member_info.css" />
 </head>
 <script type="text/javascript"
 	src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
@@ -40,7 +40,7 @@
 								<tr>
 									<td>
 										<div id="m_img_cut">
-											<img src="/img/game_img/dodge.jpg">
+											<img src="resources/img/game_img/dodge.jpg">
 										</div>
 									</td>
 								</tr>
@@ -69,7 +69,7 @@
 						</div>
 					</div>
 					<h3>
-						<a href="../main/home.jsp"><img src="../../img/main/logo.png"
+						<a href="/EG/"><img src="resources/img/main/logo.png"
 							alt="EG"></a>
 					</h3>
 				</div>
@@ -91,16 +91,16 @@
 			</button>
 			<div class="login_footer">
 				<div class="pw_revise">
-					<a href="reset_pw.jsp"><span>비밀번호 재설정</span></a>
+					<a href="/EG/resetPw"><span>비밀번호 재설정</span></a>
 				</div>
 				<div class="sign_up">
-					<a href="join.jsp"><span>회원가입</span></a>
+					<a href="/EG/join"><span>회원가입</span></a>
 				</div>
 			</div>
 		</div>
 	</div>
 	
-	<script type="text/javascript" src="../../controller/js/main/home.js"></script>
-	<script type="text/javascript" src="../../controller/js/prefixfree.dynamic-dom.min.js"></script>
+	<script type="text/javascript" src="/EG/resources/controller/js/main/home.js"></script>
+	<script type="text/javascript" src="/EG/resources/controller/js/prefixfree.dynamic-dom.min.js"></script>
 </body>
 </html>

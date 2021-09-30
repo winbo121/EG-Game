@@ -50,12 +50,12 @@
 								</tr>
 							</table>
 							<ul>
-								<li><a href="../main/home.jsp">홈으로</a></li>
-								<li><a href="../info/login.jsp">로그인</a></li>
-								<li><a href="../game_ranking/ranking.jsp">게임순위</a></li>
-								<li><a href="../sub/free_board.jsp">자유 게시판</a></li>
-								<li><a href="../sub/help.jsp">고객센터</a></li>
-								<li><a href="../sub/notice.jsp">공지사항</a></li>
+								<li><a href="/EG/">홈으로</a></li>
+								<li><a href="/EG/login">로그인</a></li>
+								<li><a href="/EG/ranking">게임순위</a></li>
+								<li><a href="/EG/userBoardList">자유 게시판</a></li>
+								<li><a href="/EG/centerBoardList">고객센터</a></li>
+								<li><a href="/EG/adminBoardList">공지사항</a></li>
 							</ul>
 						</div>
 					</div>
@@ -65,7 +65,7 @@
 					</h3>
 					<!-- PC 메뉴 -->
 					<ul class="menu_pc">
-						<li><a href="../game_ranking/ranking.jsp"><span>게임순위</span></a></li>
+						<li><a href="/EG/ranking"><span>게임순위</span></a></li>
 						<li class="over">
 							<button type="button">
 								<span>더보기</span>
@@ -74,10 +74,10 @@
 								<li><a href="/EG/company">회사 소개</a></li>
 								<li><a href="/EG/userBoardList">자유 게시판</a></li>
 								<li><a href="/EG/centerBoardList">고객센터</a></li>
-								<li><a href="../sub/notice.jsp">공지사항</a></li>
+								<li><a href="/EG/adminBoardList">공지사항</a></li>
 							</ul>
 						</li>
-						<li><a href="../info/login.jsp"><span>로그인</span></a></li>
+						<li><a href="/EG/login"><span>로그인</span></a></li>
 					</ul>
 				</div>
 			</div>

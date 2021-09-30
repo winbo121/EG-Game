@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title></title>
-<link rel="stylesheet" type="text/css" href="../../css/member_info.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/member_info.css" />
 </head>
 <body>
 	<div id="pw_wrapper">

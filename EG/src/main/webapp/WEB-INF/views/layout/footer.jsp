@@ -10,7 +10,7 @@
 		</a></li>
 		<li class="help"><a href="/EG/centerBoardList"><span>고객센터</span>
 		</a></li>
-		<li class="notice_sec"><a href="../sub/notice.jsp"><span>공지사항</span>
+		<li class="notice_sec"><a href="/EG/adminBoardList"><span>공지사항</span>
 		</a></li>
 		<li class="totalSrv"><a href="#all_service"><span>전체서비스</span>
 		</a></li>
@@ -25,7 +25,7 @@
 	</address>
 	<p class="copyright">© EG GAMES Corporation All Rights Reserved.</p>
 	<p class="footer_logo">
-		<a href="home.jsp"> <span class="footer_icon"></span> <span
+		<a href="/EG/"> <span class="footer_icon"></span> <span
 			class="acchidden"></span>
 		</a>
 	</p>

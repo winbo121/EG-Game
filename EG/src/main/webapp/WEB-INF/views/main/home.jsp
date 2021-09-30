@@ -75,11 +75,11 @@
 							</li>
 						</ul>
 					</div>
-					<span class="rank_viewmore"><a href="../game_ranking/ranking.jsp">더보기</a></span>
+					<span class="rank_viewmore"><a href="/EG/ranking">더보기</a></span>
 				</div>
 			<div class="home_login">
 					<div class="game_login">
-						<a href="../info/login.jsp"><span>EG GAMES 로그인</span></a>
+						<a href="/EG/login"><span>EG GAMES 로그인</span></a>
 					</div>
 					<div class="game_login_etc">
 						<p>다른 계정 간편 로그인</p>
@@ -89,17 +89,17 @@
 					</div>
 					<div class="home_find">
 						<a href="#"
-							onclick="window.open ('../info/id_find.jsp',
+							onclick="window.open ('/EG/idFind',
 						'cong_window' , 'toolbar=0, location=0, status=0, menubar=0, scrollbars=1, resizable=no, top=50, left=20, width=650, height=680');
 						return false"
 							onfocus='this.blur()'>EG ID찾기</a> <a href="#"
-							onclick="window.open ('../info/pw_find.jsp',
+							onclick="window.open ('/EG/pwFind',
 						'cong_window' , 'toolbar=0, location=0, status=0, menubar=0, scrollbars=1, resizable=no, top=50, left=20, width=650, height=680');
 						return false"
 							onfocus='this.blur()'>비밀번호 찾기</a>
 					</div>
 					<div class="home_join">
-						<a href="../info/join.jsp">회원가입</a>
+						<a href="/EG/join">회원가입</a>
 					</div>
 				</div>
 			</div>
@@ -409,7 +409,7 @@
 												</tr>
 											</table>
 											<div class="board_viewmore">
-												<span><a href="../sub/notice.jsp">더보기</a></span>
+												<span><a href="/EG/adminBoardList">더보기</a></span>
 											</div>
 										</div>
 									</div>

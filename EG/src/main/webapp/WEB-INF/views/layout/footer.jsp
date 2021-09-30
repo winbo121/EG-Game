@@ -6,7 +6,7 @@
 		<a> [공지] EG 정기점검 안내</a>
 	</p>
 	<ul class="nav">
-		<li class="company"><a href="../sub/company.jsp"><span>회사소개</span>
+		<li class="company"><a href="/EG/company"><span>회사소개</span>
 		</a></li>
 		<li class="help"><a href="/EG/centerBoardList"><span>고객센터</span>
 		</a></li>

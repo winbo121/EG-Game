@@ -48,8 +48,13 @@
 						</thead>
 						<tbody>
 						<c:forEach var="answerList" items="${answerList }">
+							
 							<tr>
-								<td>${answerList.board_num}</td><td>${answerList.title}</td><td>${answerList.created}</td><td >${answerList.process}</td>
+								<td>${answerList.board_num}</td><td><a href="#"
+										onclick="window.open ('/EG/centerBoardRead?board_num=${answerList.board_num}',
+											'cong_window1' , 'toolbar=0, location=0, status=0, menubar=0, scrollbars=1, resizable=no, top=50, left=20, width=700, height=730');
+												return false"
+										onfocus='this.blur()' class="btn_link" id="answering">${answerList.title}</a></td><td>${answerList.created}</td><td >${answerList.process}</td>
 							</tr>
 						</c:forEach>
 						</tbody>

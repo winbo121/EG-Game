@@ -48,6 +48,14 @@ public class MainController {
 		return "main/home";
 	}
 	
+	@RequestMapping(value = "/company", method = RequestMethod.GET)
+	public String company(Locale locale, Model model) {
+	
+		
+		return "sub/company";
+	}
+	
+	
 	@RequestMapping(value = "/bricks", method = RequestMethod.GET)
 	public String bricks(Locale locale, Model model) {
 	

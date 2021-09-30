@@ -1,6 +1,6 @@
 $(function(){
-	$("#company_header").load("../layout/header.jsp");
-	$(".footer").load("../layout/footer.jsp");
+	$("#company_header").load("/EG/header/");
+	$(".footer").load("/EG/footer/");
 	
 	$('.bi-arrow-down-short').click(function(){
 		$(this).prev('.bottom').find('.git').slideDown();

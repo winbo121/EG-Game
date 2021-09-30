@@ -6,8 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>회사소개</title>
-<link rel="stylesheet" type="text/css" href="../../css/company.css" />
-<link rel="stylesheet" type="text/css" href="../../css/main.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/company.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/main.css" />
 </head>
 <body>
 	<div id="company_header">
@@ -180,7 +180,7 @@
 
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c267b95114595c226f7240c7eb15ed9e"></script>
-	<script type="text/javascript" src="../../controller/js/sub/company.js"></script>
+	<script type="text/javascript" src="resources/controller/js/sub/company.js"></script>
 	<!-- Swiper JS -->
 	<script type="text/javascript"
 		src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.js"></script>

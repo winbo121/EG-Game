@@ -55,49 +55,6 @@ public class MainController {
 	}
 	
 	
-	@RequestMapping(value = "/bricks", method = RequestMethod.GET)
-	public String bricks(Locale locale, Model model) {
-	
-		
-		return "game/bricks";
-	}
-	
-	@RequestMapping(value = "/snake", method = RequestMethod.GET)
-	public String snake(Locale locale, Model model) {
-	
-		
-		return "game/snake";
-	}
-	
-	@RequestMapping(value = "/flappyBird", method = RequestMethod.GET)
-	public String flappyBird(Locale locale, Model model) {
-	
-		
-		return "game/flappy_bird";
-	}
-	
-	@RequestMapping(value = "/dodge", method = RequestMethod.GET)
-	public String dodge(Locale locale, Model model) {
-	
-		
-		return "game/dodge";
-	}
-	
-	@RequestMapping(value = "/starEating", method = RequestMethod.GET)
-	public String startEating(Locale locale, Model model) {
-	
-		
-		return "game/star_eating";
-	}
-	
-	@RequestMapping(value = "/invaders", method = RequestMethod.GET)
-	public String invaders(Locale locale, Model model) {
-	
-		
-		return "game/invaders";
-	}
-	
-	
 	@RequestMapping(value = "/header", method = RequestMethod.GET)
 	public String header(Locale locale, Model model) {
 	

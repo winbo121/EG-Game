@@ -2,7 +2,6 @@
 $(document).ready(function() {
 	
 	$("#header").load("/EG/header/");
-	$(".btn_div").load("/EG/footer_btn/");
 	$(".footer").load("/EG/footer/");
 
 	

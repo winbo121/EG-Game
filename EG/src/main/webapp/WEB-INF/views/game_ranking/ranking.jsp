@@ -33,33 +33,32 @@
 			</div>
 		</div>
 		<div class="game_rankpage" id="total">
-			<%@ include file="./total.jsp"%>
+			<jsp:include page="./total.jsp"/>
 		</div>
 		<div class="game_rankpage" id="bricks">
-			<%@ include file="./bricks_rank.jsp"%>
+			<jsp:include page="./bricks_rank.jsp"/>
 		</div>
 		<div class="game_rankpage" id="snake">
-			<%@ include file="./snake_rank.jsp"%>
+			<jsp:include page="./snake_rank.jsp"/>
 		</div>
 		<div class="game_rankpage" id="flappy_bird">
-			<%@ include file="./flappy_bird_rank.jsp"%>
+			<jsp:include page="./flappy_bird_rank.jsp"/>
 		</div>
 		<div class="game_rankpage" id="dodge">
-			<%@ include file="./dodge_rank.jsp"%>
+			<jsp:include page="./dodge_rank.jsp"/>
 		</div>
 		<div class="game_rankpage" id="star_eating">
-			<%@ include file="./star_eating_rank.jsp"%>
+			<jsp:include page="./star_eating_rank.jsp"/>
 		</div>
 		<div class="game_rankpage" id="invaders">
-			<%@ include file="./invaders_rank.jsp"%>
+			<jsp:include page="./invaders_rank.jsp"/>
 		</div>
 	</div>
 
 	<footer class="footer"></footer>
 
-	<script
-		src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 	<script type="text/javascript" src="../../controller/js/ranking/rank.js"></script> 
-	<script type="text/javascript" src="../../controller/js/main/home.js"></script>
+	
 </body>
 </html>

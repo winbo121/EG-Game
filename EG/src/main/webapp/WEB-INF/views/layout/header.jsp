@@ -50,7 +50,7 @@
 								</tr>
 							</table>
 							<ul>
-								<li><a href="/EG/">홈으로</a></li>
+								<li><a href="/EG/main">홈으로</a></li>
 								<li><a href="/EG/login">로그인</a></li>
 								<li><a href="/EG/ranking">게임순위</a></li>
 								<li><a href="/EG/userBoardList">자유 게시판</a></li>
@@ -61,7 +61,7 @@
 					</div>
 					<!-- 로고 -->
 					<h3>
-						<a href="/EG/"><img src="resources/img/main/logo.png" alt="EG"></a>
+						<a href="/EG/main"><img src="resources/img/main/logo.png" alt="EG"></a>
 					</h3>
 					<!-- PC 메뉴 -->
 					<ul class="menu_pc">

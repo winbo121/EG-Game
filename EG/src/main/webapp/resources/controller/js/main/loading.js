@@ -12,7 +12,7 @@ $(document).ready(function() {
       
     if(counter == 101) {
         clearInterval(i);
-        location.replace("main/home.jsp");
+        location.replace("/EG/main");
     }
   }, 20);
 });

@@ -25,7 +25,7 @@
 	</address>
 	<p class="copyright">© EG GAMES Corporation All Rights Reserved.</p>
 	<p class="footer_logo">
-		<a href="/EG/"> <span class="footer_icon"></span> <span
+		<a href="/EG/main"> <span class="footer_icon"></span> <span
 			class="acchidden"></span>
 		</a>
 	</p>

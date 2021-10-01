@@ -69,7 +69,7 @@
 						</div>
 					</div>
 					<h3>
-						<a href="/EG/"><img src="resources/img/main/logo.png"
+						<a href="/EG/main"><img src="resources/img/main/logo.png"
 							alt="EG"></a>
 					</h3>
 				</div>

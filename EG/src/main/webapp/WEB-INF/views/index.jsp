@@ -7,13 +7,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>EG</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel="stylesheet" type="text/css" href="../css/loading.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/loading.css" />
 </head>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
 <body>
 	<div class="loading-page">
 		<div class="counter">
-			<p><img src="../img/main/loading.gif"></p>
+			<p><img src="resources/img/main/loading.gif"></p>
 			<h1>
 				0%
 			</h1>
@@ -22,6 +22,6 @@
 	</div>
 	
 	
-	<script type="text/javascript" src="../controller/js/main/loading.js"></script>
+	<script type="text/javascript" src="resources/controller/js/main/loading.js"></script>
 </body>
 </html>

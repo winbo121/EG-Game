@@ -52,7 +52,6 @@ button, input, select, textarea {
 }
 
 a {
-	display: inline-block;
 	color: #404040;
 	text-decoration: none;
 }
@@ -149,6 +148,7 @@ span {
 .notice_swiper .ns_content .ns_item a {
 	height: 100%;
 	position: relative;
+	display: inline-block;
 }
 
 .notice_swiper .ns_content .ns_item a .ns_thumb {
@@ -400,11 +400,6 @@ span {
 	border-top: 10px solid #3e3d55;
 }
 
-.list_wrap .tr {
-	position: relative;
-	height: inherit;
-}
-
 .list_wrap .thead .th {
 	display: block;
 	height: 44px;
@@ -436,10 +431,6 @@ span {
 
 .help_content .list_wrap .thead .th.count {
 	width: 143px;
-}
-
-#main .help_list .help_content .list_wrap .tbody {
-	position: relative;
 }
 
 .list_wrap .tbody {

@@ -27,7 +27,7 @@ INSERT INTO center_board (title, contents, user_id, file, cotegory,email) VALUES
 </insert>
 
 <select id="read"  resultType="CenterBoardVo" parameterType="java.lang.Integer">
-SELECT A.board_num, A.title, A.contents, A.user_id, A.file, B.code_name AS cotegory FROM center_board A INNER JOIN CATEGORY_CODE B ON B.code_cd = A.cotegory WHERE board_num = #{board_num}
+SELECT A.board_num, A.title, A.contents, A.user_id, A.file, B.code_name AS cotegory FROM center_board A INNER JOIN category_code B ON B.code_cd = A.cotegory WHERE board_num = #{board_num}
 </select>
 
 <update id="update" parameterType="CenterBoardVo"> 

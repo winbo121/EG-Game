@@ -7,9 +7,11 @@
 SELECT A.board_num, A.title, A.contents, A.user_id, A.file, B.code_name AS cotegory, A.cnt, DATE_FORMAT(A.created, '%Y-%m-%d') AS created FROM center_board A
 INNER JOIN category_code B ON B.code_cd = A.cotegory
 WHERE 1=1
+
 <if test="search_text != null and search_text != '' ">
 and title LIKE concat( '%', #{search_text} , '%' )
 </if> 
+
 ORDER BY board_num DESC LIMIT #{queryFirstStart}, #{displayContentNum}  
 </select>
 

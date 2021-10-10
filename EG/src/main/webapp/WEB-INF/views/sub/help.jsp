@@ -169,8 +169,9 @@ function gotoBack(){
 										
 
 			
-								<div class="tr">
+								
 									<c:forEach var="list" items="${list }">
+										<div class="tr">
 										<a href="#"
 										onclick="window.open ('/EG/centerBoardRead?board_num=${list.board_num}',
 											'cong_window' , 'toolbar=0, location=0, status=0, menubar=0, scrollbars=1, resizable=no, top=50, left=20, width=700, height=730');
@@ -179,8 +180,9 @@ function gotoBack(){
 											<span class="td sort">${list.user_id }</span> <span class="td subject">${list.title }</span>
 											<span class="td date">${list.created }</span> <span class="td count">${list.cnt }</span>
 										</a>
+										</div>
 									</c:forEach>
-								</div>
+								
 							</div>
 						</div>
 					</div>

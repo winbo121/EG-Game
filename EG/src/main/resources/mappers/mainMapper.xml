@@ -4,19 +4,19 @@
 <mapper namespace="main">
 
 <select id="mainAdminBoardList"  resultType="AdminBoardVo">
-SELECT  A.user_id, A.title, DATE_FORMAT(A.created, '%Y-%m-%d') AS created FROM ADMIN_BOARD A
+SELECT  A.user_id, A.title, DATE_FORMAT(A.created, '%Y-%m-%d') AS created FROM admin_board A
 WHERE 1=1
 ORDER BY board_num DESC LIMIT 0,5
 </select>
 
 <select id="mainCenterBoardList"  resultType="CenterBoardVo">
-SELECT  A.user_id, A.title, DATE_FORMAT(A.created, '%Y-%m-%d') AS created FROM CENTER_BOARD A
+SELECT  A.user_id, A.title, DATE_FORMAT(A.created, '%Y-%m-%d') AS created FROM center_board A
 WHERE 1=1
 ORDER BY board_num DESC LIMIT 0,5
 </select>
 
 <select id="mainUserBoardList"  resultType="UserBoardVo">
-SELECT  A.user_id, A.title, DATE_FORMAT(A.created, '%Y-%m-%d') AS created FROM USER_BOARD A
+SELECT  A.user_id, A.title, DATE_FORMAT(A.created, '%Y-%m-%d') AS created FROM user_board A
 WHERE 1=1
 ORDER BY board_num DESC LIMIT 0,5
 </select>

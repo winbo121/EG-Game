@@ -38,7 +38,7 @@
 				</div>
 				<span>비밀번호:</span>
 				<div class="join_pw">
-					<input type="password" class="join_input" id="join_pw" maxlength="20">
+					<input type="password" class="join_input" id="join_pw" maxlength="20" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
 						<span id="pw_textblank" style="color: red; display: none;">필수 정보입니다.</span>
 						<span id="pw_text" style="color: red; display: none;">8자리 ~ 20자리 이내로 입력해주세요.</span>
 						<span id="pw_blank" style="color: red; display: none;">비밀번호는 공백 없이 입력해주세요.</span>

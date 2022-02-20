@@ -5,7 +5,7 @@
 
 <select id="list"  resultType="UserBoardVo" parameterType="UserBoardVo">
 SELECT A.board_num, A.title, A.contents, A.user_id, A.file, B.code_name AS cotegory, A.cnt, A.created FROM user_board A
-INNER JOIN category_code B ON B.code_cd = A.cotegory
+INNER JOIN category_code B ON B.code_cd = A.cotegory AND B.code_cd_id = 'G1'
 WHERE 1=1
 
 <if test="search_text != null and search_text != '' ">

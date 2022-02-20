@@ -51,7 +51,7 @@
 			<artifactId>spring-context-support</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-		<!-- 	mysql db연동 -->
+		<!-- 	mysql DB연동 -->
         	<dependency>
 		    <groupId>mysql</groupId>
 		    <artifactId>mysql-connector-java</artifactId>

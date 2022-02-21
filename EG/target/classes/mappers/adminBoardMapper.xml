@@ -3,43 +3,43 @@
 
 <mapper namespace="adminBoard">
 
-<select id="list"  resultType="AdminBoardVo" parameterType="AdminBoardVo">
-SELECT A.board_num, A.title, A.contents, A.user_id, A.file, B.code_name AS cotegory, A.cnt, A.created FROM admin_board A
-INNER JOIN category_code B ON B.code_cd = A.cotegory
-WHERE 1=1
+	<select id="list"  resultType="AdminBoardVo" parameterType="AdminBoardVo">
+			SELECT A.board_num, A.title, A.contents, A.user_id, A.file, B.code_name AS cotegory, A.cnt, A.created FROM admin_board A
+			INNER JOIN category_code B ON B.code_cd = A.cotegory
+			WHERE 1=1
+			
+			<if test="search_text != null and search_text != '' ">
+			and title LIKE concat( '%', #{search_text} , '%' )
+			</if> 
+			
+			ORDER BY board_num DESC LIMIT #{queryFirstStart}, #{displayContentNum}  
+	</select>
 
-<if test="search_text != null and search_text != '' ">
-and title LIKE concat( '%', #{search_text} , '%' )
-</if> 
+	<select id="listCnt" resultType="java.lang.Integer" parameterType="AdminBoardVo">
+		SELECT COUNT(*) FROM admin_board WHERE 1=1
+		<if test="search_text != null and search_text != '' ">
+		and title LIKE concat( '%', #{search_text} , '%' )
+		</if> 
+	</select>
 
-ORDER BY board_num DESC LIMIT #{queryFirstStart}, #{displayContentNum}  
-</select>
+	<insert id="insert" parameterType="AdminBoardVo">
+		INSERT INTO admin_board (title, contents, user_id, file, cotegory) VALUES (#{title},#{contents},#{user_id},#{file},#{cotegory})
+	</insert>
 
-<select id="listCnt" resultType="java.lang.Integer" parameterType="AdminBoardVo">
-SELECT COUNT(*) FROM admin_board WHERE 1=1
-<if test="search_text != null and search_text != '' ">
-and title LIKE concat( '%', #{search_text} , '%' )
-</if> 
-</select>
+	<select id="read"  resultType="AdminBoardVo" parameterType="java.lang.Integer">
+		SELECT board_num, title, contents, user_id, file, cotegory FROM ADMIN_BOARD WHERE board_num = #{board_num}
+	</select>
 
-<insert id="insert" parameterType="AdminBoardVo">
-INSERT INTO admin_board (title, contents, user_id, file, cotegory) VALUES (#{title},#{contents},#{user_id},#{file},#{cotegory})
-</insert>
+	<update id="update" parameterType="AdminBoardVo"> 
+		UPDATE admin_board SET title = #{title}, contents = #{contents}, user_id = #{user_id}, file = #{file}, cotegory= #{cotegory}  WHERE board_num = #{board_num}
+	</update>
 
-<select id="read"  resultType="AdminBoardVo" parameterType="java.lang.Integer">
-SELECT board_num, title, contents, user_id, file, cotegory FROM ADMIN_BOARD WHERE board_num = #{board_num}
-</select>
-
-<update id="update" parameterType="AdminBoardVo"> 
-UPDATE admin_board SET title = #{title}, contents = #{contents}, user_id = #{user_id}, file = #{file}, cotegory= #{cotegory}  WHERE board_num = #{board_num}
-</update>
-
-<update id="readCnt" parameterType="java.lang.Integer"> 
-UPDATE admin_board SET cnt = IFNULL(cnt, 0)+1  WHERE board_num = #{board_num}
-</update>
-
-<delete id="delete" parameterType="java.lang.Integer">
-DELETE FROM admin_board WHERE board_num=#{board_num}
-</delete>
+	<update id="readCnt" parameterType="java.lang.Integer"> 
+		UPDATE admin_board SET cnt = IFNULL(cnt, 0)+1  WHERE board_num = #{board_num}
+	</update>
+	
+	<delete id="delete" parameterType="java.lang.Integer">
+		DELETE FROM admin_board WHERE board_num=#{board_num}
+	</delete>
 
 </mapper>

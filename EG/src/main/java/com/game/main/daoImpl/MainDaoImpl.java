@@ -9,7 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.game.main.dao.MainDao;
-import com.game.main.vo.MainVo;
+
 
 @Repository
 public class MainDaoImpl implements MainDao{

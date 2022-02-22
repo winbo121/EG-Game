@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import com.game.main.dao.MainDao;
 import com.game.main.service.MainService;
+import com.game.main.vo.MainVo;
+
 
 @Service
 public class MainServiceImpl implements MainService{
@@ -17,6 +19,9 @@ public class MainServiceImpl implements MainService{
 	
 	@Inject
 	private MainDao mainDao;
+	
+
+	private MainVo vo =new MainVo();
 	
 	@Override
 	public List<Map<String, Object>> mainAdminBoardList() {
@@ -35,5 +40,12 @@ public class MainServiceImpl implements MainService{
 		
 		return mainDao.mainUserBoardList();
 	}
+
+	@Override
+	public List<Map<String, Object>> mainCodeList(String code_cd_id) {
+		vo.setCode_cd_id(code_cd_id);
+		return mainDao.mainCodeList(vo.getCode_cd_id());
+	}
+
 
 }

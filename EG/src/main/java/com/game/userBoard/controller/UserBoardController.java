@@ -2,8 +2,7 @@ package com.game.userBoard.controller;
 
 
 import java.io.IOException;
-
-
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -21,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import org.springframework.web.bind.annotation.ResponseBody;
 
-
+import com.game.main.service.MainService;
 import com.game.userBoard.service.UserBoardService;
 import com.game.userBoard.vo.UserBoardVo;
 import com.game.utill.file.FileUtill;
@@ -34,6 +33,9 @@ public class UserBoardController extends JsonUtill{
 	
 	@Inject
 	private UserBoardService userBoardService;
+	
+	@Inject
+	private MainService mainService;
 	
 	private FileUtill fileUtill =new FileUtill();
 	
@@ -53,8 +55,10 @@ public class UserBoardController extends JsonUtill{
 	}
 	
 	@RequestMapping(value = "/userBoardInsertPro", method = RequestMethod.GET)
-	public String userBoardInsertPro(Locale locale, Model model) {
+	public String userBoardInsertPro(Locale locale, Model model) throws IOException{
 		
+		List<Map<String,Object>> codeList = mainService.mainCodeList("G1");
+		model.addAttribute("codeList",codeList);
 		return "sub/write";
 	}
 	
@@ -78,6 +82,8 @@ public class UserBoardController extends JsonUtill{
 		
 		UserBoardVo userBoard=userBoardService.userBoardRead(vo.getBoard_num());
 		userBoardService.userBoardReadCnt(vo.getBoard_num());
+		List<Map<String,Object>> codeList = mainService.mainCodeList("G1");
+		model.addAttribute("codeList",codeList);
 		model.addAttribute("userBoard",userBoard);
 		model.addAttribute("vo",vo);
 		return "sub/update";

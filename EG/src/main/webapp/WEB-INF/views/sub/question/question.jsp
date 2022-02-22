@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -83,9 +84,9 @@ $(document).ready(function(){
 								<th scope="row">문의유형</th>
 								<td colspan="3">
 									<select id="cotegory" required style="width: 250px" class="select_st" title="문의 유형을 선택하세요." name="cotegory">
-										<option value="B0004">아이디정보/보안</option>
-										<option value="B0005">게임문의</option>
-										<option value="B0006">오류 및 복구</option>
+										<c:forEach var="codeList" items="${codeList }">
+											<option value="${codeList.code_cd }">${codeList.code_name }</option>
+										</c:forEach>
 									</select>
 								</td>
 							</tr>

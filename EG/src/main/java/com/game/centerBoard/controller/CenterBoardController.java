@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.game.centerBoard.service.CenterBoardService;
 import com.game.centerBoard.vo.CenterBoardVo;
-
+import com.game.main.service.MainService;
 import com.game.utill.file.FileUtill;
 import com.game.utill.json.JsonUtill;
 
@@ -30,6 +30,9 @@ public class CenterBoardController extends JsonUtill{
 
 	@Inject
 	private CenterBoardService centerBoardService;
+	
+	@Inject
+	private MainService mainService;
 	
 	private FileUtill fileUtill =new FileUtill();
 	
@@ -57,6 +60,8 @@ public class CenterBoardController extends JsonUtill{
 	
 	@RequestMapping(value = "/centerBoardInsertPro", method = RequestMethod.GET)
 	public String centerBoardInsertPro(Locale locale, Model model) {
+		List<Map<String,Object>> codeList = mainService.mainCodeList("G2");
+		model.addAttribute("codeList",codeList);
 		return "sub/question/question";
 	}
 	

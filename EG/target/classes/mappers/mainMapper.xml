@@ -23,5 +23,9 @@
 		
 		ORDER BY board_num DESC LIMIT 0,5
 	</select>
+	
+	<select id="mainCodeList"  resultType="MainVo" parameterType="MainVo">
+		SELECT A.code_cd, A.code_name FROM category_code A WHERE A.code_cd_id = #{code_cd_id}
+	</select>
 
 </mapper>

@@ -8,6 +8,6 @@
 <typeAlias alias="AdminBoardVo" type="com.game.adminBoard.vo.AdminBoardVo"/>
 <typeAlias alias="UserBoardVo" type="com.game.userBoard.vo.UserBoardVo"/>
 <typeAlias alias="CenterBoardVo" type="com.game.centerBoard.vo.CenterBoardVo"/>
-
+<typeAlias alias="MainVo" type="com.game.main.vo.MainVo"/>
 </typeAliases>
 </configuration>

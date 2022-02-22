@@ -75,9 +75,9 @@ $(document).ready(function(){
 						<td>카테고리</td>
 						<td>
 							<select name = "cotegory">
-								<option value="B0001">자기소개</option>
-								<option value="B0002">자유게시판</option>
-								<option value="B0003">질문게시판</option>
+								<c:forEach var="codeList" items="${codeList }">
+									<option value="${codeList.code_cd }">${codeList.code_name }</option>
+								</c:forEach>
 							</select>
 						</td>
 					</tr>

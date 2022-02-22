@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
      <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+         <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -122,9 +123,9 @@ $(document).ready(function(){
 						<td>카테고리</td>
 						<td>
 							<form:select path= "cotegory">
-								<form:option value="B0001">자기소개</form:option>
-								<form:option value="B0002">자유게시판</form:option>
-								<form:option value="B0003">질문게시판</form:option>
+								<c:forEach var="codeList" items="${codeList }">
+									<form:option value="${codeList.code_cd }">${codeList.code_name }</form:option>
+								</c:forEach>
 							</form:select>
 						</td>
 					</tr>

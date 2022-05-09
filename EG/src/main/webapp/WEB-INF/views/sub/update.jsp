@@ -40,28 +40,8 @@ $(document).ready(function(){
 	})
 	
 	$("#backBtn").on("click",function(){
-	
-		var formData = new FormData($('#vo')[0]);
-		
-		var form = $('<form></form>');
-		form.attr('action', "/EG/userBoardList");
-		form.attr('method', "GET");
-		
-		
-		for (var item of formData.entries()) {
-		    console.log(item[0] + " : " + item[1]);
-		    
-	        var name = item[0];
-	        var value = item[1];
-			var field = $('<input></input>');
-			field.attr("type", "hidden");
-			field.attr("name", name);
-			field.attr("value", value);
-			form.append( field );
-		}
-		
-		form.appendTo('body');
-		form.submit();
+		$("#vo").attr("action", "<c:url value='/userBoardList'/>");
+		$("#vo").submit();
 	})
 	
 	$("#deleteBtn").on("click",function(){

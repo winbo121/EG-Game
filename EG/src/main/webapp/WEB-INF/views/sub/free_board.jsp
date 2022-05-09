@@ -26,7 +26,7 @@ $(document).ready(function(){
 	
 	$(".read_form").on("click",function(){
 		
-		
+		/*
 		var formData = new FormData($('#vo')[0]);
 		formData.append("board_num",$( this ).children().eq(0).text())
 		
@@ -49,7 +49,16 @@ $(document).ready(function(){
 		
 		form.appendTo('body');
 		form.submit();
+		*/
 		
+		var field = $('<input></input>');
+		field.attr("type", "hidden");
+		field.attr("name", "board_num");
+		field.attr("value", $( this ).children().eq(0).text());
+		
+		$("#vo").append(field)
+		$("#vo").attr("action", "<c:url value='/userBoardList'/>");
+		$("#vo").submit();
 		
 	});
 	

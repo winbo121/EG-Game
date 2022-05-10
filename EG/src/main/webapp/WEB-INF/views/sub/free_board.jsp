@@ -57,7 +57,7 @@ $(document).ready(function(){
 		field.attr("value", $( this ).children().eq(0).text());
 		
 		$("#vo").append(field)
-		$("#vo").attr("action", "<c:url value='/userBoardList'/>");
+		$("#vo").attr("action", "<c:url value='/userBoardRead'/>");
 		$("#vo").submit();
 		
 	});

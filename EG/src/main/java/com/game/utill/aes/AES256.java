@@ -1,4 +1,4 @@
-package com.game.util.aes;
+package com.game.utill.aes;
 
 import java.util.Base64;
 import javax.crypto.Cipher;

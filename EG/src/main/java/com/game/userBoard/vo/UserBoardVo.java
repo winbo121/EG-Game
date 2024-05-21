@@ -13,8 +13,29 @@ public class UserBoardVo extends PageMaker{
 	private Integer cnt;
 	private String created;
 	private String search_text;
+	private String searchCategory;
+	private String searchSort;
+	private String searchOption;
 	
 	
+	public String getSearchCategory() {
+		return searchCategory;
+	}
+	public void setSearchCategory(String searchCategory) {
+		this.searchCategory = searchCategory;
+	}
+	public String getSearchSort() {
+		return searchSort;
+	}
+	public void setSearchSort(String searchSort) {
+		this.searchSort = searchSort;
+	}
+	public String getSearchOption() {
+		return searchOption;
+	}
+	public void setSearchOption(String searchOption) {
+		this.searchOption = searchOption;
+	}
 	public Integer getBoard_num() {
 		return board_num;
 	}

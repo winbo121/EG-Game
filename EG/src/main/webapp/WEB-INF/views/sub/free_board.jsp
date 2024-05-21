@@ -62,7 +62,15 @@ $(document).ready(function(){
 		
 	});
 	
+	
 });
+
+function pageSubmit(page){
+	
+	$("#page").val(page);
+	
+	location.href='/EG/userBoardList?'+$("#vo").serialize();
+}
 </script>
 </head>
 <body>
@@ -81,26 +89,29 @@ $(document).ready(function(){
 				<form:input path="search_text" placeholder="검색어를 입력하세요" />
 				<button id="search_btn">검색</button>
 			</div>
+		
+			<div id="select_div">
+				<form:select path="searchCategory">
+					<form:option value="" selected="true" >전체</form:option>
+					<c:forEach var="codeList" items="${codeList }">
+						<form:option value="${codeList.code_cd }">${codeList.code_name }</form:option>
+					</c:forEach>
+				</form:select>
+				<form:select path="searchSort">
+					<form:option value="new" selected="true">최신순</form:option>
+					<form:option value="order">과거순</form:option>
+				</form:select> 
+				<form:select path="searchOption" >
+					<form:option value="name" >이름</form:option>
+					<form:option value="title" selected="true">제목</form:option>
+					<form:option value="content">내용</form:option>				
+				</form:select>
+	
+				<div class="bottom"></div>
+			</div>
 			
 		</form:form>
 		
-		<div id="select_div">
-			<select name="cat" id="cat">
-				<option value="자유게시판" selected>자유게시판</option>
-				<option value="intro">자기소개</option>
-				<option value="qna">Q&A</option>
-			</select> <select name="sort" id="sort">
-				<option value="최신순" selected>최신순</option>
-				<option value="과거순">과거순</option>
-			</select> <select name="option" id="option">
-				<option value="이름" selected>이름</option>
-				<option value="제목">제목</option>
-				<option value="내용">내용</option>
-				<option value="전체">전체</option>
-			</select>
-			<div class="bottom"></div>
-		</div>
-
 		<table>
 			<tr>
 				<th>글번호</th>
@@ -127,17 +138,29 @@ $(document).ready(function(){
 		<hr>
 		<div id="paging">
 		
-			<c:if test="${vo.prev }">
-			<a href="/EG/userBoardList?page=${vo.startPage-1 }&search_text=${vo.search_text}"><-</a>
-			</c:if>
+<%-- 			<c:if test="${vo.prev }"> --%>
+<%-- 				<a href="/EG/userBoardList?page=${vo.startPage-1 }&search_text=${vo.search_text}"><-</a> --%>
+<%-- 			</c:if> --%>
 			
-			<c:forEach begin="${vo.startPage }" end="${vo.endPage }" var="idx">
-			<a href="/EG/userBoardList?page=${idx }&search_text=${vo.search_text}">${idx }</a>
-			</c:forEach>
+<%-- 			<c:forEach begin="${vo.startPage }" end="${vo.endPage }" var="idx"> --%>
+<%-- 				<a href="/EG/userBoardList?page=${idx }&search_text=${vo.search_text}">${idx }</a> --%>
+<%-- 			</c:forEach> --%>
 			
-			<c:if test="${vo.next }">
-			<a href="/EG/userBoardList?page=${vo.endPage+1 }&search_text=${vo.search_text}">-></a>
-			</c:if>
+<%-- 			<c:if test="${vo.next }"> --%>
+<%-- 				<a href="/EG/userBoardList?page=${vo.endPage+1 }&search_text=${vo.search_text}">-></a> --%>
+<%-- 			</c:if> --%>
+
+				<c:if test="${vo.prev }">
+					<a href="javascript:pageSubmit('${vo.startPage-1 }')"><-</a>
+				</c:if>
+				
+				<c:forEach begin="${vo.startPage }" end="${vo.endPage }" var="idx">
+					<a href="javascript:pageSubmit('${idx }')">${idx }</a>
+				</c:forEach>
+				
+				<c:if test="${vo.next }">
+					<a href="javascript:pageSubmit('${vo.endPage+1 }')">-></a>
+				</c:if>
 			
 		</div>
 

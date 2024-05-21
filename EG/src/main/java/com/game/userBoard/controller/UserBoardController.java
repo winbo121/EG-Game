@@ -44,9 +44,11 @@ public class UserBoardController extends JsonUtill{
 		List<Map<String,Object>> list =userBoardService.userBoardList(vo);
 		Integer list_cnt = userBoardService.userBoardListCnt(vo);
 		
-			
+		List<Map<String,Object>> codeList = mainService.mainCodeList("G1");
+		
 		vo.setTotalCount(list_cnt);
 		
+		model.addAttribute("codeList",codeList);
 		model.addAttribute("list", list);
 		model.addAttribute("vo",vo);
 		

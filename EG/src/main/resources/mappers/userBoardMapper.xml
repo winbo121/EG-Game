@@ -9,16 +9,49 @@
 		WHERE 1=1
 		
 		<if test="search_text != null and search_text != '' ">
-		and title LIKE concat( '%', #{search_text} , '%' )
+			<if test="searchOption != null and searchOption != '' ">
+				<if test="searchOption == 'title' ">
+					AND A.title LIKE concat( '%', #{search_text} , '%' )
+				</if>
+				<if test="searchOption == 'name' ">
+					AND A.user_id LIKE concat( '%', #{search_text} , '%' )
+				</if>
+				<if test="searchOption == 'content' ">
+					AND A.contents LIKE concat( '%', #{search_text} , '%' )
+				</if>
+			</if>
 		</if> 
-		
-		ORDER BY board_num DESC LIMIT #{queryFirstStart}, #{displayContentNum}  
+		<if test="searchCategory != null and searchCategory != '' ">
+			AND A.cotegory = #{searchCategory}
+		</if>
+		<if test="searchSort != null and searchSort != '' ">
+			<if test="searchSort == 'new' ">
+				ORDER BY board_num DESC 
+			</if>
+			<if test="searchSort == 'order' ">
+				ORDER BY board_num ASC
+			</if>
+		</if>
+		LIMIT #{queryFirstStart}, #{displayContentNum}  
 	</select>
 	
 	<select id="listCnt" resultType="java.lang.Integer" parameterType="UserBoardVo">
 		SELECT COUNT(*) FROM user_board WHERE 1=1
 		<if test="search_text != null and search_text != '' ">
-		and title LIKE concat( '%', #{search_text} , '%' )
+			<if test="searchOption != null and searchOption != '' ">
+				<if test="searchOption == 'title' ">
+					AND title LIKE concat( '%', #{search_text} , '%' )
+				</if>
+				<if test="searchOption == 'name' ">
+					AND user_id LIKE concat( '%', #{search_text} , '%' )
+				</if>
+				<if test="searchOption == 'content' ">
+					AND contents LIKE concat( '%', #{search_text} , '%' )
+				</if>
+			</if>
+		</if> 
+		<if test="searchCategory != null and searchCategory != '' ">
+			AND cotegory = #{searchCategory}
 		</if> 
 	</select>
 	

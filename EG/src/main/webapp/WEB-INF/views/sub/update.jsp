@@ -84,8 +84,11 @@ $(document).ready(function(){
 			</div>
 			
 			<form:form modelAttribute="vo" method="GET" >
-			<form:hidden path="page"/>
-			<form:hidden path="search_text"/>
+				<form:hidden path="page"/>
+				<form:hidden path="search_text"/>
+				<form:hidden path="searchCategory"/>
+				<form:hidden path="searchSort"/>
+				<form:hidden path="searchOption"/>
 			</form:form>
 			
 			<form:form modelAttribute="userBoard" method="POST" >

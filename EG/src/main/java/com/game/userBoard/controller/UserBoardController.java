@@ -80,7 +80,7 @@ public class UserBoardController extends JsonUtill{
 	
 	@RequestMapping(value = "/userBoardRead", method = RequestMethod.GET)
 	public String userBoardRead(Locale locale, Model model,@ModelAttribute UserBoardVo vo) {
-		
+			
 		UserBoardVo userBoard=userBoardService.userBoardRead(vo.getBoard_num());
 		userBoardService.userBoardReadCnt(vo.getBoard_num());
 		List<Map<String,Object>> codeList = mainService.mainCodeList("G1");

@@ -14,12 +14,10 @@
 
 <script>
 $(document).ready(function(){
-	
-	$("#vo").submit(function() {
-		$( this ).find( "#page" ).val("1");
-	});
+
 	
 	$("#search_btn").click(function() {
+		$("#vo").find( "#page" ).val("1");
 		$("#vo").submit();
 	});
 
@@ -68,8 +66,7 @@ $(document).ready(function(){
 function pageSubmit(page){
 	
 	$("#page").val(page);
-	
-	location.href='/EG/userBoardList?'+$("#vo").serialize();
+	$("#vo").submit();
 }
 </script>
 </head>

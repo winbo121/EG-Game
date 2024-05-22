@@ -16,11 +16,6 @@ public class LoginController {
 		return "info/login";
 	}
 	
-	@RequestMapping(value = "/join", method = RequestMethod.GET)
-	public String join(Locale locale, Model model) {
-		return "info/join";
-	}
-	
 	@RequestMapping(value = "/idFind", method = RequestMethod.GET)
 	public String idFind(Locale locale, Model model) {
 		return "info/id_find";

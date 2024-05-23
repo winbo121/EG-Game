@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.game.join.service.JoinService;
 import com.game.join.vo.JoinVo;
-import com.game.userBoard.vo.UserBoardVo;
+import com.game.utill.aes.AES256;
 import com.game.utill.file.FileUtill;
 import com.game.utill.json.JsonUtill;
 
@@ -30,6 +30,8 @@ public class JoinController extends JsonUtill{
 	
 	private FileUtill fileUtill =new FileUtill();
 	
+	private AES256 aes256 = new AES256();
+	
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
 	public String join(Locale locale, Model model) {
 		return "info/join";
@@ -40,11 +42,7 @@ public class JoinController extends JsonUtill{
 	@ResponseBody
 	public JSONObject joinIdCheck(HttpServletRequest request, HttpServletResponse response,Locale locale, Model model,JoinVo joinVo) throws IOException {
 		
-		System.out.println("uid -> "+joinVo.getUid());
-		
-		Integer joinIdCheck = joinService.joinIdCheck(joinVo);
-		
-		System.out.println("joinIdCheck -> "+joinIdCheck);
+		Integer joinIdCheck = joinService.joinIdCheck(joinVo);		
 		
 		String SuccessOrNot;
 		
@@ -60,12 +58,14 @@ public class JoinController extends JsonUtill{
 	
 	@RequestMapping(value = "/joinInsert", method = RequestMethod.POST)
 	@ResponseBody
-	public JSONObject joinInsert(HttpServletRequest request, HttpServletResponse response,Locale locale, Model model,JoinVo joinVo) throws IOException {
+	public JSONObject joinInsert(HttpServletRequest request, HttpServletResponse response,Locale locale, Model model,JoinVo joinVo) throws Exception {
 		
 		
 		String realFileName = fileUtill.fileUpdateMethod(request,joinVo.getFile());
 
 		joinVo.setFile(realFileName);
+		
+		joinVo.setPw(aes256.encrypt(joinVo.getPw()));
 
 		joinService.joinInsert(joinVo);
 		

@@ -12,7 +12,6 @@ public class JsonUtill {
 		
 		json.put("resultData", data);
 		
-		
 		return json;
 	}
 	

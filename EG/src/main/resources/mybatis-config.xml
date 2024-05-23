@@ -9,5 +9,6 @@
 <typeAlias alias="UserBoardVo" type="com.game.userBoard.vo.UserBoardVo"/>
 <typeAlias alias="CenterBoardVo" type="com.game.centerBoard.vo.CenterBoardVo"/>
 <typeAlias alias="MainVo" type="com.game.main.vo.MainVo"/>
+<typeAlias alias="JoinVo" type="com.game.join.vo.JoinVo"/>
 </typeAliases>
 </configuration>

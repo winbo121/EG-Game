@@ -14,7 +14,7 @@ public class UserBoardVo extends PageMaker{
 	private String created;
 	private String search_text;
 	private String searchCategory;
-	private String searchSort;
+	private String searchSort = "new";
 	private String searchOption;
 	
 	

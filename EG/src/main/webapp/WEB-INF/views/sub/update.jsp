@@ -126,8 +126,10 @@ $(document).ready(function(){
 					<td><a href="/EG/fileDownload?filename=${userBoard.file}" id="originFileName">${userBoard.file}</a></td>
 					</tr>
 				</table><hr>
-				<button type = "button" id="updateBtn">수정하기</button>
-				<button type = "button" id="deleteBtn">삭제하기</button>		
+				<c:if test ="${not empty session.uid  and session.uid eq userBoard.user_id}">
+					<button type = "button" id="updateBtn">수정하기</button>
+					<button type = "button" id="deleteBtn">삭제하기</button>
+				</c:if>		
 				<button type = "button" id="backBtn">뒤로가기</button>					
 			</form:form>
 		</div>

@@ -10,8 +10,60 @@
 </head>
 <script type="text/javascript"
 	src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+	
+	  $("body").on("keyup",function(key){
+		  
+		  if(key.keyCode==13) {
+			  $("#loginBtn").trigger("click");        
+		  }
+
+	  });
+	
+	 
+
+	  $("#loginBtn").on("click",function(){
+			
+		    var uid = $("#uid").val();
+		    var password = $("#password").val();
+		 
+			if(uid.search(/\s/) != -1 || uid == "" || password.search(/\s/) != -1 || password== ""){
+				  alert("로그인 양식에 공백이나 띄어쓰기를 하지마세요.")
+				  return;
+			}
+					
+			$.ajax({
+						type: "POST" ,
+						url:  "/EG/loginCheck" ,					
+						data: {
+							   "uid": uid,
+							   "password" : password
+							   },
+						success: function(data){
+							
+							if(data.resultData == "noUid"){
+								alert("존재하지 않는 아이디 입니다.");
+							}else if(data.resultData == "noPwd"){
+								alert("비밀번호가 틀렸습니다.");
+							}else{
+								alert("로그인 완료");
+								location.href="/EG/main";
+							}
+
+						}
+			});	
+	  });
+
+});
+
+
+</script>	
+	
+	
 </head>
 <body>
 	<div id="login_wrapper">
@@ -78,17 +130,21 @@
 		</header>
 		<div class="login_main">
 			<p class="space_or">
-				<span>또는</span>
-			</p>
-			<div class="login_id">
-				<input type="text" placeholder="이메일">
-			</div>
-			<div class="login_password">
-				<input type="password" placeholder="비밀번호">
-			</div>
-			<button class="btn_click">
 				<span>로그인</span>
-			</button>
+			</p>
+			<form class="m_form"  id="loginForm">
+				<div class="login_id">
+					<input type="text" placeholder="이메일" id="uid" name="uid" >
+				</div>
+				<div class="login_password">
+					<input type="password" placeholder="비밀번호" id="password" name="password">
+				</div>
+				
+
+			</form>
+				<button class="btn_click" id="loginBtn">
+					<span>로그인</span>
+				</button>
 			<div class="login_footer">
 				<div class="pw_revise">
 					<a href="/EG/resetPw"><span>비밀번호 재설정</span></a>

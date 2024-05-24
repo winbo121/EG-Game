@@ -160,8 +160,11 @@ function pageSubmit(page){
 				</c:if>
 			
 		</div>
-
-		<button id="write_btn" onclick="javascript: location.href='/EG/userBoardInsertPro'" >글쓰기</button>
+		
+		<c:if test ="${not empty session.uid  }">
+			<button id="write_btn" onclick="javascript: location.href='/EG/userBoardInsertPro'" >글쓰기</button>
+		</c:if>
+		
 	</div>
 	<footer class="footer">
 	

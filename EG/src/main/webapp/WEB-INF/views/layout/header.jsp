@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 	<header>
 		<!-- 모바일 메뉴 -->
 		<div class="div_top">
@@ -77,7 +77,16 @@
 								<li><a href="/EG/adminBoardList">공지사항</a></li>
 							</ul>
 						</li>
-						<li><a href="/EG/login"><span>로그인</span></a></li>
+						<c:choose>
+							<c:when test="${empty session.uid  }">
+								<li><a href="/EG/login"><span>로그인</span></a></li>
+							</c:when>
+							<c:otherwise>
+								<li><a href="/EG/loginOut"><span>로그아웃</span></a></li>
+							</c:otherwise>
+						</c:choose>
+
+						
 					</ul>
 				</div>
 			</div>

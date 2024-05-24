@@ -78,15 +78,25 @@
 					<span class="rank_viewmore"><a href="/EG/ranking">더보기</a></span>
 				</div>
 			<div class="home_login">
-					<div class="game_login">
-						<a href="/EG/login"><span>EG GAMES 로그인</span></a>
-					</div>
-					<div class="game_login_etc">
-						<p>다른 계정 간편 로그인</p>
-						<a id="kakao-login-btn" href="javascript:loginWithKakao()"> <span
-							class="kakao_icon"></span>
-						</a>
-					</div>
+
+					<c:choose>
+							<c:when test="${empty session.uid  }">
+								<div class="game_login">
+									<a href="/EG/login"><span>EG GAMES 로그인</span></a>
+								</div>
+								<div class="game_login_etc">
+									<p>다른 계정 간편 로그인</p>
+									<a id="kakao-login-btn" href="javascript:loginWithKakao()"> <span
+										class="kakao_icon"></span>
+									</a>
+								</div>
+							</c:when>
+							<c:otherwise>
+							<div class="game_login">							
+								<a href="/EG/loginOut"><span>로그아웃</span></a>
+							</div>
+							</c:otherwise>
+					</c:choose>
 					<div class="home_find">
 						<a href="#"
 							onclick="window.open ('/EG/idFind',

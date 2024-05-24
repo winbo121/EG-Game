@@ -27,7 +27,6 @@ public class JoinController extends JsonUtill{
 	@Inject
 	private JoinService joinService;
 	
-	
 	private FileUtill fileUtill =new FileUtill();
 	
 	private AES256 aes256 = new AES256();

@@ -69,7 +69,7 @@ $(document).ready(function(){
 					</tr>
 					<tr>
 						<td>작성자</td>
-						<td><input type="text" name="user_id"  id="user_id" value="winbo121" readonly></td>
+						<td><input type="text" name="user_id"  id="user_id" value="${session.uid}" readonly></td>
 					</tr>
 					<tr>
 						<td>카테고리</td>

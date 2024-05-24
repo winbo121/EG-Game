@@ -204,19 +204,20 @@ function gotoBack(){
 				</c:if>
 			
 			</div>
-					
-					<div class="question">
-						<a href="#"
-								onclick="window.open ('/EG/centerBoardInsertPro',
-									'cong_window' , 'toolbar=0, location=0, status=0, menubar=0, scrollbars=1, resizable=no, top=50, left=20, width=700, height=730');
-										return false"
-								onfocus='this.blur()' class="inquiry">
-							1:1문의하기 <span class="icon">!</span>
-							<div class="hidden_desc">
-								<p class="desc">신속하게 답변 드리겠습니다.</p>
-							</div>
-						</a>
-					</div>
+					<c:if test ="${not empty session.uid  }">
+						<div class="question">
+							<a href="#"
+									onclick="window.open ('/EG/centerBoardInsertPro',
+										'cong_window' , 'toolbar=0, location=0, status=0, menubar=0, scrollbars=1, resizable=no, top=50, left=20, width=700, height=730');
+											return false"
+									onfocus='this.blur()' class="inquiry">
+								1:1문의하기 <span class="icon">!</span>
+								<div class="hidden_desc">
+									<p class="desc">신속하게 답변 드리겠습니다.</p>
+								</div>
+							</a>
+						</div>
+					</c:if>
 				</div>
 			</div>
 			<div class="btn_div">

@@ -93,7 +93,7 @@ $(document).ready(function(){
 							<tr class="" id="sessionlogin">
 								<th scope="row">ID</th>
 								<td><input type="text" style="width: 100%"
-									class="input_st" id="user_id" name="user_id" value="winbo121" readonly></td>
+									class="input_st" id="user_id" name="user_id" value="${session.uid}" readonly></td>
 <!-- 								<th scope="row">닉네임</th> -->
 <!-- 								<td><span id="longinNickname"></span></td> -->
 							</tr>

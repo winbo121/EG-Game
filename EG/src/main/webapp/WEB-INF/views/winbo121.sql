@@ -479,7 +479,9 @@ CREATE TABLE `user_board` (
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`board_num`),
   KEY `cte123_idx` (`cotegory`),
-  CONSTRAINT `cte123` FOREIGN KEY (`cotegory`) REFERENCES `category_code` (`code_cd`)
+  KEY `user555_idx` (`user_id`),
+  CONSTRAINT `cte123` FOREIGN KEY (`cotegory`) REFERENCES `category_code` (`code_cd`),
+  CONSTRAINT `user555` FOREIGN KEY (`user_id`) REFERENCES `user_info` (`uid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=144 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -610,4 +612,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-27 13:39:17
+-- Dump completed on 2024-05-27 17:32:10

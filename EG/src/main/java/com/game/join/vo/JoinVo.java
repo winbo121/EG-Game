@@ -14,6 +14,8 @@ public class JoinVo extends PageMaker{
 	private String pw;
 	
 	private String tel;
+	
+	private String kakaoCheck;
 
 	
 	public String getUid() {
@@ -54,6 +56,14 @@ public class JoinVo extends PageMaker{
 
 	public void setFile(String file) {
 		this.file = file;
+	}
+
+	public String getKakaoCheck() {
+		return kakaoCheck;
+	}
+
+	public void setKakaoCheck(String kakaoCheck) {
+		this.kakaoCheck = kakaoCheck;
 	}
 
 }

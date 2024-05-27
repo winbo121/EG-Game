@@ -84,14 +84,16 @@
 								<div class="game_login">
 									<a href="/EG/login"><span>EG GAMES 로그인</span></a>
 								</div>
-								<div class="game_login_etc">
-									<p>다른 계정 간편 로그인</p>
-									<a id="kakao-login-btn" href="javascript:loginWithKakao()"> <span
-										class="kakao_icon"></span>
-									</a>
-								</div>
+								<a id="kakao-login-btn" href="${ kakaoLoginUrl}"> 
+									<div class="game_login_etc">
+										<p>다른 계정 간편 로그인</p>										
+										<span class="kakao_icon"></span>										
+									</div>
+								</a>
 							</c:when>
 							<c:otherwise>
+							<h4>${ session.uid  }님!! 환영합니다!</h4>
+							<br>
 							<div class="game_login">							
 								<a href="/EG/loginOut"><span>로그아웃</span></a>
 							</div>

@@ -16,7 +16,7 @@
 			    ,TEL
 	
 			FROM USER_INFO WHERE UID = #{uid}
-
+			AND KAKAO_CHECK = #{kakaoCheck}
 	</select>
 
 </mapper>

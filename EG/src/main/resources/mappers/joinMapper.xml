@@ -8,6 +8,7 @@
 				COUNT(*) 
 			FROM USER_INFO 
 			WHERE UID = #{uid}
+			AND KAKAO_CHECK = #{kakaoCheck}
 	</select>
 
 
@@ -22,6 +23,7 @@
 				 	,email
 				 	,img
 				 	,tel
+				 	,kakao_check
 				 	,created
 			 	)
 			VALUES
@@ -31,6 +33,7 @@
 					,#{email}
 					,#{file}
 					,#{tel}
+					,#{kakaoCheck}
 					,now()
 				)
 	</insert>

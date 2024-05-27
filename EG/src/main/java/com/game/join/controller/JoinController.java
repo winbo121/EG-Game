@@ -41,6 +41,8 @@ public class JoinController extends JsonUtill{
 	@ResponseBody
 	public JSONObject joinIdCheck(HttpServletRequest request, HttpServletResponse response,Locale locale, Model model,JoinVo joinVo) throws IOException {
 		
+		joinVo.setKakaoCheck("N");
+		
 		Integer joinIdCheck = joinService.joinIdCheck(joinVo);		
 		
 		String SuccessOrNot;
@@ -65,6 +67,8 @@ public class JoinController extends JsonUtill{
 		joinVo.setFile(realFileName);
 		
 		joinVo.setPw(aes256.encrypt(joinVo.getPw()));
+		
+		joinVo.setKakaoCheck("N");
 
 		joinService.joinInsert(joinVo);
 		

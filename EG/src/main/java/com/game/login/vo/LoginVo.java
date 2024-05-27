@@ -5,6 +5,7 @@ public class LoginVo {
 	private String uid;
 	private String password;
 	private String pwCheck;
+	private String kakaoCheck;
 	
 	public String getUid() {
 		return uid;
@@ -23,6 +24,12 @@ public class LoginVo {
 	}
 	public void setPwCheck(String pwCheck) {
 		this.pwCheck = pwCheck;
+	}
+	public String getKakaoCheck() {
+		return kakaoCheck;
+	}
+	public void setKakaoCheck(String kakaoCheck) {
+		this.kakaoCheck = kakaoCheck;
 	}
 
 }

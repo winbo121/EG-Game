@@ -3,7 +3,7 @@ const Chat = (function(){
 	const myName = "blue";
 	
 	//웹소켓 초기화
-	var webSocket = new WebSocket("ws://192.168.0.212:8090/test999/broadsocket");
+	var webSocket = new WebSocket("ws://localhost:8080/EG/broadsocket");
  
     // init 함수
     function init() {
@@ -12,9 +12,17 @@ const Chat = (function(){
             if(e.keyCode == 13 && !e.shiftKey) {
                 e.preventDefault();
                 const message = $(this).val();
- 
+                // jsp 화면에서 sessionStorage.setItem("uid", "${session.uid}"); 작업을 해주어야 한다.
+ 				var uid = window.sessionStorage.getItem("uid");
+				
+				if(uid == "" || uid == null){
+					sendMessage("익명 : "+message);
+				}else{
+					sendMessage(uid+" 님: "+message);
+				}
+				
                 // 메시지 전송
-                sendMessage(message);
+                
                 // 입력창 clear
                 clearTextarea();
             }

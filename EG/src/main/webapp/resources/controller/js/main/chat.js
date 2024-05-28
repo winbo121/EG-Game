@@ -3,7 +3,7 @@ const Chat = (function(){
 	const myName = "blue";
 	
 	//웹소켓 초기화
-	var webSocket = new WebSocket("ws://localhost:8080/EG/broadsocket");
+	var webSocket = new WebSocket("ws://localhost:8080/EG/broadsocket"); //운영에서는 실제 아이피를 넣어야 한다.
  
     // init 함수
     function init() {
@@ -15,13 +15,14 @@ const Chat = (function(){
                 // jsp 화면에서 sessionStorage.setItem("uid", "${session.uid}"); 작업을 해주어야 한다.
  				var uid = window.sessionStorage.getItem("uid");
 				
+				// 메시지 전송
 				if(uid == "" || uid == null){
 					sendMessage("익명 : "+message);
 				}else{
 					sendMessage(uid+" 님: "+message);
 				}
 				
-                // 메시지 전송
+                
                 
                 // 입력창 clear
                 clearTextarea();
